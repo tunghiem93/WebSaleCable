@@ -1,0 +1,5 @@
+D:\My Outsource\WebSaleCable\WebSaleCable.Shared\bin\Debug\WebSaleCable.Shared.dll
+D:\My Outsource\WebSaleCable\WebSaleCable.Shared\bin\Debug\WebSaleCable.Shared.pdb
+D:\My Outsource\WebSaleCable\WebSaleCable.Shared\obj\Debug\WebSaleCable.Shared.csprojResolveAssemblyReference.cache
+D:\My Outsource\WebSaleCable\WebSaleCable.Shared\obj\Debug\WebSaleCable.Shared.dll
+D:\My Outsource\WebSaleCable\WebSaleCable.Shared\obj\Debug\WebSaleCable.Shared.pdb

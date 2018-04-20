@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.15
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSaleCable", "WebSaleCable\WebSaleCable.csproj", "{6FB86653-C91D-4A4B-93DB-78A3BD3DC95F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSaleCable.Shared", "WebSaleCable.Shared\WebSaleCable.Shared.csproj", "{5E48C7AB-D423-48FF-A41B-030C0115BF84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSaleCable.Data", "WebSaleCable.Data\WebSaleCable.Data.csproj", "{CBE9756D-A83F-4D5F-A02E-5CD5C1AA3F1B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6FB86653-C91D-4A4B-93DB-78A3BD3DC95F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FB86653-C91D-4A4B-93DB-78A3BD3DC95F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FB86653-C91D-4A4B-93DB-78A3BD3DC95F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FB86653-C91D-4A4B-93DB-78A3BD3DC95F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E48C7AB-D423-48FF-A41B-030C0115BF84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E48C7AB-D423-48FF-A41B-030C0115BF84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E48C7AB-D423-48FF-A41B-030C0115BF84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E48C7AB-D423-48FF-A41B-030C0115BF84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBE9756D-A83F-4D5F-A02E-5CD5C1AA3F1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBE9756D-A83F-4D5F-A02E-5CD5C1AA3F1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBE9756D-A83F-4D5F-A02E-5CD5C1AA3F1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBE9756D-A83F-4D5F-A02E-5CD5C1AA3F1B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
