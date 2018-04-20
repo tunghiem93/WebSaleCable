@@ -13,11 +13,20 @@ namespace WebSaleCable
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //routes.MapRoute(
+            //    name: "Default",
+            //    url: "{controller}/{action}/{id}",
+            //    defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            //);
+
             routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+               "Default", // Route name
+               "{controller}/{action}/{id}", // URL with parameters
+               new { area = "ClientSite", controller = "Home", action = "Index", id = UrlParameter.Optional }, // Parameter defaults
+               null,
+               new[] { "WebSaleCable.Areas.ClientSite.Controllers" }
+           ).DataTokens.Add("area", "ClientSite");
+
         }
     }
 }
