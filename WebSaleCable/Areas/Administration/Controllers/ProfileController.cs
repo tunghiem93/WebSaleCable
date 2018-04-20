@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace WebSaleCable.Areas.Administration.Controllers
 {
-    public class ProfileController : Controller
+    public class ProfileController : HQController
     {
         // GET: Administration/Profile
         public ActionResult Index()
