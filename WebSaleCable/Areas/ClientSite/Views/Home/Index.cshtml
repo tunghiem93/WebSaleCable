@@ -2,12 +2,17 @@
     Layout = "~/Areas/ClientSite/Views/Shared/_Layout.cshtml";
 }
 @using WebSaleCable.Shared
-
+<style>
+    .bx-viewport{
+        height:415px !important;
+    }
+</style>
 <div id="fb-root"></div>
 <div class="slideshow">
     <div class="container">
-        <div class="">
-            <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-9">
                 <div id="home-slider">
                     <div class="header-top-right">
                         <div class="homeslider">
@@ -42,36 +47,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-3" @*id="box-vertical-megamenus"*@>
-                <div class="box-vertical-megamenus menu-quick-select">
-                    <h4 class="title click-menu">
-                        <span class="title-menu">Danh mục sản phẩm</span>
-                        <span class="btn-open-mobile pull-right home-page"><i class="fa fa-bars"></i></span>
-                    </h4>
-                    <div class="vertical-menu-content is-home">
-                        <ul class='vertical-menu-list'>
-                            <li class="level0">
-                                <a class='' href='http://phukienquare.com/bang-gia-si-j852/'><span>Bảng báo giá</span></a>
-                            </li>
-                            <li class="level0">
-                                <a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"><span>Thời trang</span></a>
-                            </li>
-                            <li class="level0"><a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"><span>Điện thoại & Ipad</span></a></li>
-                            <li class="level0"><a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"> <span>Mỹ phẩm</span></a></li>
-                            <li class="level0">
-                                <a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"> <span>Thể thao</span></a>
-                            </li>
-                            <li class="level0"><a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"> <span>Mẹ và bé</span></a></li>
-                            <li class="level0"><a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"> <span>Phụ kiện công nghệ</span></a></li>
-                            <li class="level0"><a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"> <span>Laptop</span></a></li>
-                            <li class="level0">
-                                <a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"> <span>Trang sức</span></a>
-                            </li>
-                            <li class="level0">
-                                <a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"> <span>Sản phẩm khác...</span></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                
             </div>
 
             <div class="col-md-9 col-sm-9 col-xs-12">

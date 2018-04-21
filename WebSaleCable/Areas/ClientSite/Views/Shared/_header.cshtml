@@ -46,7 +46,7 @@
             <div class="col-xs-7 col-sm-7 header-search-box">
                 <div class="search-box">
                     <form class="search form-inline">
-                        <div class="form-group input-serach">
+                        <div class="input-serach">
                             <input type="text" name="search" class="search_box" id="txtsearch" onblur="if(this.value=='')this.value='Nhập từ khóa tìm kiếm...'"
                                    onfocus="if(this.value=='Nhập từ khóa tìm kiếm...')this.value=''" value="Nhập từ kh&#243;a t&#236;m kiếm..." />
                         </div>
@@ -65,8 +65,40 @@
 
     <div id="nav-top-menu" class="nav-top-menu">
         <div class="container">
-            <div class="">
-                <div id="main-menu-new" class="col-sm-12 col-md-9 main-menu">
+            <div class="row">
+                <div class="col-md-3" id="box-vertical-megamenus">
+                    <div class="box-vertical-megamenus menu-quick-select">
+                        <h4 class="title click-menu">
+                            <span class="title-menu">Danh mục sản phẩm</span>
+                            <span class="btn-open-mobile pull-right home-page"><i class="fa fa-bars"></i></span>
+                        </h4>
+                        <div class="vertical-menu-content is-home">
+                            <ul class='vertical-menu-list'>
+                                <li class="level0">
+                                    <a class='' href='http://phukienquare.com/bang-gia-si-j852/'><span>Bảng báo giá</span></a>
+                                </li>
+                                <li class="level0">
+                                    <a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"><span>Thời trang</span></a>
+                                </li>
+                                <li class="level0"><a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"><span>Điện thoại & Ipad</span></a></li>
+                                <li class="level0"><a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"> <span>Mỹ phẩm</span></a></li>
+                                <li class="level0">
+                                    <a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"> <span>Thể thao</span></a>
+                                </li>
+                                <li class="level0"><a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"> <span>Mẹ và bé</span></a></li>
+                                <li class="level0"><a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"> <span>Phụ kiện công nghệ</span></a></li>
+                                <li class="level0"><a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"> <span>Laptop</span></a></li>
+                                <li class="level0">
+                                    <a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"> <span>Trang sức</span></a>
+                                </li>
+                                <li class="level0">
+                                    <a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"> <span>Sản phẩm khác...</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div id="main-menu-new" class="col-sm-9 col-md-9 main-menu">
                     <nav class="navbar navbar-default">
                         <div class="container-fluid">
                             <div class="navbar-header">
