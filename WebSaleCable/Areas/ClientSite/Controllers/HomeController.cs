@@ -6,12 +6,18 @@ using System.Web.Mvc;
 
 namespace WebSaleCable.Areas.ClientSite.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : HQController
     {
         // GET: ClientSite/Home
         public ActionResult Index()
         {
             return View();
+        }
+
+        [HttpGet]
+        public new PartialViewResult LoadItem(string id)
+        {
+            return PartialView("_ListItem");
         }
     }
 }
