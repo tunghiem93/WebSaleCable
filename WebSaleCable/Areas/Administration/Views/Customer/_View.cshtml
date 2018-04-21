@@ -1,0 +1,121 @@
+﻿@model ProjectWebSaleLand.Shared.Model.Customer.CustomerModels
+@{
+//Layout = "~/Areas/Administration/Views/Shared/_Layout.cshtml";
+}
+<div role="main" class="right_col">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left" style="padding: 10px 0px;">
+                @Html.Partial("~/Areas/Administration/Views/Shared/_breadcrumb.cshtml",
+                    new Dictionary<string, string> { { "A", "Quản lý" }, { "B", "Khách hàng" }, { "C", "Chi tiết" } })
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 x_panel">
+                    <div class="x_content">
+                        <div class="row text-right">
+                            <ul class="header-buttons pull-right list-inline">
+                                <li><a href="javascript:void(0)" onclick="CloseDetail(); return false;" class="btn btn-danger" id="btn-delete"><i class="fa fa-times"></i>&nbsp;Đóng</a></li>
+                            </ul>
+                        </div>
+                        <div class="row form-horizontal form-label-left" style="margin-bottom:15px;">                                
+                            <div class="form-group">
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12">Họ</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Model.FirstName
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12">Tên</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Model.LastName
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12">Số điện thoại</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Model.Phone
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12">Email</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Model.Email
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12">Ngày sinh</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Model.BirthDate.ToString("dd/MM/yyyy")
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12">Địa chỉ</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Model.Address
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12">Zipcode</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Model.ZipCode
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12">Quốc gia</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Model.Company
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12">Công ty</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Model.City
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12">Địa chỉ website</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Model.WebSite
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12">Giới tính</label>
+                                @if (Model.Gender == true)
+                                {
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        Nữ
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        Nam
+                                    </div>
+                                }
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12">Tình trạng hôn nhân</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @string.Format("{0}", Model.MaritalStatus ? "Kết hôn" : "Độc thân")
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12">Tình trạng</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @string.Format("{0}", Model.IsActive ? "Đang hoạt động" : "Không hoạt động")
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12">Mô tả chi tiết</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Model.Description
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

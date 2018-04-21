@@ -1,0 +1,205 @@
+﻿@model ProjectWebSaleLand.Shared.Model.Employee.EmployeeModels
+@{
+    Html.EnableUnobtrusiveJavaScript(true);
+    var _ID = Model.ID;
+}
+@Html.HiddenFor(model => model.ID)
+<div class="row form-horizontal form-label-left" style="margin-bottom:15px;">   
+    @*Name*@
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12 lineHeight">Họ: </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control has-feedback-left", placeholder = "Họ..", autocomplete = "off" })
+            <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+            @Html.ValidationMessageFor(model => model.FirstName, null, new { @class = "label label-danger" })
+        </div>
+    </div>
+
+    @*Name*@
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12 lineHeight">Tên: </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            @Html.TextBoxFor(model => model.LastName, new { @class = "form-control has-feedback-left", placeholder = "Tên..", autocomplete = "off" })
+            <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+            @Html.ValidationMessageFor(model => model.LastName, null, new { @class = "label label-danger" })
+        </div>
+    </div>
+
+    @* Phone Number *@
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12  lineHeight">Số điện thoại: </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">            
+            @Html.TextBoxFor(model => model.Phone, new { @class = "form-control has-feedback-left", placeholder = "Số điện thoại", autocomplete = "off", @type = "number" })
+            <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
+            @Html.ValidationMessageFor(model => model.Phone, null, new { @class = "label label-danger" })
+        </div>
+    </div>
+
+    @* Email *@
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12 lineHeight">Email: </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            @Html.TextBoxFor(model => model.Email, new { @class = "form-control has-feedback-left", placeholder = "", autocomplete = "off" })
+            <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+            @Html.ValidationMessageFor(model => model.Email, null, new { @class = "label label-danger" })
+        </div>
+    </div>
+
+    @* Password *@
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12 lineHeight">Mật khẩu: </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            @Html.PasswordFor(model => model.Password, new { @class = "form-control has-feedback-left txtpassword", placeholder = "", autocomplete = "off" })
+            <span class="fa fa-lock form-control-feedback left" aria-hidden="true"></span>
+            @Html.ValidationMessageFor(model => model.Password, null, new { @class = "label label-danger" })
+        </div>
+    </div>
+
+    @* ConfirmPassword *@
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12 lineHeight">Xác nhận mật khẩu: </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control has-feedback-left txtConfirmPassword", placeholder = "", autocomplete = "off" })
+            <span class="fa fa-lock form-control-feedback left" aria-hidden="true"></span>
+            @Html.ValidationMessageFor(model => model.ConfirmPassword, null, new { @class = "label label-danger" })
+        </div>
+    </div>
+
+    @* ZipCode *@
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12  lineHeight">Zipcode: </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            @Html.TextBoxFor(model => model.ZipCode, new { @class = "form-control has-feedback-left", placeholder = "Zipcode", autocomplete = "off" })
+            <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
+            @Html.ValidationMessageFor(model => model.ZipCode, null, new { @class = "label label-danger" })
+        </div>
+    </div>
+
+    @* Country *@
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12  lineHeight">Quốc gia: </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            @Html.TextBoxFor(model => model.Country, new { @class = "form-control has-feedback-left", placeholder = "Quốc gia", autocomplete = "off", })
+            <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
+            @Html.ValidationMessageFor(model => model.Country, null, new { @class = "label label-danger" })
+        </div>
+    </div>
+
+    @* Company *@
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12  lineHeight">Công ty: </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            @Html.TextBoxFor(model => model.Company, new { @class = "form-control has-feedback-left", placeholder = "Công ty", autocomplete = "off", })
+            <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
+            @Html.ValidationMessageFor(model => model.Company, null, new { @class = "label label-danger" })
+        </div>
+    </div>
+
+    @* Company *@
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12  lineHeight">Địa chỉ website: </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            @Html.TextBoxFor(model => model.WebSite, new { @class = "form-control has-feedback-left", placeholder = "Website", autocomplete = "off", })
+            <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
+            @Html.ValidationMessageFor(model => model.WebSite, null, new { @class = "label label-danger" })
+        </div>
+    </div>
+
+    @* Birthday *@
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12 lineHeight">Ngày sinh: </label>
+        <div class="col-md-3 col-sm-3 col-xs-12">         
+            @Html.TextBox("BirthDate", string.Format("{0:dd/MM/yyyy}", Model.BirthDate),
+               new { @id = "BirthDate", @class = "form-control datepicker1  has-feedback-left", @placeholder = "dd/MM/yyyy" })
+            <span class="fa fa-calendar form-control-feedback left " aria-hidden="true"></span>
+            @Html.ValidationMessageFor(model => model.BirthDate, null, new { @class = "label label-danger" })
+        </div>
+    </div>
+
+    @* Address *@
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12 lineHeight">Địa chỉ</label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            @Html.TextBoxFor(model => model.Address, new { @class = "form-control has-feedback-left", autocomplete = "off" })
+            <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
+            @Html.ValidationMessageFor(model => model.Address, null, new { @class = "label label-danger" })
+        </div>
+    </div>
+
+    @* Gender *@
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12 lineHeight">Giới tính</label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            @Html.DropDownListFor(model => model.Gender,
+            new SelectList(Model.ListGender, "Value", "Text", Model.Gender),
+            new
+            {
+                @class = "form-control select2_multiple has-feedback-left",
+                @id = "GenderStatusDdl",
+                @style = "width:100%;"
+            })
+
+            @Html.ValidationMessageFor(model => model.Gender, null, new { @class = "label label-danger" })
+        </div>
+    </div>
+
+    @* Marital Status *@
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12 lineHeight">Tình trạng hôn nhân</label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            @Html.DropDownListFor(model => model.MaritalStatus,
+            new SelectList(Model.ListMarital, "Value", "Text", Model.MaritalStatus),
+            new
+            {
+                @class = "form-control select2_multiple has-feedback-left",
+                @id = "MaritalStatusDdl",
+                @style = "width:100%;"
+            })
+
+            @Html.ValidationMessageFor(model => model.MaritalStatus, null, new { @class = "label label-danger" })
+        </div>
+    </div>
+
+    @* Active *@
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Tình trạng hoạt động</label>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="">
+                <label>
+                    @Html.CheckBoxFor(model => model.IsActive, new { @class = "js-switch1" })
+                </label>
+            </div>
+        </div>
+    </div>
+
+    @*Description*@
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Mô tả</label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            @Html.TextAreaFor(model => model.Description, new { @class = "form-control", placeholder = "Mô tả" })
+        </div>
+    </div>
+</div>
+
+<script src="@Url.Content("~/Libaraies/vendors/periodpicker/jquery.periodpicker.full.min.js")"></script>
+<script type="text/javascript">
+    //=========================================
+    $(document).ready(function () {
+        $('.datepicker1').daterangepicker({
+            singleDatePicker: true,
+            calender_style: "picker_2",
+            maxDate: new Date(),
+            //==========
+            showDropdowns: true,
+            locale: {
+                format: 'DD/MM/YYYY',
+                daysOfWeek: ['CN', 'Hai', 'Ba', 'Tư', 'Năm', 'Sáu', 'Bảy'],
+                monthNames: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12']
+            }
+        }, function (start, end, label) {
+            });
+
+        $('.txtpassword').val('@Model.Password')
+        $('.txtConfirmPassword').val('@Model.ConfirmPassword')
+    });
+</script>

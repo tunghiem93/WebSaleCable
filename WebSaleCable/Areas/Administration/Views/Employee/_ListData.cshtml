@@ -1,0 +1,127 @@
+﻿@model ProjectWebSaleLane.Shared.Model.Employee.EmployeeViewModels
+<div class="table-responsive">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>
+                Danh sách nhân viên
+            </h2>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered dt-responsive nowrap table table-striped jambo_table bulk_action" id="datatable-responsive" cellspacing="0" style="width:100%;">
+                    <thead>
+                        <tr class="headings">
+                            <th class="column-title text-center">Tên</th>
+                            <th class="column-title text-center">Email</th>
+                            <th class="column-title text-center">Số điện thoại</th>
+                            <th class="column-title text-center">Ngày sinh</th>
+                            <th class="column-title text-center">Giới tính</th>
+                            <th class="column-title text-center">Tùy chỉnh</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.ListEmployee != null)
+                        {
+                            for (int i = 0; i < Model.ListEmployee.Count; i++)
+                            {
+                                string styleRow = "row-evenItem";
+                                if (i % 2 == 0)
+                                {
+                                    styleRow = "row-oddItem";
+                                }
+                                var item = Model.ListEmployee[i];
+                                <tr class="@styleRow">
+                                    <td style="color:#34495e; font-weight:bold; " class="moretext">&nbsp;&nbsp;&nbsp;@item.Name</td>
+                                    <td style="text-align: center; ">@item.Email</td>
+                                    <td style="text-align: center; ">@item.Phone</td>
+                                    <td style="text-align: center; ">@item.BirthDate.ToString("dd/MM/yyyy")</td>
+                                    <td style="text-align: center; ">
+                                       @if (item.Gender)
+                                       {
+                                        <span class="label label-success">Nữ</span>
+                                       }
+                                       else
+                                       {
+                                        <span class="label label-danger">Nam</span>
+                                       }
+                                    </td>
+                                    <td style="text-align: center; ">
+                                        <a href="#"
+                                           onclick="ShowViewOrEdit('@Url.Action("View", "Employee", new { id = item.ID })')"
+                                           class="btn btn-primary btn-xs view details"><i class="fa fa-eye"></i>&nbsp;Xem</a>&nbsp;&nbsp;
+                                        <a href="#"
+                                           onclick="ShowViewOrEdit('@Url.Action("Edit", "Employee", new { id = item.ID })')"
+                                           class="btn btn-info btn-xs edit details"><i class="fa fa-edit"></i>&nbsp;Sửa</a>&nbsp;&nbsp;
+                                        <a href="#"
+                                           onclick="ShowViewOrEdit('@Url.Action("Delete", "Employee", new { id = item.ID})')"
+                                           class="btn btn-danger btn-xs delete details"><i class="fa fa-trash-o"></i>&nbsp;Xóa</a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var showChar = 40;
+
+        $('.moretext').each(function () {
+            var content = $(this).text();
+            if (content.length > showChar) {
+                var html = content.substr(0, showChar);
+                html = html + "...";
+                $(this).html(html);
+            }
+
+        });  
+
+        var handleDataTableButtons = function () {
+            if ($("#datatable-buttons").length) {
+                $("#datatable-buttons").DataTable({
+                    dom: "Bfrtip",
+                    responsive: true
+                });
+            }
+        };
+
+        TableManageButtons = function () {
+            "use strict";
+            return {
+                init: function () {
+                    handleDataTableButtons();
+                }
+            };
+        }();
+
+        $('#datatable').dataTable();
+        $('#datatable-keytable').DataTable({
+            keys: true
+        });
+
+        var table = $('#datatable-responsive').DataTable({
+            "columnDefs": [
+                { "orderable": false, "targets": [5] },
+                { "width": "20%", "targets": [0] },
+                { "width": "10%", "targets": [1] },
+                { "width": "5%", "targets": [2] },
+                { "width": "5%", "targets": [3] },
+                { "width": "5%", "targets": [4] },
+                { "width": "5%", "targets": [5] }
+            ],
+            "order": [[0, 'asc']],
+            "displayLength": 25,
+        });
+
+        var table = $('#datatable-fixed-header').DataTable({
+            fixedHeader: true
+        });
+
+        TableManageButtons.init();
+    });
+</script>
