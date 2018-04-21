@@ -1,6 +1,6 @@
-﻿@model ProjectWebSaleLane.Shared.Model.Location.LocationViewModels
+﻿@model WebSaleCable.Shared.Model.Category.CategoryViewModels
 @{
-    ViewBag.Title = "Khu vực";
+    ViewBag.Title = "Thể loại";
     Layout = "~/Areas/Administration/Views/Shared/_Layout.cshtml";
 }
 
@@ -10,7 +10,7 @@
         <div class="page-title">
             <div class="title_left" style="padding: 10px 0px;">
                 @Html.Partial("~/Areas/Administration/Views/Shared/_breadcrumb.cshtml",
-                        new Dictionary<string, string> { { "A", "Quản lý" }, { "B", "Khu vực" }, { "C", "Danh sách" } })
+                        new Dictionary<string, string> { { "A", "Quản lý" }, { "B", "Thể loại" }, { "C", "Danh sách" } })
             </div>
         </div><!--end page-->
         <div class="clearfix"></div>
@@ -21,7 +21,7 @@
                     <div class="clearfix"></div>
                 </div><!--end x_title-->
                 <div class="x_content">
-                    @using (Html.BeginForm("Search", "Location", FormMethod.Post, new { @class = "form-horizontal search-form" }))
+                    @using (Html.BeginForm("Search", "Category", FormMethod.Post, new { @class = "form-horizontal search-form" }))
                     {
 
                     }

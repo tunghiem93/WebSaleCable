@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace WebSaleCable.Shared.Model.Product
 {
-    public class ProductModels
+    public class ProductModels : BaseModels
     {
         public string ID { get; set; }
         [Required(ErrorMessage = "Làm ơn nhập tên!")]

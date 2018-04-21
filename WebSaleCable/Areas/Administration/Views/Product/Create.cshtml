@@ -1,6 +1,6 @@
-﻿@model ProjectWebSaleLand.Shared.Model.Product.ProductModels
+﻿@model WebSaleCable.Shared.Model.Product.ProductModels
 @{
-    ViewBag.Title = "Nhà - Thêm";
+    ViewBag.Title = "Sản phẩm - Thêm";
     Layout = "~/Areas/Administration/Views/Shared/_Layout.cshtml";
 }
 
@@ -10,7 +10,7 @@
         <div class="page-title">
             <div class="title_left" style="padding:10px 0px;">
                 @Html.Partial("~/Areas/Administration/Views/Shared/_breadcrumb.cshtml",
-                    new Dictionary<string, string> { { "A", "Quản lý" }, { "B", "Nhà" }, { "C", "Thêm mới" } })
+                    new Dictionary<string, string> { { "A", "Quản lý" }, { "B", "Sản phẩm" }, { "C", "Thêm mới" } })
             </div>
             <div class="clearfix"></div>
             <div class="row">
@@ -23,11 +23,11 @@
                         <div class="row text-right">
                             <ul class="header-buttons pull-right list-inline">
                                 <li><a href="javascript:void(0)" class="btn btn-success" id="btn-actives" onclick="SubmitForm('.create-form')"><i class="fa fa-save"></i>&nbsp;Lưu</a></li>
-                                <li><a href="@Url.Action("Index", "House")"  class="btn btn-danger" id="btn-delete"><i class="fa fa-times"></i>&nbsp;Hủy</a></li>
+                                <li><a href="@Url.Action("Index", "Product")"  class="btn btn-danger" id="btn-delete"><i class="fa fa-times"></i>&nbsp;Hủy</a></li>
                             </ul>
                         </div>
                         <div class="box-body" style="display: block;">
-                            @using (@Html.BeginForm("Create", "House", FormMethod.Post, new { @class = "form-horizontal create-form", @enctype = "multipart/form-data" }))
+                            @using (@Html.BeginForm("Create", "Product", FormMethod.Post, new { @class = "form-horizontal create-form", @enctype = "multipart/form-data" }))
                             {
                                 @Html.Partial("_Form", Model)
                             }

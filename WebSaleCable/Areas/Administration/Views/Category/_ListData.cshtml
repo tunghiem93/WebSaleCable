@@ -1,9 +1,9 @@
-﻿@model ProjectWebSaleLane.Shared.Model.Location.LocationViewModels
+﻿@model WebSaleCable.Shared.Model.Category.CategoryViewModels
 <div class="table-responsive">
     <div class="x_panel">
         <div class="x_title">
             <h2>
-                Danh sách khu vực
+                Danh sách thể loại
             </h2>
             <div class="clearfix"></div>
         </div>
@@ -17,27 +17,27 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if (Model.ListLocation != null)
+                        @if (Model.ListCate != null)
                         {
-                            for (int i = 0; i < Model.ListLocation.Count; i++)
+                            for (int i = 0; i < Model.ListCate.Count; i++)
                             {
                                 string styleRow = "row-evenItem";
                                 if (i % 2 == 0)
                                 {
                                     styleRow = "row-oddItem";
                                 }
-                                var item = Model.ListLocation[i];
+                                var item = Model.ListCate[i];
                                 <tr class="@styleRow">
-                                    <td style="color:#34495e; font-weight:bold;" class="moretext">&nbsp;&nbsp;&nbsp;@Model.ListLocation[i].Name</td>
+                                    <td style="color:#34495e; font-weight:bold;" class="moretext">&nbsp;&nbsp;&nbsp;@Model.ListCate[i].Name</td>
                                     <td style="text-align: center; ">
                                         <a href="#"
-                                           onclick="ShowViewOrEdit('@Url.Action("View", "Location", new { id = item.ID })')"
+                                           onclick="ShowViewOrEdit('@Url.Action("View", "Category", new { id = item.ID })')"
                                            class="btn btn-primary btn-xs view details"><i class="fa fa-eye"></i>&nbsp;Xem</a>&nbsp;&nbsp;
                                         <a href="#"
-                                           onclick="ShowViewOrEdit('@Url.Action("Edit", "Location", new { id = item.ID })')"
+                                           onclick="ShowViewOrEdit('@Url.Action("Edit", "Category", new { id = item.ID })')"
                                            class="btn btn-info btn-xs edit details"><i class="fa fa-edit"></i>&nbsp;Sửa</a>&nbsp;&nbsp;
                                         <a href="#"
-                                           onclick="ShowViewOrEdit('@Url.Action("Delete", "Location", new { id = item.ID})')"
+                                           onclick="ShowViewOrEdit('@Url.Action("Delete", "Category", new { id = item.ID})')"
                                            class="btn btn-danger btn-xs delete details"><i class="fa fa-trash-o"></i>&nbsp;Xóa</a>
                                     </td>
                                 </tr>

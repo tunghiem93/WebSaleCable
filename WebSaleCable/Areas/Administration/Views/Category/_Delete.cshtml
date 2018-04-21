@@ -1,6 +1,6 @@
-﻿@model ProjectWebSaleLand.Shared.Model.Location.LocationModels
+﻿@model WebSaleCable.Shared.Model.Category.CategoryModels
 @{
-    ViewBag.Title = "Khu vực - Xóa";
+    ViewBag.Title = "Thể loại - Xóa";
     //Layout = "~/Areas/Administration/Views/Shared/_Layout.cshtml";
 }
 
@@ -9,7 +9,7 @@
         <div class="page-title">
             <div class="title_left" style="padding: 10px 0px">
                 @Html.Partial("~/Areas/Administration/Views/Shared/_breadcrumb.cshtml",
-               new Dictionary<string, string> { { "A", "Quản lý" }, { "B", "Khu vực" }, { "C", "Xóa" } })
+               new Dictionary<string, string> { { "A", "Quản lý" }, { "B", "Thể loại" }, { "C", "Xóa" } })
             </div>
             <div class="clearfix"></div>
             <div class="row">
@@ -22,12 +22,12 @@
                             </ul>
                         </div>
                         <div class="box-body" style="display: block;">
-                            @using (@Html.BeginForm("Delete", "Location", FormMethod.Post, new { @id = "form-delete", @class = "form-horizontal" }))
+                            @using (@Html.BeginForm("Delete", "Category", FormMethod.Post, new { @id = "form-delete", @class = "form-horizontal" }))
                             {
                                 <div class="form-group">
                                     <label class="col-md-2 control-label"></label>
                                     <div class="col-md-6" style="font-size:20px;">
-                                        Bạn có chắc chắn muôn xóa khu vực<strong>[ @Model.Name ]</strong>?
+                                        Bạn có chắc chắn muôn xóa Thể loại<strong>[ @Model.Name ]</strong>?
                                         <br />
                                         @Html.HiddenFor(model => model.ID)
                                         @Html.HiddenFor(model => model.Name)

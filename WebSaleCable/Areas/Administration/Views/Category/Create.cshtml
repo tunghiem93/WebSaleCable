@@ -1,6 +1,6 @@
-﻿@model ProjectWebSaleLand.Shared.Model.Location.LocationModels
+﻿@model WebSaleCable.Shared.Model.Location.LocationModels
 @{
-    ViewBag.Title = "Khu vực - Thêm";
+    ViewBag.Title = "Thể loại - Thêm";
     Layout = "~/Areas/Administration/Views/Shared/_Layout.cshtml";
 }
 
@@ -10,7 +10,7 @@
         <div class="page-title">
             <div class="title_left" style="padding:10px 0px;">
                 @Html.Partial("~/Areas/Administration/Views/Shared/_breadcrumb.cshtml",
-                    new Dictionary<string, string> { { "A", "Quản lý" }, { "B", "Khu vực" }, { "C", "Thêm mới" } })
+                    new Dictionary<string, string> { { "A", "Quản lý" }, { "B", "Thể loại" }, { "C", "Thêm mới" } })
             </div>
             <div class="clearfix"></div>
             <div class="row">
@@ -23,7 +23,7 @@
                         <div class="row text-right">
                             <ul class="header-buttons pull-right list-inline">
                                 <li><a href="javascript:void(0)" class="btn btn-success" id="btn-actives" onclick="SubmitForm('.create-form')"><i class="fa fa-save"></i>&nbsp;Lưu</a></li>
-                                <li><a href="@Url.Action("Index","Location")" class="btn btn-danger" id="btn-delete"><i class="fa fa-times"></i>&nbsp;Hủy</a></li>
+                                <li><a href="@Url.Action("Index","Category")" class="btn btn-danger" id="btn-delete"><i class="fa fa-times"></i>&nbsp;Hủy</a></li>
                             </ul>
                         </div>
                         <div class="box-body" style="display: block;">

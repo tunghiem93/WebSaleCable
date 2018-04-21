@@ -1,4 +1,4 @@
-﻿@model ProjectWebSaleLand.Shared.Model.Location.LocationModels
+﻿@model WebSaleCable.Shared.Model.Category.CategoryModels
 @{
     Html.EnableUnobtrusiveJavaScript(true);
     var _ID = Model.ID;
@@ -7,7 +7,7 @@
 <div class="row form-horizontal form-label-left" style="margin-bottom:15px;">   
     @*Name*@
     <div class="form-group">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12 lineHeight">Tên khu vực: </label>
+        <label class="control-label col-md-3 col-sm-3 col-xs-12 lineHeight">Tên thể loại: </label>
         <div class="col-md-6 col-sm-6 col-xs-12">
             @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "", autocomplete = "off" })
             @Html.ValidationMessageFor(model => model.Name, null, new { @class = "label label-danger" })

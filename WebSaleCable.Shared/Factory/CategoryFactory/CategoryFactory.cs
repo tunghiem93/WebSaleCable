@@ -11,7 +11,7 @@ namespace WebSaleCable.Shared.Factory.CategoryFactory
 {
     public class CategoryFactory
     {
-        public List<CategoryModels> GetListLocation()
+        public List<CategoryModels> GetListCategory()
         {
             using (DataContext cxt = new DataContext())
             {
@@ -28,7 +28,7 @@ namespace WebSaleCable.Shared.Factory.CategoryFactory
             }
         }
 
-        public CategoryModels GetDetailLocation(string id)
+        public CategoryModels GetDetailCategory(string id)
         {
             using (DataContext cxt = new DataContext())
             {
@@ -45,7 +45,7 @@ namespace WebSaleCable.Shared.Factory.CategoryFactory
             }
         }
 
-        public bool InsertLocation(CategoryModels model, ref string msg)
+        public bool InsertCategory(CategoryModels model, ref string msg)
         {
             bool result = true;
             using (DataContext cxt = new DataContext())
@@ -84,7 +84,7 @@ namespace WebSaleCable.Shared.Factory.CategoryFactory
             return result;
         }
 
-        public bool DeleteLocation(string id, ref string msg)
+        public bool DeleteCategory(string id, ref string msg)
         {
             bool result = true;
             using (DataContext cxt = new DataContext())
@@ -117,7 +117,7 @@ namespace WebSaleCable.Shared.Factory.CategoryFactory
             return result;
         }
 
-        public bool UpdateLocation(CategoryModels model, ref string msg)
+        public bool UpdateCategory(CategoryModels model, ref string msg)
         {
             bool result = true;
             using (DataContext cxt = new DataContext())

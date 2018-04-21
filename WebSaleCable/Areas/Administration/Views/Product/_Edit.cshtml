@@ -1,6 +1,6 @@
-﻿@model ProjectWebSaleLand.Shared.Model.Product.ProductModels
+﻿@model WebSaleCable.Shared.Model.Product.ProductModels
 @{
-    ViewBag.Title = "Nhà - Sửa";
+    ViewBag.Title = "Sản phẩm - Sửa";
    // Layout = "~/Areas/Administration/Views/Shared/_Layout.cshtml";
 }
 
@@ -9,7 +9,7 @@
         <div class="page-title">
             <div class="title_left" style="padding: 10px 0px;">
                 @Html.Partial("~/Areas/Administration/Views/Shared/_breadcrumb.cshtml",
-                new Dictionary<string, string> { { "A", "Quản lý" }, { "B", "Nhà" }, { "C", "Sửa" } })
+                new Dictionary<string, string> { { "A", "Quản lý" }, { "B", "Sản phẩm" }, { "C", "Sửa" } })
             </div>
             <div class="clearfix"></div>
             <div class="row">
@@ -22,7 +22,7 @@
                             </ul>
                         </div>
                         <div class="box-body" style="display: block;">
-                            @using (@Html.BeginForm("Edit", "House", FormMethod.Post, new { @id = "form-edit", @class = "form-horizontal" }))
+                            @using (@Html.BeginForm("Edit", "Product", FormMethod.Post, new { @id = "form-edit", @class = "form-horizontal" }))
                             {
                                 @Html.Partial("_Form", Model)
                             }

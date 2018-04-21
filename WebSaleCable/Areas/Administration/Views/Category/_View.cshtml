@@ -1,4 +1,4 @@
-﻿@model ProjectWebSaleLand.Shared.Model.Location.LocationModels
+﻿@model WebSaleCable.Shared.Model.Category.CategoryModels
 @{
 //Layout = "~/Areas/Administration/Views/Shared/_Layout.cshtml";
 }
@@ -7,7 +7,7 @@
         <div class="page-title">
             <div class="title_left" style="padding: 10px 0px;">
                 @Html.Partial("~/Areas/Administration/Views/Shared/_breadcrumb.cshtml",
-                    new Dictionary<string, string> { { "A", "Quản lý" }, { "B", "Khu vực" }, { "C", "Chi tiết" } })
+                    new Dictionary<string, string> { { "A", "Quản lý" }, { "B", "Thể loại" }, { "C", "Chi tiết" } })
             </div>
             <div class="clearfix"></div>
             <div class="row">
@@ -21,7 +21,7 @@
                         <div class="row form-horizontal form-label-left">
                             <div class="row form-horizontal form-label-left" style="margin-bottom:15px;">                                
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Tên khu vực</label>
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Tên thể loại</label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         @Model.Name
                                     </div>

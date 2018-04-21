@@ -1,10 +1,10 @@
-﻿@model ProjectWebSaleLand.Shared.Model.Product.ProductViewModels
+﻿@model WebSaleCable.Shared.Model.Product.ProductViewModels
 @using ProjectWebSaleLand.Shared
 <div class="table-responsive">
     <div class="x_panel">
         <div class="x_title">
             <h2>
-                Danh sách nhà đang bán
+                Danh sách sản phẩm đang bán
             </h2>
             <div class="clearfix"></div>
         </div>
@@ -56,13 +56,13 @@
                                 </td>
                                 <td style="text-align: center; ">
                                     <a href="#"
-                                       onclick="ShowViewOrEdit('@Url.Action("View", "House", new { id = item.ID })')"
+                                       onclick="ShowViewOrEdit('@Url.Action("View", "Product", new { id = item.ID })')"
                                        class="btn btn-primary btn-xs view details"><i class="fa fa-eye"></i>&nbsp;Xem</a>&nbsp;&nbsp;
                                     <a href="#"
-                                       onclick="ShowViewOrEdit('@Url.Action("Edit", "House", new { id = item.ID })')"
+                                       onclick="ShowViewOrEdit('@Url.Action("Edit", "Product", new { id = item.ID })')"
                                        class="btn btn-info btn-xs edit details"><i class="fa fa-edit"></i>&nbsp;Sửa</a>&nbsp;&nbsp;
                                     <a href="#"
-                                       onclick="ShowViewOrEdit('@Url.Action("Delete", "House", new { id = item.ID})')"
+                                       onclick="ShowViewOrEdit('@Url.Action("Delete", "Product", new { id = item.ID})')"
                                        class="btn btn-danger btn-xs delete details"><i class="fa fa-trash-o"></i>&nbsp;Xóa</a>
                                 </td>
                             </tr>
