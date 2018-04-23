@@ -4,9 +4,9 @@
 @using WebSaleCable.Shared
 @model WebSaleCable.Shared.Model.Product.ProductViewModels
 <style>
-    .bx-viewport{
+    /*.bx-viewport{
         height:415px !important;
-    }
+    }*/
 </style>
 <div id="fb-root"></div>
  <div id="topNavigation" class="header">
@@ -66,7 +66,7 @@
                         </span>
                     </h2>
                     <div id="products" class="list-group">
-                        @Html.Partial("_ListItem")
+                        @Html.Partial("_ListItem",Model.ListProduct)
                     </div>
                 </div>
                 <!--End-->
