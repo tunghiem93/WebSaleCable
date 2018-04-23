@@ -1,4 +1,6 @@
-﻿ <div id="nav-top-menu" class="nav-top-menu">
+﻿@model WebSaleCable.Shared.Model.Product.ProductViewModels
+
+ <div id="nav-top-menu" class="nav-top-menu">
         <div class="container">
             <div class="row">
                 <div class="col-md-3" id="box-vertical-megamenus">
@@ -8,28 +10,38 @@
                             <span class="btn-open-mobile pull-right home-page"><i class="fa fa-bars"></i></span>
                         </h4>
                         <div class="vertical-menu-content is-home">
-                            <ul class='vertical-menu-list'>
-                                <li class="level0">
-                                    <a class='' href='http://phukienquare.com/bang-gia-si-j852/'><span>Bảng báo giá</span></a>
-                                </li>
-                                <li class="level0">
-                                    <a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"><span>Thời trang</span></a>
-                                </li>
-                                <li class="level0"><a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"><span>Điện thoại & Ipad</span></a></li>
-                                <li class="level0"><a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"> <span>Mỹ phẩm</span></a></li>
-                                <li class="level0">
-                                    <a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"> <span>Thể thao</span></a>
-                                </li>
-                                <li class="level0"><a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"> <span>Mẹ và bé</span></a></li>
-                                <li class="level0"><a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"> <span>Phụ kiện công nghệ</span></a></li>
-                                <li class="level0"><a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"> <span>Laptop</span></a></li>
-                                <li class="level0">
-                                    <a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"> <span>Trang sức</span></a>
-                                </li>
-                                <li class="level0">
-                                    <a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"> <span>Sản phẩm khác...</span></a>
-                                </li>
-                            </ul>
+                            @if (Model.ListCate != null && Model.ListCate.Any())
+                            {
+                                <ul class='vertical-menu-list'>
+                                    @foreach (var item in Model.ListCate)
+                                    {
+                                        <li class="level0">
+                                            <a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = item.ID })')"><span>@item.Name</span></a>
+                                        </li>
+                                    }
+                                    @*<li class="level0">
+                                        <a class='' href='http://phukienquare.com/bang-gia-si-j852/'><span>Bảng báo giá</span></a>
+                                    </li>
+                                    <li class="level0">
+                                        <a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"><span>Thời trang</span></a>
+                                    </li>
+                                    <li class="level0"><a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"><span>Điện thoại & Ipad</span></a></li>
+                                    <li class="level0"><a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"> <span>Mỹ phẩm</span></a></li>
+                                    <li class="level0">
+                                        <a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"> <span>Thể thao</span></a>
+                                    </li>
+                                    <li class="level0"><a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"> <span>Mẹ và bé</span></a></li>
+                                    <li class="level0"><a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"> <span>Phụ kiện công nghệ</span></a></li>
+                                    <li class="level0"><a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"> <span>Laptop</span></a></li>
+                                    <li class="level0">
+                                        <a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"> <span>Trang sức</span></a>
+                                    </li>
+                                    <li class="level0">
+                                        <a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"> <span>Sản phẩm khác...</span></a>
+                                    </li>*@
+                                </ul>
+                            }
+                            
                         </div>
                     </div>
                 </div>
@@ -63,8 +75,8 @@
     </div>
     <script type="text/javascript">
                 $("#btnsearch1").click(function () {
-                    SearchProduct1();
-                });
+                                SearchProduct1();
+                            });
                 $("#txtsearch1").keydown(function (event) {
                     if (event.keyCode == 13) {
                         SearchProduct1();

@@ -15,7 +15,7 @@ namespace WebSaleCable.Areas.ClientSite.Controllers
             ProductViewModels model = new ProductViewModels();
             model.ListLoca = getListLocation();
             model.ListCate = getListCategory();
-            return View();
+            return View(model);
         }
 
         public ActionResult Detail()

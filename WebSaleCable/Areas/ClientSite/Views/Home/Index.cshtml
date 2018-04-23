@@ -2,6 +2,7 @@
     Layout = "~/Areas/ClientSite/Views/Shared/_Layout.cshtml";
 }
 @using WebSaleCable.Shared
+@model WebSaleCable.Shared.Model.Product.ProductViewModels
 <style>
     .bx-viewport{
         height:415px !important;
@@ -9,7 +10,7 @@
 </style>
 <div id="fb-root"></div>
  <div id="topNavigation" class="header">
-     @Html.Partial("_header")
+     @Html.Partial("_header",Model)
  </div>
 <div class="slideshow">
     <div class="container">
