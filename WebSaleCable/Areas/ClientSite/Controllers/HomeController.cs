@@ -14,6 +14,11 @@ namespace WebSaleCable.Areas.ClientSite.Controllers
             return View();
         }
 
+        public ActionResult Detail()
+        {
+            return View();
+        }
+
         [HttpGet]
         public new PartialViewResult LoadItem(string id)
         {

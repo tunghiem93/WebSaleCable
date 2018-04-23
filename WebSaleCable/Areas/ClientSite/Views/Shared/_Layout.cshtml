@@ -39,7 +39,7 @@
     <script src="@Url.Content("~/Scripts/jquery.touchSwipe.min.js")"></script>
 
     <!--<script src="/assets/100002/js/haravan.plugin.1.0.min.js"></script>-->
-    <script async="" defer="defer" data-target=".product-resize" data-parent=".products-resize" data-img-box=".image-resize" src="/assets/100002/js/fixheightproductv2.js?v=42"></script>
+    @*<script async="" defer="defer" data-target=".product-resize" data-parent=".products-resize" data-img-box=".image-resize" src="/assets/100002/js/fixheightproductv2.js?v=42"></script>*@
     <!--------------CSS----------->
     <link href="@Url.Content("~/Libaraies/vendors/bootstrap/dist/css/bootstrap.min.css")" rel="stylesheet" />
     <link href="@Url.Content("~/Libaraies/vendors/font-awesome/css/font-awesome.min.css")" rel="stylesheet" />
@@ -132,8 +132,8 @@
 </head>
 <body style="" class="home option2">
     <div class="wrapper page-home">
-        <div id="header" class="header">
-            @Html.Partial("_header")
+        <div id="topNavigation" class="header">
+            @Html.Partial("_topNavigation")
         </div>
         <div class="main-body">
             @RenderBody()
@@ -144,14 +144,14 @@
         </div>
 
     </div>
-    <div style="display: none;" id="loading-mask">
+    @*<div style="display: none;" id="loading-mask">
         <div id="loading_mask_loader" class="loader">
             <img alt="Loading..." src="/Images/ajax-loader-main.gif" />
             <div>
                 Please wait...
             </div>
         </div>
-    </div>
+    </div>*@
     <a href="#" class="scroll_top" title="Scroll to Top" style="display: none;">Scroll</a>
 </body>
 </html>

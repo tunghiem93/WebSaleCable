@@ -116,7 +116,7 @@ body{
 	height: 0px;
 }
 ::-webkit-scrollbar-thumb {
-	background: #ffffff url('images/scroll.png?v=37') 50% 50% no-repeat;
+	/*background: #ffffff url('images/scroll.png?v=37') 50% 50% no-repeat;*/
 	border: 0px none #ffffff;
 	border-radius: 50px;
 	-webkit-box-shadow: 0px 0px 16px -5px rgba(181,168,181,1);
@@ -124,10 +124,10 @@ body{
 	box-shadow: 0px 0px 16px -5px rgba(181,168,181,1);
 }
 ::-webkit-scrollbar-thumb:hover {
-	background: #ffffff url('images/scroll.png?v=37') 50% 50% no-repeat;
+	/*background: #ffffff url('images/scroll.png?v=37') 50% 50% no-repeat;*/
 }
 ::-webkit-scrollbar-thumb:active {
-	background: #ffffff url('images/scroll.png?v=37') 50% 50% no-repeat;
+	/*background: #ffffff url('images/scroll.png?v=37') 50% 50% no-repeat;*/
 }
 ::-webkit-scrollbar-track {
 	background: #ebebeb;
@@ -2192,7 +2192,7 @@ span.notify-left{
 }
 .bx-wrapper .bx-loading {
 	min-height: 50px;
-	background: url(images/bx_loader.gif?v=37) center center no-repeat #fff;
+	/*background: url(images/bx_loader.gif?v=37) center center no-repeat #fff;*/
 }
 /*---------------
 [6. Page top]
@@ -5162,7 +5162,7 @@ span.notify-left{
 	right: -12px;
 }
 .group-button-header .btn-heart{
-	background: url("images/hd-login.png?v=37") no-repeat center center;
+	/*background: url("images/hd-login.png?v=37") no-repeat center center;*/
 	text-indent: -999px;
 	display: inline-block;
 	font-size: 0;
