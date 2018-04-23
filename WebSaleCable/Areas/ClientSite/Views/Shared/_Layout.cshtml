@@ -37,7 +37,7 @@
     <script src="@Url.Content("~/Scripts/html5shiv.js")"></script>
     <script src="@Url.Content("~/Scripts/jquery-migrate-1.2.0.min.js")"></script>
     <script src="@Url.Content("~/Scripts/jquery.touchSwipe.min.js")"></script>
-
+    <script src="@Url.Content("~/Scripts/bootstrap3-typeahead.min.js")"></script>
     <!--<script src="/assets/100002/js/haravan.plugin.1.0.min.js"></script>-->
     @*<script async="" defer="defer" data-target=".product-resize" data-parent=".products-resize" data-img-box=".image-resize" src="/assets/100002/js/fixheightproductv2.js?v=42"></script>*@
     <!--------------CSS----------->
@@ -142,16 +142,28 @@
         <div class="footer">
             @Html.Partial("_footer")
         </div>
-
     </div>
-    @*<div style="display: none;" id="loading-mask">
-        <div id="loading_mask_loader" class="loader">
-            <img alt="Loading..." src="/Images/ajax-loader-main.gif" />
-            <div>
-                Please wait...
-            </div>
-        </div>
-    </div>*@
     <a href="#" class="scroll_top" title="Scroll to Top" style="display: none;">Scroll</a>
 </body>
 </html>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var _sourcdata = '@Html.Raw(Json.Encode(Session["Location"]))';
+        if (_sourcdata.length > 0)
+        {
+            var obj = $.parseJSON(_sourcdata);
+            var _source = [];
+            $.each(obj, function (arrayID, group) {
+                _source.push({
+                    id: group.ID,
+                    name: group.Name
+                });
+            });
+            var $input = $(".typeahead");
+            $input.typeahead({
+                source: _source,
+                autoSelect: true
+            });
+        }
+    })
+</script>

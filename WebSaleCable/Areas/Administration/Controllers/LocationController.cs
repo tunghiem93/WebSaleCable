@@ -7,6 +7,8 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using WebSaleCable.Shared;
+using Newtonsoft.Json;
 
 namespace WebSaleCable.Areas.Administration.Controllers
 {
@@ -77,6 +79,26 @@ namespace WebSaleCable.Areas.Administration.Controllers
                 var result = _factory.InsertLocation(model, ref msg);
                 if (result)
                 {
+                    HttpCookie _LocationCookie = Request.Cookies["LocCookie"];
+                    if (_LocationCookie == null)
+                    {
+                        HttpCookie cookie = new HttpCookie("LocCookie");
+                        cookie.Expires = DateTime.Now.AddYears(10);
+                    }
+                    LocationFactory _facLoc = new LocationFactory();
+                    var _loc = _facLoc.GetListLocation().Select(x => new LocationSession
+                    {
+                        Id = x.ID,
+                        Name = x.Name
+                    }).ToList();
+                    if (_loc != null && _loc.Any())
+                    {
+                        string myObjectJson = JsonConvert.SerializeObject(_loc);  //new JavaScriptSerializer().Serialize(userSession);
+                        HttpCookie cookie = new HttpCookie("LocCookie");
+                        cookie.Expires = DateTime.Now.AddYears(10);
+                        cookie.Value = Server.UrlEncode(myObjectJson);
+                        Response.Cookies.Add(cookie);
+                    }
                     return RedirectToAction("Index");
                 }
                 else
@@ -124,6 +146,26 @@ namespace WebSaleCable.Areas.Administration.Controllers
                 var result = _factory.UpdateLocation(model, ref msg);
                 if (result)
                 {
+                    HttpCookie _LocationCookie = Request.Cookies["LocCookie"];
+                    if (_LocationCookie == null)
+                    {
+                        HttpCookie cookie = new HttpCookie("LocCookie");
+                        cookie.Expires = DateTime.Now.AddYears(10);
+                    }
+                    LocationFactory _facLoc = new LocationFactory();
+                    var _loc = _facLoc.GetListLocation().Select(x => new LocationSession
+                    {
+                        Id = x.ID,
+                        Name = x.Name
+                    }).ToList();
+                    if (_loc != null && _loc.Any())
+                    {
+                        string myObjectJson = JsonConvert.SerializeObject(_loc);  //new JavaScriptSerializer().Serialize(userSession);
+                        HttpCookie cookie = new HttpCookie("LocCookie");
+                        cookie.Expires = DateTime.Now.AddYears(10);
+                        cookie.Value = Server.UrlEncode(myObjectJson);
+                        Response.Cookies.Add(cookie);
+                    }
                     return RedirectToAction("Index");
                 }
                 else

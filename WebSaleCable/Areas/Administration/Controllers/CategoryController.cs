@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using WebSaleCable.Shared;
 using WebSaleCable.Shared.Factory.CategoryFactory;
 using WebSaleCable.Shared.Model.Category;
 using WebSaleCable.Web.App_Start;
@@ -77,6 +79,26 @@ namespace WebSaleCable.Areas.Administration.Controllers
                 var result = _factory.InsertCategory(model, ref msg);
                 if (result)
                 {
+                    HttpCookie _LocationCookie = Request.Cookies["CateCookie"];
+                    if (_LocationCookie == null)
+                    {
+                        HttpCookie cookie = new HttpCookie("CateCookie");
+                        cookie.Expires = DateTime.Now.AddYears(10);
+                    }
+                    CategoryFactory _facLoc = new CategoryFactory();
+                    var _loc = _facLoc.GetListCategory().Select(x => new CateSession
+                    {
+                        Id = x.ID,
+                        Name = x.Name
+                    }).ToList();
+                    if (_loc != null && _loc.Any())
+                    {
+                        string myObjectJson = JsonConvert.SerializeObject(_loc);  //new JavaScriptSerializer().Serialize(userSession);
+                        HttpCookie cookie = new HttpCookie("CateCookie");
+                        cookie.Expires = DateTime.Now.AddYears(10);
+                        cookie.Value = Server.UrlEncode(myObjectJson);
+                        Response.Cookies.Add(cookie);
+                    }
                     return RedirectToAction("Index");
                 }
                 else
@@ -124,6 +146,26 @@ namespace WebSaleCable.Areas.Administration.Controllers
                 var result = _factory.UpdateCategory(model, ref msg);
                 if (result)
                 {
+                    HttpCookie _LocationCookie = Request.Cookies["CateCookie"];
+                    if (_LocationCookie == null)
+                    {
+                        HttpCookie cookie = new HttpCookie("CateCookie");
+                        cookie.Expires = DateTime.Now.AddYears(10);
+                    }
+                    CategoryFactory _facLoc = new CategoryFactory();
+                    var _loc = _facLoc.GetListCategory().Select(x => new CateSession
+                    {
+                        Id = x.ID,
+                        Name = x.Name
+                    }).ToList();
+                    if (_loc != null && _loc.Any())
+                    {
+                        string myObjectJson = JsonConvert.SerializeObject(_loc);  //new JavaScriptSerializer().Serialize(userSession);
+                        HttpCookie cookie = new HttpCookie("CateCookie");
+                        cookie.Expires = DateTime.Now.AddYears(10);
+                        cookie.Value = Server.UrlEncode(myObjectJson);
+                        Response.Cookies.Add(cookie);
+                    }
                     return RedirectToAction("Index");
                 }
                 else

@@ -1,5 +1,7 @@
 ﻿@model WebSaleCable.Shared.Model.Product.ProductViewModels
-
+@{ 
+    var ListCate = Session["Catelogies"] as List<WebSaleCable.Shared.CateSession>;
+}
  <div id="nav-top-menu" class="nav-top-menu">
         <div class="container">
             <div class="row">
@@ -10,13 +12,13 @@
                             <span class="btn-open-mobile pull-right home-page"><i class="fa fa-bars"></i></span>
                         </h4>
                         <div class="vertical-menu-content is-home">
-                            @if (Model.ListCate != null && Model.ListCate.Any())
+                            @if (ListCate != null && ListCate.Any())
                             {
                                 <ul class='vertical-menu-list'>
-                                    @foreach (var item in Model.ListCate)
+                                    @foreach (var item in ListCate)
                                     {
                                         <li class="level0">
-                                            <a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = item.ID })')"><span>@item.Name</span></a>
+                                            <a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = item.Id })')"><span>@item.Name</span></a>
                                         </li>
                                     }
                                     @*<li class="level0">
