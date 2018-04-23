@@ -17,25 +17,26 @@
                             <th class="column-title text-center">Số điện thoại</th>
                             <th class="column-title text-center">Ngày sinh</th>
                             <th class="column-title text-center">Giới tính</th>
+                            <th class="column-title text-center">tình trạng hoạt động</th>
                             <th class="column-title text-center">Tùy chỉnh</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @if (Model.ListCate != null)
+                        @if (Model.ListCus != null)
                         {
-                            for (int i = 0; i < Model.ListCate.Count; i++)
+                            for (int i = 0; i < Model.ListCus.Count; i++)
                             {
                                 string styleRow = "row-evenItem";
                                 if (i % 2 == 0)
                                 {
                                     styleRow = "row-oddItem";
                                 }
-                                var item = Model.ListCate[i];
+                                var item = Model.ListCus[i];
                                 <tr class="@styleRow">
                                     <td style="color:#34495e; font-weight:bold; " class="moretext">&nbsp;&nbsp;&nbsp;@item.Name</td>
                                     <td style="text-align: center; ">@item.Email</td>
                                     <td style="text-align: center; ">@item.Phone</td>
-                                    <td style="text-align: center; ">@item.BirthDate.ToString("dd/MM/yyyy")</td>
+                                    <td style="text-align: center; ">@item.BirthDate.ToString("MM/dd/yyyy")</td>
                                     <td style="text-align: center; ">
                                         @if (item.Gender)
                                         {
@@ -46,6 +47,17 @@
                                             <span class="label label-danger">Nam</span>
                                         }
                                     </td>
+                                    <td style="text-align: center; ">
+                                        @if (item.IsActive)
+                                        {
+                                            <span class="label label-success">Đang hoạt động</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="label label-danger">Không hoạt động</span>
+                                        }
+                                    </td>
+
                                     <td style="text-align: center; ">
                                         <a href="#"
                                            onclick="ShowViewOrEdit('@Url.Action("View", "Customer", new { id = item.ID })')"
@@ -106,13 +118,14 @@
 
         var table = $('#datatable-responsive').DataTable({
             "columnDefs": [
-                { "orderable": false, "targets": [5] },
+                { "orderable": false, "targets": [6] },
                 { "width": "20%", "targets": [0] },
                 { "width": "10%", "targets": [1] },
                 { "width": "5%", "targets": [2] },
                 { "width": "5%", "targets": [3] },
                 { "width": "5%", "targets": [4] },
-                { "width": "5%", "targets": [5] }
+                { "width": "5%", "targets": [5] },
+                { "width": "5%", "targets": [6] }
             ],
             "order": [[0, 'asc']],
             "displayLength": 25,

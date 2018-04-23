@@ -32,6 +32,7 @@ namespace WebSaleCable.Areas.Administration.Controllers
             try
             {
                 var data = _factory.GetListCustomer();
+                model.ListCus = data;
             }
             catch (Exception e)
             {

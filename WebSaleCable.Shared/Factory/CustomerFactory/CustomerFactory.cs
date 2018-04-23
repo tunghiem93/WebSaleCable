@@ -21,19 +21,20 @@ namespace WebSaleCable.Shared.Factory.CustomerFactory
                     {
                         ID = o.ID,
                         FirstName = o.FirstName,
-                        LastName = o.LastName,
+                        LastName = o.LastName,                        
+                        Phone = o.Phone,
                         Email = o.Email,
                         Password = o.Password,
-                        Phone = o.Phone,
-                        BirthDate = o.BirthDate,
+                        Country = o.Country,
+                        Address = o.Address,
                         Gender = o.Gender,
+                        BirthDate = o.BirthDate,
                         MaritalStatus = o.MaritalStatus,
                         IsActive = o.IsActive,
                         CreatedDate = o.CreatedDate,
                         CreatedUser = o.CreatedUser,
                         ModifiedDate = o.ModifiedDate,
                         ModifiedUser = o.ModifiedUser,
-                        Address = o.Address
                     }).ToList();
                     return lstResult;
                 }
@@ -56,18 +57,19 @@ namespace WebSaleCable.Shared.Factory.CustomerFactory
                         ID = o.ID,
                         FirstName = o.FirstName,
                         LastName = o.LastName,
+                        Phone = o.Phone,
                         Email = o.Email,
                         Password = o.Password,
-                        Phone = o.Phone,
-                        BirthDate = o.BirthDate,
+                        Country = o.Country,
+                        Address = o.Address,
                         Gender = o.Gender,
+                        BirthDate = o.BirthDate,
                         MaritalStatus = o.MaritalStatus,
                         IsActive = o.IsActive,
                         CreatedDate = o.CreatedDate,
                         CreatedUser = o.CreatedUser,
                         ModifiedDate = o.ModifiedDate,
                         ModifiedUser = o.ModifiedUser,
-                        Address = o.Address
                     }).FirstOrDefault();
                     return result;
                 }
@@ -102,18 +104,19 @@ namespace WebSaleCable.Shared.Factory.CustomerFactory
                             item.FirstName = model.FirstName;
                             item.LastName = model.LastName;
                             item.Name = model.Name;
+                            item.Phone = model.Phone;
                             item.Email = model.Email;
                             item.Password = model.Password;
-                            item.Phone = model.Phone;
-                            item.BirthDate = model.BirthDate;
+                            item.Country = model.Country;
+                            item.Address = model.Address;
                             item.Gender = model.Gender;
+                            item.BirthDate = model.BirthDate;
                             item.MaritalStatus = model.MaritalStatus;
                             item.IsActive = model.IsActive;
                             item.CreatedDate = DateTime.Now;
                             item.CreatedUser = model.CreatedUser;
                             item.ModifiedDate = DateTime.Now;
                             item.ModifiedUser = model.CreatedUser;
-                            item.Address = model.Address;
 
                             cxt.dbCustomer.Add(item);
                             cxt.SaveChanges();
@@ -194,16 +197,17 @@ namespace WebSaleCable.Shared.Factory.CustomerFactory
                                 itemUpdate.FirstName = model.FirstName;
                                 itemUpdate.LastName = model.LastName;
                                 itemUpdate.Name = model.Name;
-                                itemUpdate.Email = model.Email;
-                                itemUpdate.Password = model.Password;
                                 itemUpdate.Phone = model.Phone;
-                                itemUpdate.BirthDate = model.BirthDate;
+                                itemUpdate.Password = model.Password;
+                                itemUpdate.Country = model.Country;
+                                itemUpdate.Address = model.Address;
+                                itemUpdate.Email = model.Email;
                                 itemUpdate.Gender = model.Gender;
+                                itemUpdate.BirthDate = model.BirthDate;
                                 itemUpdate.MaritalStatus = model.MaritalStatus;
                                 itemUpdate.IsActive = model.IsActive;
                                 itemUpdate.ModifiedDate = DateTime.Now;
                                 itemUpdate.ModifiedUser = model.CreatedUser;
-                                itemUpdate.Address = model.Address;
 
                                 cxt.SaveChanges();
                                 transaction.Commit();

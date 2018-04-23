@@ -64,17 +64,7 @@
             @Html.ValidationMessageFor(model => model.ConfirmPassword, null, new { @class = "label label-danger" })
         </div>
     </div>
-
-    @* ZipCode *@
-    <div class="form-group">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12  lineHeight">Zipcode: </label>
-        <div class="col-md-6 col-sm-6 col-xs-12">
-            @Html.TextBoxFor(model => model.ZipCode, new { @class = "form-control has-feedback-left", placeholder = "Zipcode", autocomplete = "off",  })
-            <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
-            @Html.ValidationMessageFor(model => model.ZipCode, null, new { @class = "label label-danger" })
-        </div>
-    </div>
-
+    
     @* Country *@
     <div class="form-group">
         <label class="control-label col-md-3 col-sm-3 col-xs-12  lineHeight">Quốc gia: </label>
@@ -82,16 +72,6 @@
             @Html.TextBoxFor(model => model.Country, new { @class = "form-control has-feedback-left", placeholder = "Quốc gia", autocomplete = "off",  })
             <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
             @Html.ValidationMessageFor(model => model.Country, null, new { @class = "label label-danger" })
-        </div>
-    </div>
-
-    @* Company *@
-    <div class="form-group">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12  lineHeight">Công ty: </label>
-        <div class="col-md-6 col-sm-6 col-xs-12">
-            @Html.TextBoxFor(model => model.Company, new { @class = "form-control has-feedback-left", placeholder = "Công ty", autocomplete = "off", })
-            <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
-            @Html.ValidationMessageFor(model => model.Company, null, new { @class = "label label-danger" })
         </div>
     </div>
 
@@ -162,13 +142,13 @@
         </div>
     </div>
 
-    @*Description*@
-    <div class="form-group">
+   @*Description*@
+    @*<div class="form-group">
         <label class="control-label col-md-3 col-sm-3 col-xs-12">Mô tả</label>
         <div class="col-md-6 col-sm-6 col-xs-12">
             @Html.TextAreaFor(model => model.Description, new { @class = "form-control", placeholder = "Mô tả" })
         </div>
-    </div>
+    </div>*@
 </div>
 
 <script src="@Url.Content("~/Libaraies/vendors/periodpicker/jquery.periodpicker.full.min.js")"></script>
