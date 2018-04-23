@@ -129,7 +129,7 @@ namespace WebSaleCable.Shared.Factory.CategoryFactory
                         var itemUpdate = cxt.dbCategory.Where(x => x.ID == model.ID).FirstOrDefault();
                         if (itemUpdate != null)
                         {
-                            itemUpdate.Name = itemUpdate.Name;
+                            itemUpdate.Name = model.Name;
                             itemUpdate.IsActive = itemUpdate.IsActive;
                             itemUpdate.CreatedUser = itemUpdate.CreatedUser;
                             itemUpdate.ModifiedDate = DateTime.Now;

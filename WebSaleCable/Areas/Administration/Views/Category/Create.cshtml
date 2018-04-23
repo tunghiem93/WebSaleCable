@@ -1,4 +1,4 @@
-﻿@model WebSaleCable.Shared.Model.Location.LocationModels
+﻿@model WebSaleCable.Shared.Model.Category.CategoryModels
 @{
     ViewBag.Title = "Thể loại - Thêm";
     Layout = "~/Areas/Administration/Views/Shared/_Layout.cshtml";
@@ -27,7 +27,7 @@
                             </ul>
                         </div>
                         <div class="box-body" style="display: block;">
-                            @using (@Html.BeginForm("Create", "Location", FormMethod.Post, new { @class = "form-horizontal create-form", @enctype = "multipart/form-data" }))
+                            @using (@Html.BeginForm("Create", "Category", FormMethod.Post, new { @class = "form-horizontal create-form", @enctype = "multipart/form-data" }))
                             {
                                 @Html.Partial("_Form", Model)
                             }
