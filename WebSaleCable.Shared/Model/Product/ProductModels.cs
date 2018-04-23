@@ -54,4 +54,19 @@ namespace WebSaleCable.Shared.Model.Product
         public int OffSet { get; set; }
         public bool IsDelete { get; set; }
     }
+    public class ItemCategory
+    {
+        public string ID { get; set; }
+        public string Name { get; set; }
+        public int Type { get; set; }
+        public bool Selected { get; set; }
+
+    }
+    public class ItemLocation 
+    {
+        public string ID { get; set; }
+        public string Name { get; set; }
+        public int Type { get; set; }
+        public bool Selected { get; set; }
+    }
 }

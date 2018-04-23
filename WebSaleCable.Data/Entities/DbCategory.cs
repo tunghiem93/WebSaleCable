@@ -15,5 +15,6 @@ namespace WebSaleCable.Data.Entities
         public DateTime ModifiedDate { get; set; }
         public string ModifiedUser { get; set; }
         public bool IsActive { get; set; }
+        public int Type { get; set; }
     }
 }
