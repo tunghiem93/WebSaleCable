@@ -239,17 +239,12 @@
             placeholder: "Làm ơn chọn khu vực",
             //allowClear: true
         });
-
-        $("#SegmentDdl").select2({
-            //placeholder: "Làm ơn chọn phân khúc",
-            //allowClear: true
-        });
     })
     
     function AddImageItem(elemnetFillData) {
         var _OffSet = $('.ng-image-product').length;
         $.ajax({
-            url: '@Url.Action("AddImageItem", "House")',
+            url: '@Url.Action("AddImageItem", "Product")',
             type: 'GET',
             data: {
                 OffSet: _OffSet

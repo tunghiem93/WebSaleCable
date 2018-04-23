@@ -1,10 +1,10 @@
 ﻿@model WebSaleCable.Shared.Model.Product.ImageProduct
-@
+@using WebSaleCable.Shared
 
 <tr class="ng-image-product product-select-@Model.OffSet" data-offset="@Model.OffSet"
     style="@string.Format("display:{0};", !Model.IsDelete ? "table-row" : "none")">
     <td>
-        <img id="upload-preview-@Model.OffSet" src=@string.Format("{0}", string.IsNullOrEmpty(Model.ImageURL) ? Commons.Image200_100 : @Model.ImageURL) height="100" width="200" class="" />
+        <img id="upload-preview-@Model.OffSet" src=@string.Format("{0}", string.IsNullOrEmpty(Model.ImageURL) ? Commons.Image400_250 : @Model.ImageURL) style="width: 35%; "/>
     </td>
     <td style="line-height:95px;">
         @Html.TextBox(string.Format("ListImg[{0}].PictureUpload", Model.OffSet), Model.PictureUpload, new
