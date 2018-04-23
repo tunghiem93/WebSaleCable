@@ -26,8 +26,6 @@ namespace WebSaleCable.Areas.ClientSite.Controllers
                 if (!string.IsNullOrEmpty(x.ImageURL))
                     x.ImageURL = Commons.HostImage + x.ImageURL;
             });
-            //model.ListLoca = getListLocation();
-            //model.ListCate = getListCategory();
             return View(model);
         }
 

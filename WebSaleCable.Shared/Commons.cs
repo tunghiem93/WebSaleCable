@@ -10,22 +10,7 @@ namespace WebSaleCable.Shared
     public class Commons
     {
         #region Enum
-        public enum ECategory
-        {
-            CapSacLighting = 1, 
-            CapSacMicroUSB = 2, 
-            CapSacNhanh3Trong1 = 3, 
-            CapSacTypeC = 4, 
-            CuSacNhanh = 5,
-            CuSacThuong = 6, 
-            PinDuPhong = 7, 
-        }
-        public enum ELocation
-        {
-            KD1 = 1,
-            KD2 = 2,
-            KD3 = 3,
-        }
+        
         #endregion
         public const string Image200_100 = "http://placehold.it/200x100";
         public const string Image400_250 = "http://placehold.it/400x250";
