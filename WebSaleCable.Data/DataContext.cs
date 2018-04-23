@@ -31,6 +31,11 @@ namespace WebSaleCable.Data
             get;
             set;
         }
+        public DbSet<DbLocation> dbLocation
+        {
+            get;
+            set;
+        }
         public DbSet<DbProduct> dbProduct
         {
             get;

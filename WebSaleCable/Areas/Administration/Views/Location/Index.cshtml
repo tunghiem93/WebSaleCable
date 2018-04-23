@@ -1,0 +1,51 @@
+﻿@model WebSaleCable.Shared.Model.Location.LocationViewModels
+@{
+    ViewBag.Title = "Khu vực";
+    Layout = "~/Areas/Administration/Views/Shared/_Layout.cshtml";
+}
+
+<div role="main" class="right_col">
+    <div class="se-pre-con" style="display: none;"></div>
+    <div class="">
+        <div class="page-title">
+            <div class="title_left" style="padding: 10px 0px;">
+                @Html.Partial("~/Areas/Administration/Views/Shared/_breadcrumb.cshtml",
+                        new Dictionary<string, string> { { "A", "Quản lý" }, { "B", "Khu vực" }, { "C", "Danh sách" } })
+            </div>
+        </div><!--end page-->
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_title">
+                    @Html.Partial("_TabMenu", "view")
+                    <div class="clearfix"></div>
+                </div><!--end x_title-->
+                <div class="x_content">
+                    @using (Html.BeginForm("Search", "Location", FormMethod.Post, new { @class = "form-horizontal search-form" }))
+                    {
+
+                    }
+                    <div class="gridview">
+                    </div>
+
+                </div><!--end x_content-->
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <!--Row content-->
+        <div class="row">
+        </div>
+    </div>
+    <!--end page-->
+    <div class="detail-view" style="height:100%;">
+    </div>
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+
+        $(function () {
+            Search();
+        });
+    </script>
+}
