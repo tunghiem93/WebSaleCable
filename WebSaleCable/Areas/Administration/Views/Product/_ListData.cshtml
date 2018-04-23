@@ -1,10 +1,10 @@
 ﻿@model WebSaleCable.Shared.Model.Product.ProductViewModels
-@using ProjectWebSaleLand.Shared
+@using WebSaleCable.Shared
 <div class="table-responsive">
     <div class="x_panel">
         <div class="x_title">
             <h2>
-                Danh sách sản phẩm đang bán
+                Danh sách sản phẩm
             </h2>
             <div class="clearfix"></div>
         </div>
@@ -14,12 +14,9 @@
                     <tr class="headings">
                         <th class="column-title text-center">Tên</th>
                         <th class="column-title text-center">Khu vực</th>
-                        <th class="column-title text-center">Địa chỉ</th>
-                        <th class="column-title text-center">Chiều dài</th>
-                        <th class="column-title text-center">Chiều rộng</th>
-                        <th class="column-title text-center">Diện tích</th>
-                        <th class="column-title text-center">Pháp lý</th>
-                        <th class="column-title text-center">Điện thoại</th>
+                        <th class="column-title text-center">Thể loại</th>
+                        <th class="column-title text-center">Giá</th>
+                        <th class="column-title text-center">Bảo hành</th>
                         <th class="column-title text-center">Hình ảnh</th>
                         <th class="column-title text-center">Tùy chỉnh</th>
                     </tr>
@@ -37,13 +34,10 @@
                             var item = Model.ListProduct[i];
                             <tr class="@styleRow">
                                 <td style="color:#34495e; font-weight:bold; text-align: center;" class="moretext">&nbsp;&nbsp;&nbsp;@item.Name</td>
-                                <td style="color:#34495e; font-weight:bold; text-align: center;" class="moretext">&nbsp;&nbsp;&nbsp;@item.Location</td>
-                                <td style="color:#34495e; font-weight:bold; text-align: center;" class="moretext">&nbsp;&nbsp;&nbsp;@item.Address</td>
-                                <td style="color:#34495e; font-weight:bold; text-align: center;" class="moretext">&nbsp;&nbsp;&nbsp;@item.Length</td>
-                                <td style="color:#34495e; font-weight:bold; text-align: center;" class="moretext">&nbsp;&nbsp;&nbsp;@item.Width</td>
-                                <td style="color:#34495e; font-weight:bold; text-align: center;" class="moretext">&nbsp;&nbsp;&nbsp;@item.Acreage</td>
-                                <td style="color:#34495e; font-weight:bold; text-align: center;" class="moretext">&nbsp;&nbsp;&nbsp;@item.Right</td>
-                                <td style="color:#34495e; font-weight:bold; text-align: center;" class="moretext">&nbsp;&nbsp;&nbsp;@item.Phone</td>
+                                <td style="color:#34495e; font-weight:bold; text-align: center;" class="moretext">&nbsp;&nbsp;&nbsp;@item.LocationName</td>
+                                <td style="color:#34495e; font-weight:bold; text-align: center;" class="moretext">&nbsp;&nbsp;&nbsp;@item.CategoryName</td>
+                                <td style="color:#34495e; font-weight:bold; text-align: center;" class="moretext">&nbsp;&nbsp;&nbsp;@item.Price</td>
+                                <td style="color:#34495e; font-weight:bold; text-align: center;" class="moretext">&nbsp;&nbsp;&nbsp;@item.GuaranteePeriod</td>
                                 <td style="color:#34495e; font-weight:bold; text-align: center; ">&nbsp;&nbsp;&nbsp;
                                 @if (!string.IsNullOrEmpty(item.ImageURL))
                                 {
@@ -51,7 +45,7 @@
                                 }
                                 else
                                 {
-                                    <img id="upload-preview" class="img-circle" src="@Commons.Image100_100" height="50" width="50" />
+                                    <img id="upload-preview" class="img-circle" src="@Commons.Image200_100\" height="50" width="50" />
                                 }
                                 </td>
                                 <td style="text-align: center; ">
@@ -114,8 +108,9 @@
 
         var table = $('#datatable-responsive').DataTable({
             "columnDefs": [
-                { "orderable": false, "targets": [8, 9] },
-                { "width": "10%", "targets": [0,1,2,3,4,5,6,7,8,9] },
+                { "orderable": false, "targets": [5, 6] },
+                { "width": "10%", "targets": [0] },
+                { "width": "5%", "targets": [1, 2, 3, 4, 5, 6] },
             ],
             "order": [[0, 'asc']],
             "displayLength": 25,

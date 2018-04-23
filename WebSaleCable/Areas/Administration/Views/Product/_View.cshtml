@@ -47,45 +47,17 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Khu vực</label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        @Model.Location
+                                        @Model.LocationName
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Địa chỉ</label>
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Thể loại</label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        @Model.Address
+                                        @Model.CategoryName
                                     </div>
                                 </div>
-
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Địa chỉ 1</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        @Model.Address1
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Địa chỉ 2</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        @Model.Address2
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Điện thoại 1</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        @Model.Phone1
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Điện thoại 2</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        @Model.Phone2
-                                    </div>
-                                </div>
-
+                                
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Chiều dài</label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
@@ -101,44 +73,65 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Diện tích</label>
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Thời gian bảo hành</label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        @Model.Acreage
+                                        @Model.GuaranteePeriod @Html.Raw(" tháng")
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Phòng ngủ</label>
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Sản xuất tại</label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        @Model.BedRoom
+                                        @Model.Production
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Phòng khách</label>
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Mã sản phẩm</label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        @Model.LivingRoom
+                                        @Model.Code
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Phòng tắm</label>
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Tình trạng sản phẩm</label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        @Model.BathRoom
+                                        @Model.State
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Pháp lý</label>
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Số lượng</label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        @Model.Right
+                                        @Model.Width @Html.Raw(" cái")
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Tầng</label>
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Giá</label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        @Model.Floor
+                                        @Model.Price
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Màu sắc</label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        @Model.Color
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Trọng lượng</label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        @Model.Weight
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Tình trạng hoạt động</label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        @string.Format("{0}", Model.IsActive ? "Đang hoạt động" : "Không hoạt động")
                                     </div>
                                 </div>
 
@@ -146,6 +139,13 @@
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Mô tả</label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         @Model.Description
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Chi tiết sản phẩm</label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        @Model.MoreInformation
                                     </div>
                                 </div>
 

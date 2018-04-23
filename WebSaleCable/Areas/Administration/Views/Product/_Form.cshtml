@@ -17,11 +17,11 @@
         <div class="col-md-6">
             @if (!string.IsNullOrEmpty(Model.ImageURL))
             {
-                <img id="upload-preview-1-1" src="@Model.ImageURL" height="100" width="200" />
+                <img id="upload-preview-1-1" src="@Model.ImageURL" style="width: 35%" />
             }
             else
             {
-                <img id="upload-preview-1-1" src="@Commons.Image200_100" height="100" width="200" />
+                <img id="upload-preview-1-1" src="@Commons.Image400_250" style="width: 35%" />
             }
         </div>
     </div>
@@ -63,10 +63,10 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12 lineHeight">Phân khúc</label>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12 lineHeight">Thể loại</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-                @Html.DropDownListFor(model => model.Segment,
-            new SelectList(Model.ListSegment, "Value", "Text", Model.Segment),
+                @Html.DropDownListFor(model => model.CategoryID,
+            new SelectList(ViewBag.Category, "Value", "Text", Model.CategoryID),
             new
             {
                 @class = "form-control select2_multiple",
@@ -74,74 +74,14 @@
                 @style = "width:100%;"
             })
 
-                @Html.ValidationMessageFor(model => model.Segment, null, new { @class = "label label-danger" })
-            </div>
-        </div>
-
-        @* Address *@
-        <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12 lineHeight">Địa chỉ</label>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-                @Html.TextBoxFor(model => model.Address, new { @class = "form-control has-feedback-left", autocomplete = "off" })
-                <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
-                @Html.ValidationMessageFor(model => model.Address, null, new { @class = "label label-danger" })
-            </div>
-        </div>
-
-        @*Điện thoại*@
-        <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12 lineHeight">Điện thoại</label>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-                @Html.TextBoxFor(model => model.Phone, new { @class = "form-control has-feedback-left", autocomplete = "off", @type = "number" })
-                <span class="fa fa-mobile-phone form-control-feedback left" aria-hidden="true"></span>
-                @Html.ValidationMessageFor(model => model.Phone, null, new { @class = "label label-danger" })
-            </div>
-        </div>
-
-        @* Address *@
-        <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12 lineHeight">Địa chỉ 1</label>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-                @Html.TextBoxFor(model => model.Address1, new { @class = "form-control has-feedback-left", autocomplete = "off" })
-                <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
-                @Html.ValidationMessageFor(model => model.Address1, null, new { @class = "label label-danger" })
-            </div>
-        </div>
-
-        @*Điện thoại 1*@
-        <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12 lineHeight">Điện thoại 1</label>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-                @Html.TextBoxFor(model => model.Phone1, new { @class = "form-control has-feedback-left", autocomplete = "off", @type = "number" })
-                <span class="fa fa-mobile-phone form-control-feedback left" aria-hidden="true"></span>
-                @Html.ValidationMessageFor(model => model.Phone1, null, new { @class = "label label-danger" })
-            </div>
-        </div>
-
-        @* Address *@
-        <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12 lineHeight">Địa chỉ 2</label>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-                @Html.TextBoxFor(model => model.Address2, new { @class = "form-control has-feedback-left", autocomplete = "off" })
-                <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
-                @Html.ValidationMessageFor(model => model.Address2, null, new { @class = "label label-danger" })
-            </div>
-        </div>
-
-        @*Điện thoại 2*@
-        <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12 lineHeight">Điện thoại 2</label>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-                @Html.TextBoxFor(model => model.Phone2, new { @class = "form-control has-feedback-left", autocomplete = "off", @type = "number" })
-                <span class="fa fa-mobile-phone form-control-feedback left" aria-hidden="true"></span>
-                @Html.ValidationMessageFor(model => model.Phone2, null, new { @class = "label label-danger" })
+                @Html.ValidationMessageFor(model => model.CategoryID, null, new { @class = "label label-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12 lineHeight">Chiều dài (đơn vị: mét)</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-                @Html.TextBoxFor(model => model.Length, new { @class = "form-control has-feedback-left", autocomplete = "off", @type = "number" })
+                @Html.TextBoxFor(model => model.Length, new { @class = "form-control has-feedback-left", autocomplete = "off", @type = "number", placeholder = "Chiều dài" })
                 <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
                 @Html.ValidationMessageFor(model => model.Length, null, new { @class = "label label-danger" })
             </div>
@@ -150,63 +90,81 @@
         <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12 lineHeight">Chiều rộng (đơn vị: mét)</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-                @Html.TextBoxFor(model => model.Width, new { @class = "form-control has-feedback-left", autocomplete = "off", @type = "number" })
+                @Html.TextBoxFor(model => model.Width, new { @class = "form-control has-feedback-left", autocomplete = "off", @type = "number", placeholder = "Chiều rộng" })
                 <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
                 @Html.ValidationMessageFor(model => model.Width, null, new { @class = "label label-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12 lineHeight">Diện tích</label>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12 lineHeight">Thời gian bảo hành (tháng)</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-                @Html.TextBoxFor(model => model.Acreage, new { @class = "form-control has-feedback-left", autocomplete = "off", @type = "number" })
+                @Html.TextBoxFor(model => model.GuaranteePeriod, new { @class = "form-control has-feedback-left", autocomplete = "off", placeholder = "Thời gian bảo hành" })
                 <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
-                @Html.ValidationMessageFor(model => model.Acreage, null, new { @class = "label label-danger" })
+                @Html.ValidationMessageFor(model => model.GuaranteePeriod, null, new { @class = "label label-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12 lineHeight">Sản xuất</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                @Html.TextBoxFor(model => model.Production, new { @class = "form-control has-feedback-left", autocomplete = "off", placeholder = "Sản xuất" })
+                <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
+                @Html.ValidationMessageFor(model => model.Production, null, new { @class = "label label-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12 lineHeight">Mã sản phẩm</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                @Html.TextBoxFor(model => model.Code, new { @class = "form-control has-feedback-left", autocomplete = "off", placeholder = "Mã sản phẩm" })
+                <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
+                @Html.ValidationMessageFor(model => model.Code, null, new { @class = "label label-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12 lineHeight">Tình trạng sản phẩm</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                @Html.TextBoxFor(model => model.State, new { @class = "form-control has-feedback-left", autocomplete = "off", placeholder = "Tình trạng sản phẩm" })
+                <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
+                @Html.ValidationMessageFor(model => model.State, null, new { @class = "label label-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12 lineHeight">Số lượng (đơn vị: cái)</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                @Html.TextBoxFor(model => model.Quantity, new { @class = "form-control has-feedback-left", autocomplete = "off", placeholder = "Số lượng" })
+                <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
+                @Html.ValidationMessageFor(model => model.Quantity, null, new { @class = "label label-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12 lineHeight">Giá</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-                @Html.TextBoxFor(model => model.Price, new { @class = "form-control has-feedback-left", autocomplete = "off" })
+                @Html.TextBoxFor(model => model.Price, new { @class = "form-control has-feedback-left", autocomplete = "off", placeholder = "Giá" })
                 <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
                 @Html.ValidationMessageFor(model => model.Price, null, new { @class = "label label-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12 lineHeight">Số phòng ngủ</label>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12 lineHeight">Màu sắc</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-                @Html.TextBoxFor(model => model.BedRoom, new { @class = "form-control has-feedback-left", autocomplete = "off", @type = "number" })
+                @Html.TextBoxFor(model => model.Color, new { @class = "form-control has-feedback-left", autocomplete = "off", placeholder = "Màu sản phẩm" })
                 <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
-                @Html.ValidationMessageFor(model => model.BedRoom, null, new { @class = "label label-danger" })
+                @Html.ValidationMessageFor(model => model.Color, null, new { @class = "label label-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12 lineHeight">Số phòng khách</label>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12 lineHeight">Trọng lượng</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-                @Html.TextBoxFor(model => model.LivingRoom, new { @class = "form-control has-feedback-left", autocomplete = "off", @type = "number" })
+                @Html.TextBoxFor(model => model.Weight, new { @class = "form-control has-feedback-left", autocomplete = "off", placeholder = "Trọng lượng" })
                 <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
-                @Html.ValidationMessageFor(model => model.LivingRoom, null, new { @class = "label label-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12 lineHeight">Số phòng tắm</label>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-                @Html.TextBoxFor(model => model.BathRoom, new { @class = "form-control has-feedback-left", autocomplete = "off", @type = "number" })
-                <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
-                @Html.ValidationMessageFor(model => model.BathRoom, null, new { @class = "label label-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12 lineHeight">Số tầng</label>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-                @Html.TextBoxFor(model => model.Floor, new { @class = "form-control has-feedback-left", autocomplete = "off", @type = "number" })
-                <span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
-                @Html.ValidationMessageFor(model => model.Floor, null, new { @class = "label label-danger" })
+                @Html.ValidationMessageFor(model => model.Weight, null, new { @class = "label label-danger" })
             </div>
         </div>
 
@@ -230,14 +188,14 @@
             </div>
         </div>
 
-        @*Right*@
+        @*Description*@
         <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12">Pháp lý (Nếu có)</label>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Chi tiết sản phẩm</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-                @Html.TextAreaFor(model => model.Right, new { @class = "form-control", placeholder = "Pháp lý" })
+                @Html.TextAreaFor(model => model.MoreInformation, new { @class = "form-control", placeholder = "Thông tin chi tiết" })
             </div>
         </div>
-        
+
         @*List Image*@
         <div class="form-group">
             <label class="col-sm-3 control-label"></label>

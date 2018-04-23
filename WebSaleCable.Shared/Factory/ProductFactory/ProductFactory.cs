@@ -19,18 +19,35 @@ namespace WebSaleCable.Shared.Factory.ProductFactory
                 {
                     var lstResult = (from pro in cxt.dbProduct
                                      from cat in cxt.dbCategory
-                                     where (pro.CategoryID == cat.ID)
+                                     from loc in cxt.dbLocation
+                                     where (pro.CategoryID == cat.ID && pro.LocationID == loc.ID)
                                      orderby pro.CreatedDate descending
                                      select new ProductModels()
                                      {
                                          ID = pro.ID,
                                          Name = pro.Name,
+                                         LocationID = pro.LocationID,
+                                         LocationName = loc.Name,
+                                         CategoryID = pro.CategoryID,
+                                         CategoryName = cat.Name,
+                                         Type = pro.Type,
                                          Length = pro.Length,
                                          Width = pro.Width,
-                                         Price = pro.Price,
+                                         GuaranteePeriod = pro.GuaranteePeriod,
                                          Description = pro.Description,
-                                         Type = pro.Type,
+                                         Production = pro.Production,
+                                         Code = pro.Code,
+                                         State = pro.State,
+                                         Quantity = pro.Quantity,
+                                         Price = pro.Price,
+                                         Color = pro.Color,
+                                         Weight = pro.Weight,
+                                         MoreInformation = pro.MoreInformation,
+                                         IsActive = pro.IsActive,
                                          CreatedDate = pro.CreatedDate,
+                                         CreatedUser = pro.CreatedUser,
+                                         ModifiedDate = pro.ModifiedDate,
+                                         ModifiedUser = pro.ModifiedUser,
                                      }).ToList();
 
                     var _images = cxt.dbImage.Select(x => new
@@ -87,18 +104,35 @@ namespace WebSaleCable.Shared.Factory.ProductFactory
                 {
                     var result = (from pro in cxt.dbProduct
                                   from cat in cxt.dbCategory
-                                  where (pro.ID == id && pro.CategoryID == cat.ID)
+                                  from loc in cxt.dbLocation
+                                  where (pro.CategoryID == cat.ID && pro.LocationID == loc.ID)
                                   orderby pro.CreatedDate descending
                                   select new ProductModels()
                                   {
                                       ID = pro.ID,
                                       Name = pro.Name,
+                                      LocationID = pro.LocationID,
+                                      LocationName = loc.Name,
+                                      CategoryID = pro.CategoryID,
+                                      CategoryName = cat.Name,
+                                      Type = pro.Type,
                                       Length = pro.Length,
                                       Width = pro.Width,
-                                      Price = pro.Price,
+                                      GuaranteePeriod = pro.GuaranteePeriod,
                                       Description = pro.Description,
-                                      Type = pro.Type,
-                                      IsActive = pro.IsActive
+                                      Production = pro.Production,
+                                      Code = pro.Code,
+                                      State = pro.State,
+                                      Quantity = pro.Quantity,
+                                      Price = pro.Price,
+                                      Color = pro.Color,
+                                      Weight = pro.Weight,
+                                      MoreInformation = pro.MoreInformation,
+                                      IsActive = pro.IsActive,
+                                      CreatedDate = pro.CreatedDate,
+                                      CreatedUser = pro.CreatedUser,
+                                      ModifiedDate = pro.ModifiedDate,
+                                      ModifiedUser = pro.ModifiedUser,
                                   }).FirstOrDefault();
 
                     var _images = cxt.dbImage.Select(x => new
@@ -153,16 +187,26 @@ namespace WebSaleCable.Shared.Factory.ProductFactory
                         string id = Guid.NewGuid().ToString();
                         item.ID = id;
                         item.Name = model.Name;
+                        item.LocationID = model.LocationID;
+                        item.CategoryID = model.CategoryID;
+                        item.Type = model.Type;
                         item.Length = model.Length;
                         item.Width = model.Width;
-                        item.Price = model.Price;
-                        item.Type = model.Type;
+                        item.GuaranteePeriod = model.GuaranteePeriod;
                         item.Description = model.Description;
-                        item.IsActive = model.IsActive;
+                        item.Production = model.Production;
+                        item.Code = model.Code;
+                        item.State = model.State;
+                        item.Quantity = model.Quantity;
+                        item.Price = model.Price;
+                        item.Color = model.Color;
+                        item.Weight = model.Weight;
+                        item.MoreInformation = model.MoreInformation;
+                        item.IsActive = model.IsActive;                        
                         item.CreatedDate = DateTime.Now;
                         item.ModifiedDate = DateTime.Now;
                         item.CreatedUser = model.CreatedUser;
-                        item.ModifiedUser = model.ModifiedUser;
+                        item.ModifiedUser = model.CreatedUser;
                         cxt.dbProduct.Add(item);
 
                         //////////////////////////////////// Save table Image
@@ -255,11 +299,24 @@ namespace WebSaleCable.Shared.Factory.ProductFactory
                         {
                             //itemUpdate.ID = model.ID;
                             itemUpdate.Name = model.Name;
+                            itemUpdate.LocationID = model.LocationID;
+                            itemUpdate.CategoryID = model.CategoryID;
+                            itemUpdate.Type = model.Type;
                             itemUpdate.Length = model.Length;
                             itemUpdate.Width = model.Width;
-                            itemUpdate.Price = model.Price;
-                            itemUpdate.Type = model.Type;
+                            itemUpdate.GuaranteePeriod = model.GuaranteePeriod;
                             itemUpdate.Description = model.Description;
+                            itemUpdate.Production = model.Production;
+                            itemUpdate.Code = model.Code;
+                            itemUpdate.State = model.State;
+                            itemUpdate.Quantity = model.Quantity;
+                            itemUpdate.Price = model.Price;
+                            itemUpdate.Color = model.Color;
+                            itemUpdate.Weight = model.Weight;
+                            itemUpdate.MoreInformation = model.MoreInformation;
+                            itemUpdate.IsActive = model.IsActive;
+                            itemUpdate.ModifiedDate = DateTime.Now;
+                            itemUpdate.ModifiedUser = model.CreatedUser;
                             ///// update image
                             if (model.ListImageUrl != null && model.ListImageUrl.Count > 0)
                             {

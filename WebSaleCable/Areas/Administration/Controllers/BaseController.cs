@@ -25,6 +25,8 @@ namespace WebSaleCable.Areas.Administration.Controllers
 
         public BaseController()
         {
+            ViewBag.Location = getListLocation();
+            ViewBag.Category = getListCategory();
             var user = System.Web.HttpContext.Current.Session["User"] as UserSession;
         }
     }

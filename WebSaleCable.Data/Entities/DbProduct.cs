@@ -18,7 +18,7 @@ namespace WebSaleCable.Data.Entities
         public string Description { get; set; }    
         public string Production { get; set; }
         public string Code { get; set; }
-        public bool State { get; set; }
+        public string State { get; set; }
         public int Quantity { get; set; }
         public string Color { get; set; }
         public string Length { get; set; }
