@@ -28,11 +28,11 @@
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         @if (!string.IsNullOrEmpty(Model.ImageURL))
                                         {
-                                            <img id="upload-preview" src="@Model.ImageURL" height="100" width="200" class="" />
+                                            <img id="upload-preview" src="@Model.ImageURL" style="width: 35%; " />
                                         }
                                         else
                                         {
-                                            <img id="upload-preview" class="" src="@Commons.Image200_100" height="200" width="100" />
+                                            <img id="upload-preview" class="" src="@Commons.Image200_100" style="width: 35%; " />
                                         }
                                     </div>
                                 </div>
@@ -149,10 +149,10 @@
                                     </div>
                                 </div>
 
-                                @if (Model.ListImageUrl != null)
+                                @if (Model.ListImg != null)
                                 {
                                     <div>
-                                        <label class="control-label col-md-2 col-sm-2 col-xs-12"><b>DÁNH SÁCH HÌNH ẢNH</b></label>
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12"><b>DANH SÁCH HÌNH ẢNH</b></label>
                                         <div class="col-md-6 col-sm-6 col-xs-12"></div>
                                     </div>
                                     <div class="form-group">
@@ -160,11 +160,20 @@
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <table class="table tab-content">
                                                 <tbody>
-                                                    @for (int i = 0; i < Model.ListImageUrl.Count; i++)
+                                                    @for (int i = 0; i < Model.ListImg.Count; i++)
                                                     {
                                                         <tr>
                                                             <td>Hình số @index</td>
-                                                            <td>@Model.ListImageUrl[i]</td>
+                                                            <td>
+                                                                @if (!string.IsNullOrEmpty(@Model.ListImg[i].ImageURL))
+                                                                {
+                                                                    <img id="upload-preview-1-1" src="@Model.ListImg[i].ImageURL" style="width: 35%" />
+                                                                }
+                                                                else
+                                                                {
+                                                                    <img id="upload-preview-1-1" src="@Commons.Image400_250" style="width: 35%" />
+                                                                }                                                            
+                                                            </td>
                                                         </tr>
                                                         index++;
                                                     }

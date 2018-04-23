@@ -11,6 +11,8 @@ namespace WebSaleCable.Areas.ClientSite.Controllers
         // GET: ClientSite/Home
         public ActionResult Index()
         {
+            ViewBag.Location = getListLocation();
+            ViewBag.Category = getListCategory();
             return View();
         }
 

@@ -175,7 +175,7 @@ namespace WebSaleCable.Areas.Administration.Controllers
             }
             catch (Exception ex)
             {
-                NSLog.Logger.Error("House_Detail: ", ex);
+                NSLog.Logger.Error("Product_Detail: ", ex);
                 return null;
             }
         }
@@ -309,7 +309,7 @@ namespace WebSaleCable.Areas.Administration.Controllers
             }
             catch (Exception ex)
             {
-                NSLog.Logger.Error("House_Edit: ", ex);
+                NSLog.Logger.Error("Product_Edit: ", ex);
                 model = GetDetail(model.ID);
                 Response.StatusCode = (int)HttpStatusCode.BadRequest;
                 return new HttpStatusCodeResult(400, ex.Message);
@@ -362,7 +362,7 @@ namespace WebSaleCable.Areas.Administration.Controllers
             }
             catch (Exception ex)
             {
-                NSLog.Logger.Error("House_Delete: ", ex);
+                NSLog.Logger.Error("Product_Delete: ", ex);
                 ModelState.AddModelError("Name", "Sản phẩm này hiện đang sử dụng. Làm ơn kiểm tra lại!");
                 Response.StatusCode = (int)HttpStatusCode.BadRequest;
                 return PartialView("_Delete", model);
