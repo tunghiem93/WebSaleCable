@@ -1,0 +1,91 @@
+﻿@{
+    ViewBag.Title = "Slider";
+    Layout = "~/Areas/Administration/Views/Shared/_Layout.cshtml";
+}
+@model WebSaleCable.Shared.Model.SliderSession
+@using WebSaleCable.Shared
+
+<div role="main" class="right_col">
+    <div class="se-pre-con" style="display: none;"></div>
+    <div class="">
+        <div class="page-title">
+            <div class="title_left" style="padding: 10px 0px;">
+                @Html.Partial("~/Areas/Administration/Views/Shared/_breadcrumb.cshtml",
+                        new Dictionary<string, string> { { "A", "Quản lý" }, { "B", "Slider" }, { "C", "Danh sách" } })
+            </div>
+        </div><!--end page-->
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_title">
+                    @Html.Partial("_TabMenu", "view")
+                    <div class="clearfix"></div>
+                </div><!--end x_title-->
+                <div class="x_content">
+                    <div class="row text-right">
+                        <ul class="header-buttons pull-right list-inline">
+                            <li><a href="javascript:void(0)" class="btn btn-success" id="btn-actives" onclick="SubmitForm('.create-form')"><i class="fa fa-save"></i>&nbsp;Lưu</a></li>
+                        </ul>
+                    </div>
+                    @using (Html.BeginForm("UpdateSlider", "Slider", FormMethod.Post, new { @class = "form-horizontal create-form" }))
+                    {
+                        <div class="box-body no-padding">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Hình ảnh</th>
+                                        <th></th>
+                                        <th>Tùy chỉnh</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="list-image-item-product">
+                                    @if (Model.ListImg != null && Model.ListImg.Count > 0)
+                                    {
+                                        foreach (var item in Model.ListImg)
+                                        {
+                                            <tr class="ng-image-product product-select-@item.OffSet" data-offset="@item.OffSet"
+                                                style="@string.Format("display:{0};", !item.IsDelete ? "table-row" : "none")">
+                                                <td>
+                                                    <img id="upload-preview-@item.OffSet" src=@string.Format("{0}", string.IsNullOrEmpty(item.ImageURL) ? Commons.Image200_100 : Url.Content(item.ImageURL)) height="100" width="200" class="" />
+                                                </td>
+                                                <td style="line-height:95px;">
+                                                    @Html.TextBox(string.Format("ListImg[{0}].PictureUpload", item.OffSet), item.PictureUpload, new
+                                                    {
+                                                       @type = "file",
+                                                       @onchange = "PreviewImage(this,\"upload-preview-" + item.OffSet + "\")",
+                                                       @accept = "*.jpg"
+                                                   })
+                                                </td>
+                                                <td style="line-height:95px;" class="text-center">
+                                                    <a href="javascript:void(0)" class="" style="font-size:28px;" onclick="DeleteImage(this); return false;" title="Xóa hình ảnh">
+                                                        <i class="fa fa-trash text-red"></i>
+                                                    </a>
+                                                    @Html.Hidden(string.Format("ListImg[{0}].OffSet", item.OffSet), item.OffSet, new { @id = "hidOffSet" })
+                                                    @Html.Hidden(string.Format("ListImg[{0}].ImageURL", item.OffSet), item.ImageURL, new { @id = "hidImageURL" })
+                                                    @Html.Hidden(string.Format("ListImg[{0}].IsDelete", item.OffSet), item.IsDelete, new { @class = "ImgProStatus" })
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    
+                </div><!--end x_content-->
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <!--Row content-->
+        <div class="row">
+        </div>
+    </div>
+    <!--end page-->
+    <div class="detail-view" style="height:100%;">
+    </div>
+</div>
+<script type="text/javascript">
+    function SubmitForm(form) {
+        $(form).submit();
+    }
+</script>
