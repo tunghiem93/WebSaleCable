@@ -5,9 +5,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Hosting;
 using System.Web.Mvc;
+using WebSaleCable.Shared;
 using WebSaleCable.Shared.Factory.CategoryFactory;
 using WebSaleCable.Shared.Factory.LocationFactory;
 using WebSaleCable.Shared.Model;
+using WebSaleCable.Shared.Model.Product;
 
 namespace WebSaleCable.Areas.ClientSite.Controllers
 {
@@ -33,52 +35,44 @@ namespace WebSaleCable.Areas.ClientSite.Controllers
                 System.Web.HttpContext.Current.Session["SliderSession"] = ListSlider;
             }
        }
-        public List<SelectListItem> getListLocation()
+        public List<ItemLocation> getListLocation()
         {
-            var _lstLocation = new List<SelectListItem>();
+            List<ItemLocation> ListLoca = new List<ItemLocation>();
             try
             {
-                LocationFactory _factory = new LocationFactory();
-                var data = _factory.GetListLocation();
-                data = data.OrderBy(o => o.Name).ToList();
-                foreach (var item in data)
-                {
-                    _lstLocation.Add(new SelectListItem
-                    {
-                        Value = item.ID,
-                        Text = item.Name
-                    });
-                }
+                ListLoca = new List<ItemLocation>() {
+                    new ItemLocation(){ ID = Commons.ELocation.KD1.ToString("d"), Name = "KD 1", },
+                    new ItemLocation(){ ID = Commons.ELocation.KD2.ToString("d"), Name = "KD 2", },
+                    new ItemLocation(){ ID = Commons.ELocation.KD3.ToString("d"), Name = "KD 3", },
+                };
             }
             catch (Exception ex)
             {
                 NSLog.Logger.Error("getListLocation", ex);
             }
-            return _lstLocation;
+            return ListLoca;
         }
 
-        public List<SelectListItem> getListCategory()
+        public List<ItemCategory> getListCategory()
         {
-            var _lstCate = new List<SelectListItem>();
+            List<ItemCategory> ListCate = new List<ItemCategory>();
             try
             {
-                CategoryFactory _factory = new CategoryFactory();
-                var data = _factory.GetListCategory();
-                data = data.OrderBy(o => o.Name).ToList();
-                foreach (var item in data)
-                {
-                    _lstCate.Add(new SelectListItem
-                    {
-                        Value = item.ID,
-                        Text = item.Name
-                    });
-                }
+                ListCate = new List<ItemCategory>() {
+                    new ItemCategory(){ ID = Commons.ECategory.CapSacLighting.ToString("d"), Name = "Cáp sạc lighting", },
+                    new ItemCategory(){ ID = Commons.ECategory.CapSacMicroUSB.ToString("d"), Name = "Cáp sạc micro USB", },
+                    new ItemCategory(){ ID = Commons.ECategory.CapSacNhanh3Trong1.ToString("d"), Name = "Cáp sạc nhanh 3 trong 1", },
+                    new ItemCategory(){ ID = Commons.ECategory.CapSacTypeC.ToString("d"), Name = "Cáp sạc Type C", },
+                    new ItemCategory(){ ID = Commons.ECategory.CuSacNhanh.ToString("d"), Name = "Củ sạc nhanh", },
+                    new ItemCategory(){ ID = Commons.ECategory.CuSacThuong.ToString("d"), Name = "Củ sạc thường", },
+                    new ItemCategory(){ ID = Commons.ECategory.PinDuPhong.ToString("d"), Name = "Pin dự phòng", },
+                };
             }
             catch (Exception ex)
             {
                 NSLog.Logger.Error("getListCategory", ex);
             }
-            return _lstCate;
+            return ListCate;
         }
     }
 }
