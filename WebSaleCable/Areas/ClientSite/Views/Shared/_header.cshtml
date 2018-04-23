@@ -15,32 +15,21 @@
                             @if (ListCate != null && ListCate.Any())
                             {
                                 <ul class='vertical-menu-list'>
+                                    <li class="level0">
+                                        <a class='' href='http://phukienquare.com/bang-gia-si-j852/'><span>Bảng báo giá</span></a>
+                                    </li>
+                                    <li class="level0">
+                                        <a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"> <span>Tất cả sản phẩm</span></a>
+                                    </li>
                                     @foreach (var item in ListCate)
                                     {
                                         <li class="level0">
                                             <a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = item.Id })')"><span>@item.Name</span></a>
                                         </li>
                                     }
-                                    @*<li class="level0">
-                                        <a class='' href='http://phukienquare.com/bang-gia-si-j852/'><span>Bảng báo giá</span></a>
-                                    </li>
-                                    <li class="level0">
-                                        <a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"><span>Thời trang</span></a>
-                                    </li>
-                                    <li class="level0"><a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"><span>Điện thoại & Ipad</span></a></li>
-                                    <li class="level0"><a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"> <span>Mỹ phẩm</span></a></li>
-                                    <li class="level0">
-                                        <a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"> <span>Thể thao</span></a>
-                                    </li>
-                                    <li class="level0"><a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"> <span>Mẹ và bé</span></a></li>
-                                    <li class="level0"><a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"> <span>Phụ kiện công nghệ</span></a></li>
-                                    <li class="level0"><a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"> <span>Laptop</span></a></li>
-                                    <li class="level0">
-                                        <a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"> <span>Trang sức</span></a>
-                                    </li>
                                     <li class="level0">
                                         <a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')"> <span>Sản phẩm khác...</span></a>
-                                    </li>*@
+                                    </li>
                                 </ul>
                             }
                             
@@ -61,7 +50,9 @@
                                     <li class="level0"><a class='' href='/trang-chu.html'><span>Trang chủ</span></a></li>
                                     <li class="level0"><a class='' href='/gioi-thieu.html'><span>Giới thiệu</span></a></li>
                                     <li class="level0"><a class='' href='/san-pham.html'><span>Sản phẩm</span></a></li>
-                                    <li class="level0"><a class='' href='/tin-tuc.html'><span>Tin tức</span></a></li>
+                                    <li class="level0"><a class='' href='/tin-tuc.html'><span>Tuyển dụng</span></a></li>
+                                    <li class="level0"><a class='' href='/lien-he.html'><span>Chính sách</span></a></li>
+                                    <li class="level0"><a class='' href='/lien-he.html'><span>Tin tức</span></a></li>
                                     <li class="level0"><a class='' href='/lien-he.html'><span>Liên hệ</span></a></li>
                                 </ul>
                             </div><!--/.nav-collapse -->
