@@ -47,6 +47,12 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12">Quốc gia</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Model.Country
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="control-label col-md-2 col-sm-2 col-xs-12">Ngày sinh</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     @Model.BirthDate.ToString("dd/MM/yyyy")
@@ -56,30 +62,6 @@
                                 <label class="control-label col-md-2 col-sm-2 col-xs-12">Địa chỉ</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     @Model.Address
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-2 col-sm-2 col-xs-12">Zipcode</label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    @Model.ZipCode
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-2 col-sm-2 col-xs-12">Quốc gia</label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    @Model.Company
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-2 col-sm-2 col-xs-12">Công ty</label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    @Model.City
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-2 col-sm-2 col-xs-12">Địa chỉ website</label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    @Model.WebSite
                                 </div>
                             </div>
                             <div class="form-group">
@@ -109,12 +91,12 @@
                                     @string.Format("{0}", Model.IsActive ? "Đang hoạt động" : "Không hoạt động")
                                 </div>
                             </div>
-                            <div class="form-group">
+                            @*<div class="form-group">
                                 <label class="control-label col-md-2 col-sm-2 col-xs-12">Mô tả chi tiết</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     @Model.Description
                                 </div>
-                            </div>
+                            </div>*@
                         </div>
   
                     </div>

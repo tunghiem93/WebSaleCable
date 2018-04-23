@@ -17,6 +17,7 @@
                             <th class="column-title text-center">Số điện thoại</th>
                             <th class="column-title text-center">Ngày sinh</th>
                             <th class="column-title text-center">Giới tính</th>
+                            <th class="column-title text-center">Tình trạng hoạt động</th>
                             <th class="column-title text-center">Tùy chỉnh</th>
                         </tr>
                     </thead>
@@ -45,6 +46,16 @@
                                        {
                                         <span class="label label-danger">Nam</span>
                                        }
+                                    </td>
+                                    <td style="text-align: center; ">
+                                        @if (item.IsActive)
+                                        {
+                                            <span class="label label-success">Đang hoạt động</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="label label-danger">Không hoạt động</span>
+                                        }
                                     </td>
                                     <td style="text-align: center; ">
                                         <a href="#"
@@ -106,13 +117,14 @@
 
         var table = $('#datatable-responsive').DataTable({
             "columnDefs": [
-                { "orderable": false, "targets": [5] },
+                { "orderable": false, "targets": [6] },
                 { "width": "20%", "targets": [0] },
                 { "width": "10%", "targets": [1] },
                 { "width": "5%", "targets": [2] },
                 { "width": "5%", "targets": [3] },
                 { "width": "5%", "targets": [4] },
-                { "width": "5%", "targets": [5] }
+                { "width": "5%", "targets": [5] },
+                { "width": "5%", "targets": [6] }
             ],
             "order": [[0, 'asc']],
             "displayLength": 25,

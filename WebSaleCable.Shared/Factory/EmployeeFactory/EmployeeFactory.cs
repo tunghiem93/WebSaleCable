@@ -23,10 +23,12 @@ namespace WebSaleCable.Shared.Factory.EmployeeFactory
                         FirstName = o.FirstName,
                         LastName = o.LastName,
                         // Name = o.Name,
+                        Phone = o.Phone,
                         Email = o.Email,
                         Password = o.Password,
-                        Phone = o.Phone,
+                        Country = o.Country,
                         BirthDate = o.BirthDate,
+                        Address = o.Address,
                         Gender = o.Gender,
                         MaritalStatus = o.MaritalStatus,
                         IsSupperAdmin = o.IsSupperAdmin,
@@ -35,7 +37,6 @@ namespace WebSaleCable.Shared.Factory.EmployeeFactory
                         CreatedUser = o.CreatedUser,
                         ModifiedDate = o.ModifiedDate,
                         ModifiedUser = o.ModifiedUser,
-                        Address = o.Address
                     }).ToList();
                     return lstResult;
                 }
@@ -59,10 +60,12 @@ namespace WebSaleCable.Shared.Factory.EmployeeFactory
                         FirstName = o.FirstName,
                         LastName = o.LastName,
                         //  Name = o.Name,
+                        Phone = o.Phone,
                         Email = o.Email,
                         Password = o.Password,
-                        Phone = o.Phone,
+                        Country = o.Country,
                         BirthDate = o.BirthDate,
+                        Address = o.Address,
                         Gender = o.Gender,
                         MaritalStatus = o.MaritalStatus,
                         IsSupperAdmin = o.IsSupperAdmin,
@@ -71,7 +74,6 @@ namespace WebSaleCable.Shared.Factory.EmployeeFactory
                         CreatedUser = o.CreatedUser,
                         ModifiedDate = o.ModifiedDate,
                         ModifiedUser = o.ModifiedUser,
-                        Address = o.Address,
                         ConfirmPassword = o.Password
                     }).FirstOrDefault();
                     return result;
@@ -108,18 +110,19 @@ namespace WebSaleCable.Shared.Factory.EmployeeFactory
                             item.LastName = model.LastName;
                             item.Name = model.Name;
                             item.Phone = model.Phone;
+                            item.Email = model.Email;
+                            item.Password = model.Password;
+                            item.Country = model.Country;
                             item.BirthDate = model.BirthDate;
+                            item.Address = model.Address;
                             item.Gender = model.Gender;
                             item.MaritalStatus = model.MaritalStatus;
-                            item.IsSupperAdmin = model.IsSupperAdmin;
                             item.IsActive = model.IsActive;
+                            item.IsSupperAdmin = model.IsSupperAdmin;
                             item.CreatedDate = DateTime.Now;
                             item.CreatedUser = model.CreatedUser;
                             item.ModifiedDate = DateTime.Now;
                             item.ModifiedUser = model.CreatedUser;
-                            item.Address = model.Address;
-                            item.Email = model.Email;
-                            item.Password = model.Password;
                             cxt.dbEmployee.Add(item);
                             cxt.SaveChanges();
                             transaction.Commit();
@@ -198,17 +201,18 @@ namespace WebSaleCable.Shared.Factory.EmployeeFactory
                                 itemUpdate.FirstName = model.FirstName;
                                 itemUpdate.LastName = model.LastName;
                                 itemUpdate.Name = model.Name;
+                                itemUpdate.Phone = model.Phone;
                                 itemUpdate.Email = model.Email;
                                 itemUpdate.Password = model.Password;
-                                itemUpdate.Phone = model.Phone;
+                                itemUpdate.Country = model.Country;
                                 itemUpdate.BirthDate = model.BirthDate;
+                                itemUpdate.Address = model.Address;
                                 itemUpdate.Gender = model.Gender;
                                 itemUpdate.MaritalStatus = model.MaritalStatus;
-                                itemUpdate.IsSupperAdmin = model.IsSupperAdmin;
                                 itemUpdate.IsActive = model.IsActive;
+                                itemUpdate.IsSupperAdmin = model.IsSupperAdmin;
                                 itemUpdate.ModifiedDate = DateTime.Now;
                                 itemUpdate.ModifiedUser = model.CreatedUser;
-                                itemUpdate.Address = model.Address;
                                 cxt.SaveChanges();
                                 transaction.Commit();
                             }
