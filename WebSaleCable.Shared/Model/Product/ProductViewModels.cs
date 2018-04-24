@@ -15,6 +15,7 @@ namespace WebSaleCable.Shared.Model.Product
         public string CateID { get; set; }
         public List<ItemCategory> ListCate { get; set; }
         public int TotalProduct { get; set; }
+        public bool IsAddMore { get; set; }
         public ProductViewModels()
         {
             ListLoca = new List<ItemLocation>();
