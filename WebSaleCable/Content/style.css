@@ -2098,10 +2098,11 @@ span.notify-left{
 	width: 100%;
 	height: auto;
 }
-.header-top-right .homeslider img{
-	width: 100%;
-	height: auto;
-}
+    .header-top-right .homeslider img {
+        width: 100%;
+        /*height: auto;*/
+        height: 375px; /*Edit by tu 24-04-2018*/
+    }
 .header-top-right .homeslider .bx-wrapper .bx-viewport {
 	-moz-box-shadow: 0;
 	-webkit-box-shadow: 0;
