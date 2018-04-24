@@ -22,7 +22,7 @@ namespace WebSaleCable.Shared.Model.Product
         public int Type { get; set; }
         public string Length { get; set; }
         public string Width { get; set; }
-        public double GuaranteePeriod { get; set; }
+        public string GuaranteePeriod { get; set; }
         public string Description { get; set; }
         public string Production { get; set; }
         public string Code { get; set; }
