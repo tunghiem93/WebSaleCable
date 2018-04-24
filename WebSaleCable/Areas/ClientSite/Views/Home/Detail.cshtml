@@ -57,7 +57,7 @@
                                         <span class='bagi_price'>
                                             <b>Giá cả:</b> @Model.Product.Price
                                         </span>
-                                        <span class='bagi_price_ bagi_price_in_stock'>Còn Hàng</span>
+                                        <span class='bagi_price_ bagi_price_in_stock'>@string.Format("{0}",string.IsNullOrEmpty(Model.Product.State) ? "Còn hàng" : Model.Product.State)</span>
                                     </p>
                                 </div>
 
@@ -67,7 +67,7 @@
                                     </span>
                                 </p>
 
-                                @*<span class='sku no-rating-sku'><b>Mã sản phẩm:</b> CB-CF10</span>*@
+                                <span class='sku no-rating-sku'><b>Mã sản phẩm:</b> @Model.Product.Code</span>
                                 <div class="woocommerce-product-details__short-description">
                                     <p>@Model.Product.Description</p>
                                     <p>Sản xuất tại @Model.Product.Production</p>
@@ -80,7 +80,56 @@
                             </div>
 
                             <div class="clear hr"></div>
-
+                            <div class="woocommerce-tabs wc-tabs-wrapper">
+                                 <ul class="tabs wc-tabs" role="tablist">
+                                     <li class="description_tab" id="tab-title-description" role="tab" aria-controls="tab-description">
+                                         <a href="#tab-description">Mô tả</a>
+                                     </li>
+                                     <li class="tskt_tab_tab" id="tab-title-tskt_tab" role="tab" aria-controls="tab-tskt_tab">
+                                         <a href="#tab-tskt_tab">Thông Số Kĩ Thuật</a>
+                                     </li>
+                                 </ul>
+                                 <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab" id="tab-description" role="tabpanel" aria-labelledby="tab-title-description">
+                                     <div class="content-product">
+                                        @Model.Product.MoreInformation
+                                     </div>
+     
+                                 </div>
+                                 <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--tskt_tab panel entry-content wc-tab" id="tab-tskt_tab" role="tabpanel" aria-labelledby="tab-title-tskt_tab">
+                                     <div class="row at-property-features">
+                                         <div class="col-md-6 clearfix">
+                                             <ul>
+                                                 <li>
+                                                     Tên : <em class="">@Model.Product.Name</em>
+                                                 </li>
+                                                 <li>
+                                                     Thể loại: <em class="">@Model.Product.CategoryName</em>
+                                                 </li>
+                                                 <li>
+                                                     Chiều dài (đơn vị: mét) : @Model.Product.Length  @*<em class="">@String.Format("{0:0,0 vnđ}", string.IsNullOrEmpty(Model.Product.Price) ? 0 : Convert.ToDecimal(Model.Product.Price))</em>*@
+                                                 </li>
+                                                 <li>
+                                                     Chiều rộng (đơn vị: mét) : <em class=""> @Model.Product.Width</em>
+                                                 </li>
+                                             </ul>
+                                         </div>
+                                         <div class="col-md-6">
+                                             <ul>
+                                                 <li>
+                                                     Sản xuất : <em class="">@Model.Product.Production</em>
+                                                 </li>
+                                                 <li>
+                                                     Màu sắc : <em class="">@Model.Product.Color</em>
+                                                 </li>
+                                                 <li>
+                                                     Trọng lượng : <em class="">@Model.Product.Weight</em>
+                                                 </li>
+                                             </ul>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+                               
                             <section class="related products">
                                 <b class="header">Sản phẩm tương tự</b>
                                 @if (Model.ListProduct != null && Model.ListProduct.Any())

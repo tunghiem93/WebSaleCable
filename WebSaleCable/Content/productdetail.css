@@ -308,3 +308,27 @@ p.stars.selected a.active:before {
 ul.products li.product.first {
     clear: none !important;
 }
+
+ .at-property-features ul li {
+    border-bottom: 1px solid #E6E6E6;
+    background: #F2F2F2;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: capitalize;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 20px;
+}
+ .at-property-features ul li:before {
+        content: "\f101";
+        font-family: FontAwesome;
+        margin: 10px;
+    } .at-property-features ul li span {
+        color: #CC935C;
+    }
+ul li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
