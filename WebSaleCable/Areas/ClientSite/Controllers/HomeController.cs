@@ -69,6 +69,7 @@ namespace WebSaleCable.Areas.ClientSite.Controllers
                             }
                         };
                     }
+                    dataDetail.ListImg = dataDetail.ListImg.OrderBy(x => x.ImageURL).Skip(0).Take(4).ToList();
 
                     var oldData = data.Where(x => !x.ID.Equals(id) && x.CategoryID.Equals(dataDetail.CategoryID)).OrderBy(x => x.CreatedDate).Skip(0).Take(5).ToList();
                     oldData.ForEach(x =>
