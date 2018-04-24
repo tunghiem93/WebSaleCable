@@ -43,14 +43,14 @@
                                         <div class="form-group">
                                             <label for="Password" class="col-sm-3 control-label">Mật khẩu<span class="warning">(*)</span></label>
                                             <div class="col-sm-9">
-                                                @Html.TextBoxFor(model => model.Password, new { @class = "form-control", @placeholder = "Mật khẩu" })
+                                                @Html.PasswordFor(model => model.Password, new { @class = "form-control txtpassword", @placeholder = "Mật khẩu" })
                                                 @Html.ValidationMessageFor(model => model.Password, null, new { @class = "label label-danger", })
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="RePassword" class="col-sm-3 control-label">Xác nhận mật khẩu<span class="warning">(*)</span></label>
                                             <div class="col-sm-9">
-                                                @Html.TextBoxFor(model => model.ConfirmPassword, new { @class = "form-control", @placeholder = "Xác nhận mật khẩu" })
+                                                @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control txtConfirmPassword", @placeholder = "Xác nhận mật khẩu" })
                                                 @Html.ValidationMessageFor(model => model.ConfirmPassword, null, new { @class = "label label-danger", })
                                             </div>
                                         </div>
@@ -93,6 +93,7 @@
                                                 @Html.ValidationMessageFor(model => model.BirthDate, null, new { @class = "label label-danger" })
                                             </div>
                                         </div>
+
                                         <div class="form-group">
                                             <label for="" class="col-sm-3 control-label">Điện thoại</label>
                                             <div class="col-sm-9">
@@ -139,7 +140,6 @@
 </body>
 </html>
 
-<script src="@Url.Content("~/Libaraies/vendors/periodpicker/jquery.periodpicker.full.min.js")"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $('.datepicker1').daterangepicker({
@@ -148,13 +148,16 @@
             maxDate: new Date(),
             //==========
             showDropdowns: true,
-            //locale: {
-            //    daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-            //    monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-            //}
+            locale: {
+                format: 'DD/MM/YYYY',
+                daysOfWeek: ['CN', 'Hai', 'Ba', 'Tư', 'Năm', 'Sáu', 'Bảy'],
+                monthNames: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12']
+            }
         }, function (start, end, label) {
         });
     });
+     $('.txtpassword').val('@Model.Password')
+     $('.txtConfirmPassword').val('@Model.ConfirmPassword')
     $(".header-content").css({ "background": '' });
     $("html").addClass('');
 </script>

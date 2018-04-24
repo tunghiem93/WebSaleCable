@@ -12,8 +12,23 @@
                     <li style="color: #808080 !important; "><span> Chào mừng bạn đến <strong class="hotline">GB VN</strong></span></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right topmenu  hidden-xs hidden-sm">
-                    <li class="account-login"><a href="@Url.Action("SignIn","Login")"><i class="fa fa-sign-in"></i> Đăng nhập </a></li>
-                    <li class="account-register"><a target="_blank" href="@Url.Action("SignUp","Login")"><i class="fa fa-key"></i> Đăng ký </a></li>
+                    @{
+                        var user = Session["UserClient"] as WebSaleCable.Shared.Models.UserSession;
+                        if (user != null)
+                        {
+                            <li class=""><a href="javascript:void(0)"><i class="fa fa-user"></i> @user.UserName </a></li>
+                            <li class="icofont icofont-logout">
+                                <a href="@Url.Action("Logout","Login")"><i class="fa fa-sign-in"></i> Đăng xuất </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="account-login"><a href="@Url.Action("SignIn","Login")"><i class="fa fa-sign-in"></i> Đăng nhập </a></li>
+                            <li class="account-register"><a target="_blank" href="@Url.Action("SignUp","Login")"><i class="fa fa-key"></i> Đăng ký </a></li>
+                        }
+                    }
+
+                  
                 </ul>
                 <div class="show-mobile hidden-lg hidden-md">
                     <div class="quick-user">
