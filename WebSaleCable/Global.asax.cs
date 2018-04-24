@@ -11,6 +11,7 @@ using System.Web.Routing;
 using WebSaleCable.Shared;
 using WebSaleCable.Shared.Factory.CategoryFactory;
 using WebSaleCable.Shared.Factory.LocationFactory;
+using WebSaleCable.Shared.Models;
 
 namespace WebSaleCable
 {
@@ -98,6 +99,18 @@ namespace WebSaleCable
                     cookie.Value = Server.UrlEncode(myObjectJson);
                     Response.Cookies.Add(cookie);
                     Session.Add("Catelogies", _cate);
+                }
+            }
+
+
+            HttpCookie _UserClientCookie = Request.Cookies["UserClientCookie"];
+            if (_UserClientCookie != null)
+            {
+                var input = Server.UrlDecode(_UserClientCookie.Value);
+                UserSession userSession = JsonConvert.DeserializeObject<UserSession>(input); //new JavaScriptSerializer().Deserialize<UserSession>(input);
+                if (userSession != null && HttpContext.Current.Session != null)
+                {
+                    Session.Add("UserClient", userSession);
                 }
             }
         }
