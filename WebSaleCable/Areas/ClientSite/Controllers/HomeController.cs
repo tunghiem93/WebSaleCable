@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebSaleCable.Shared;
@@ -19,79 +20,96 @@ namespace WebSaleCable.Areas.ClientSite.Controllers
         // GET: ClientSite/Home
         public ActionResult Index()
         {
-            ProductViewModels model = new ProductViewModels();
-            model.ListProduct = _fac.GetListProduct();
-            model.ListProduct.ForEach(x =>
+            try
             {
-                if (!string.IsNullOrEmpty(x.ImageURL))
-                    x.ImageURL = Commons.HostImage + x.ImageURL;
-            });
-            if(model.ListProduct != null && model.ListProduct.Any())
-            {
-                model.TotalProduct = model.ListProduct.Count;
-                model.ListProduct = model.ListProduct.OrderByDescending(x => x.CreatedDate).Skip(0).Take(6).ToList();
+                ProductViewModels model = new ProductViewModels();
+                model.ListProduct = _fac.GetListProduct();
+                model.ListProduct.ForEach(x =>
+                {
+                    if (!string.IsNullOrEmpty(x.ImageURL))
+                        x.ImageURL = Commons.HostImage + x.ImageURL;
+                });
+                if (model.ListProduct != null && model.ListProduct.Any())
+                {
+                    model.TotalProduct = model.ListProduct.Count;
+                    model.ListProduct = model.ListProduct.OrderByDescending(x => x.CreatedDate).Skip(0).Take(6).ToList();
+                }
+                return View(model);
             }
-            return View(model);
+            catch (Exception ex)
+            {
+                NSLog.Logger.Error("Index: ", ex);
+                return new HttpStatusCodeResult(400, ex.Message);
+            }            
         }
 
         public ActionResult Detail(string id)
         {
-            ProductDetailViewModels model = new ProductDetailViewModels();
-            if (!string.IsNullOrEmpty(id))
+            try
             {
-
-                var data = _fac.GetListProduct();
-                
-                var dataDetail = data.Where(x => x.ID.Equals(id)).FirstOrDefault();
-                if (dataDetail != null)
+                ProductDetailViewModels model = new ProductDetailViewModels();
+                if (!string.IsNullOrEmpty(id))
                 {
-                    if (!string.IsNullOrEmpty(dataDetail.ImageURL))
-                        dataDetail.ImageURL = Commons.HostImage + dataDetail.ImageURL;
-                    else
-                        dataDetail.ImageURL = Commons.Image400_250;
-                    if (dataDetail.ListImg != null)
+
+                    var data = _fac.GetListProduct();
+
+                    var dataDetail = data.Where(x => x.ID.Equals(id)).FirstOrDefault();
+                    if (dataDetail != null)
                     {
-                        dataDetail.ListImg.ForEach(x =>
+                        if (!string.IsNullOrEmpty(dataDetail.ImageURL))
+                            dataDetail.ImageURL = Commons.HostImage + dataDetail.ImageURL;
+                        else
+                            dataDetail.ImageURL = Commons.Image400_250;
+                        if (dataDetail.ListImg != null)
                         {
-                            x.ImageURL = Commons.HostImage + x.ImageURL;
-                        });
-                        dataDetail.ListImg.Add(new ImageProduct {
-                            ImageURL = dataDetail.ImageURL
-                        });
-                    }
-                    else
-                    {
-                        dataDetail.ListImg = new List<ImageProduct>()
+                            dataDetail.ListImg.ForEach(x =>
+                            {
+                                x.ImageURL = Commons.HostImage + x.ImageURL;
+                            });
+                            dataDetail.ListImg.Add(new ImageProduct
+                            {
+                                ImageURL = dataDetail.ImageURL
+                            });
+                        }
+                        else
+                        {
+                            dataDetail.ListImg = new List<ImageProduct>()
                         {
                             new ImageProduct
                             {
                                 ImageURL = dataDetail.ImageURL
                             }
                         };
-                    }
-                    dataDetail.ListImg = dataDetail.ListImg.OrderBy(x => x.ImageURL).Skip(0).Take(4).ToList();
+                        }
+                        dataDetail.ListImg = dataDetail.ListImg.OrderBy(x => x.ImageURL).Skip(0).Take(4).ToList();
 
-                    var oldData = data.Where(x => !x.ID.Equals(id) && x.CategoryID.Equals(dataDetail.CategoryID)).OrderBy(x => x.CreatedDate).Skip(0).Take(5).ToList();
-                    oldData.ForEach(x =>
+                        var oldData = data.Where(x => !x.ID.Equals(id) && x.CategoryID.Equals(dataDetail.CategoryID)).OrderBy(x => x.CreatedDate).Skip(0).Take(5).ToList();
+                        oldData.ForEach(x =>
+                        {
+                            if (!string.IsNullOrEmpty(x.ImageURL))
+                                x.ImageURL = Commons.HostImage + x.ImageURL;
+                            else
+                                x.ImageURL = Commons.Image400_250;
+                        });
+                        model.ListProduct = oldData;
+                        model.Product = dataDetail;
+                        return View(model);
+                    }
+                    else
                     {
-                        if (!string.IsNullOrEmpty(x.ImageURL))
-                            x.ImageURL = Commons.HostImage + x.ImageURL;
-                        else
-                            x.ImageURL = Commons.Image400_250;
-                    });
-                    model.ListProduct = oldData;
-                    model.Product = dataDetail;
-                    return View(model);
+                        return RedirectToAction("Index", "Home");
+                    }
                 }
                 else
                 {
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index");
                 }
             }
-            else
+            catch (Exception ex)
             {
-                return RedirectToAction("Index");
-            }
+                NSLog.Logger.Error("GetDetail: ", ex);
+                return new HttpStatusCodeResult(400, ex.Message);
+            }            
         }
 
         [HttpGet]
@@ -128,6 +146,6 @@ namespace WebSaleCable.Areas.ClientSite.Controllers
                 }
             }
             return PartialView("_ListItem", model);
-        }
+        }        
     }
 }
