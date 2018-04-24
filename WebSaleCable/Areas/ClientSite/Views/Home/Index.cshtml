@@ -66,8 +66,10 @@
                         </span>
                     </h2>
                     <div id="products" class="list-group">
-                        @Html.Partial("_ListItem",Model.ListProduct)
+                        @Html.Partial("_ListItem",Model)
                     </div>
+
+
                 </div>
                 <!--End-->
             </div>
@@ -80,6 +82,13 @@
         ShowViewOrEdit(url);
         return false;
     }
+
+    //function ShowViewAll(url)
+    //{
+    //    $('.addmore').addClass("hidden");
+    //    ShowViewOrEdit(url);
+    //    return false;
+    //}
 
     function ShowViewOrEdit(action) {
         $.ajax({

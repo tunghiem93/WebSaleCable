@@ -1,40 +1,44 @@
-﻿@model List<WebSaleCable.Shared.Model.Product.ProductModels>
+﻿@model WebSaleCable.Shared.Model.Product.ProductViewModels
     @using WebSaleCable.Shared
-@if (Model != null && Model.Any())
+<div class="table-responsive">
+    <table class="table table-striped table-bordered dt-responsive nowrap table table-striped jambo_table bulk_action" id="datatable-responsive" cellspacing="0" style="width:100%;">
+        <thead>
+            <tr class="headings">
+                <th class="column-title text-center" style="font-weight:bold;width:15%;">Hình ảnh</th>
+                <th class="column-title text-center" style="font-weight:bold;width:35%">Sản phẩm</th>
+                <th class="column-title text-center" style="font-weight:bold;width:10%">Giá bán</th>
+                <th class="column-title text-center" style="font-weight:bold;width:15%">Giá số lượng lớn</th>
+                <th class="column-title text-center" style="font-weight:bold;width:10%">Bảo hành</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.ListProduct != null && Model.ListProduct.Any())
+            {
+                foreach (var item in Model.ListProduct)
+                {
+                    <tr>
+                        <td class="column-title text-center"><img class="img-responsive" alt="03" src="@string.Format("{0}", string.IsNullOrEmpty(item.ImageURL) ? Commons.Image400_250 : Url.Content(item.ImageURL))" style="width:200px !important;height:160px !important"></td>
+                        <td class="column-title text-center">@item.Name</td>
+                        <td class="column-title text-center">@item.Price</td>
+                        <td class="column-title text-center"></td>
+                        <td class="column-title text-center">@item.GuaranteePeriod</td>
+                    </tr>
+                }
+            }
+            else {
+                <tr>
+                    <td colspan="5" class="column-title text-center">Không Tìm Thấy Sản Phẩm</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@if (Model.TotalProduct > 6 && !Model.IsAddMore)
 {
-    foreach (var item in Model)
-    {
-        <div class="item list-group-item col-xs-4 col-lg-4">
-            <div class="thumbnail">
-                <img class="img-responsive" alt="03" src="@string.Format("{0}", string.IsNullOrEmpty(item.ImageURL) ? Commons.Image400_250 : Url.Content(item.ImageURL))">
-                @*<img class="group list-group-image" src="@Commons.Image350_200" alt="" />*@
-                <div class="caption">
-                    <p class="">
-                        @item.Name
-                    </p>
-                    <p class="">
-                        <i style="font-weight:bold">Địa chỉ:</i> ABC
-                    </p>
-                    <p class="">
-                        <i style="font-weight:bold">Chiều dài:</i>ABC
-                    </p>
-                    <p class="">
-                        <i style="font-weight:bold">Chiệu rộng:</i>ABC
-                    </p>
-                    <p class="">
-                        <i style="font-weight:bold">Diện tích:</i> ABC
-                    </p>
-                    <p class="">
-                        <i style="font-weight:bold">Giá:</i> ABC
-                    </p>
-                    <p class="moretext">
-                        <i style="font-weight:bold">Mô tả:</i> ABC
-                    </p>
-                </div>
-            </div>
-        </div>
-    }
-}else
-{
-<p> Không tìm thấy kết quả tìm kiếm</p>
+    <div class="addmore" style="text-align:center">
+        <button id="btnsearch" onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = 1 })')" class="text-center btn-search" style="background-color: #958457;width: 110px;height: 41px;color: #ffffff;">
+            <span class="hidden-400">Xem thêm</span>
+            <span class="show-400"><i class="fa fa-search"></i></span>
+        </button>
+    </div>
 }
