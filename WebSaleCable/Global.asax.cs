@@ -66,7 +66,7 @@ namespace WebSaleCable
                     List<CateSession> cateSession = JsonConvert.DeserializeObject<List<CateSession>>(input); //new JavaScriptSerializer().Deserialize<UserSession>(input);
                     if (cateSession != null && HttpContext.Current.Session != null)
                     {
-                        cateSession = cateSession.OrderByDescending(x=>x.Name).Skip(0).Take(8).ToList();
+                        cateSession = cateSession.OrderBy(x=>x.Name).Skip(0).Take(8).ToList();
                         Session.Add("Catelogies", cateSession);
                     }
                 }
@@ -79,7 +79,7 @@ namespace WebSaleCable
                 {
                     Id = x.ID,
                     Name = x.Name
-                }).OrderByDescending(x=>x.Name).Skip(0).Take(8).ToList();
+                }).OrderBy(x=>x.Name).Skip(0).Take(8).ToList();
                 if (_cate != null && _cate.Any())
                 {
                     string myObjectJson = JsonConvert.SerializeObject(_cate);  //new JavaScriptSerializer().Serialize(userSession);

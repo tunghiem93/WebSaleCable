@@ -80,11 +80,11 @@ namespace WebSaleCable.Areas.Administration.Controllers
                 if (result)
                 {
                     HttpCookie _LocationCookie = Request.Cookies["CateCookie"];
-                    if (_LocationCookie == null)
-                    {
-                        HttpCookie cookie = new HttpCookie("CateCookie");
-                        cookie.Expires = DateTime.Now.AddYears(10);
-                    }
+                    //if (_LocationCookie == null)
+                    //{
+                    //    HttpCookie cookie = new HttpCookie("CateCookie");
+                    //    cookie.Expires = DateTime.Now.AddYears(10);
+                    //}
                     CategoryFactory _facLoc = new CategoryFactory();
                     var _loc = _facLoc.GetListCategory().Select(x => new CateSession
                     {
@@ -147,11 +147,11 @@ namespace WebSaleCable.Areas.Administration.Controllers
                 if (result)
                 {
                     HttpCookie _LocationCookie = Request.Cookies["CateCookie"];
-                    if (_LocationCookie == null)
-                    {
-                        HttpCookie cookie = new HttpCookie("CateCookie");
-                        cookie.Expires = DateTime.Now.AddYears(10);
-                    }
+                    //if (_LocationCookie == null)
+                    //{
+                    //    HttpCookie cookie = new HttpCookie("CateCookie");
+                    //    cookie.Expires = DateTime.Now.AddYears(10);
+                    //}
                     CategoryFactory _facLoc = new CategoryFactory();
                     var _loc = _facLoc.GetListCategory().Select(x => new CateSession
                     {
@@ -207,6 +207,21 @@ namespace WebSaleCable.Areas.Administration.Controllers
                     ModelState.AddModelError("Name", msg);
                     Response.StatusCode = (int)HttpStatusCode.BadRequest;
                     return PartialView("_Delete", model);
+                }
+                HttpCookie _LocationCookie = Request.Cookies["CateCookie"];
+                CategoryFactory _facLoc = new CategoryFactory();
+                var _loc = _facLoc.GetListCategory().Select(x => new CateSession
+                {
+                    Id = x.ID,
+                    Name = x.Name
+                }).ToList();
+                if (_loc != null && _loc.Any())
+                {
+                    string myObjectJson = JsonConvert.SerializeObject(_loc);  //new JavaScriptSerializer().Serialize(userSession);
+                    HttpCookie cookie = new HttpCookie("CateCookie");
+                    cookie.Expires = DateTime.Now.AddYears(10);
+                    cookie.Value = Server.UrlEncode(myObjectJson);
+                    Response.Cookies.Add(cookie);
                 }
                 return new HttpStatusCodeResult(HttpStatusCode.OK);
             }
