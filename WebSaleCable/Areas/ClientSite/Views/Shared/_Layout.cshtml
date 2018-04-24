@@ -128,9 +128,6 @@
 </head>
 <body style="" class="home option2">
     <div class="wrapper page-home">
-        <div id="topNavigation" class="header">
-            @Html.Partial("_topNavigation")
-        </div>
         <div class="main-body">
             @RenderBody()
         </div>
@@ -150,7 +147,7 @@
 <!-- timepicker -->
 
 <script src="@Url.Content("~/Libaraies/vendors/timepicker/bootstrap-timepicker.min.js")"></script>
-<script type="text/javascript">
+@*<script type="text/javascript">
     $(document).ready(function () {
         var _sourcdata = '@Html.Raw(Json.Encode(Session["Location"]))';
         if (_sourcdata.length > 0)
@@ -170,4 +167,4 @@
             });
         }
     })
-</script>
+</script>*@

@@ -393,7 +393,7 @@
                                 <div class="woocommerce-product-details__short-description">
                                     <p>@Model.Product.Description</p>
                                     <p>Sản xuất tại Việt Nam</p>
-                                    @if (Model.Product.GuaranteePeriod > 0)
+                                    @if (!string.IsNullOrEmpty(Model.Product.GuaranteePeriod))
                                     {
                                         <p>Bảo hành @Model.Product.GuaranteePeriod tháng lỗi 1 đổi 1</p>
                                     }

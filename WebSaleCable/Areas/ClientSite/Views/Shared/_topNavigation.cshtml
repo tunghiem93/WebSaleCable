@@ -38,10 +38,10 @@
                         <div class="inner-toggle">
                             <ul class="login links">
                                 <li>
-                                    <a href="/dang-ky.html"><i class="fa fa-sign-in"></i> Đăng ký</a>
+                                    <a href="@Url.Action("SignUp","Login")"><i class="fa fa-sign-in"></i> Đăng ký</a>
                                 </li>
                                 <li>
-                                    <a href="/dang-nhap.html"><i class="fa fa-key"></i> Đăng nhập</a>
+                                    <a href="@Url.Action("SignIn","Login")"><i class="fa fa-key"></i> Đăng nhập</a>
                                 </li>
                             </ul>
                         </div>
@@ -78,7 +78,7 @@
             </div>
         </div>
         <div class="col-xs-5 col-sm-2 group-button-header new-login">
-            <a title="Đăng nhập" href="/dang-nhap.html" class=""></a>
+            <a title="Đăng nhập" href="@Url.Action("SignIn","Login")" class=""></a>
             <div class="">
                 <i class="fa fa-phone hotline"></i> <strong>KD1:</strong><a title="hot-line" href="#"><span class="hotline"> 0988 701 899</span></a><br />                
             </div>
