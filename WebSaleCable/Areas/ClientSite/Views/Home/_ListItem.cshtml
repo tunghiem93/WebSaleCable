@@ -17,7 +17,9 @@
                 foreach (var item in Model.ListProduct)
                 {
                     <tr>
-                        <td class="column-title text-center"><img class="img-responsive" alt="03" src="@string.Format("{0}", string.IsNullOrEmpty(item.ImageURL) ? Commons.Image400_250 : Url.Content(item.ImageURL))" style="width:200px !important;height:160px !important"></td>
+                        <td class="column-title text-center">
+                        <a href="/Home/Detail/@item.ID"><img class="img-responsive" alt="03" src="@string.Format("{0}", string.IsNullOrEmpty(item.ImageURL) ? Commons.Image400_250 : Url.Content(item.ImageURL))" style="width:200px !important;height:160px !important"></a>
+                        </td>
                         <td class="column-title text-center">@item.Name</td>
                         <td class="column-title text-center">@item.Price</td>
                         <td class="column-title text-center"></td>
@@ -25,7 +27,8 @@
                     </tr>
                 }
             }
-            else {
+            else
+            {
                 <tr>
                     <td colspan="5" class="column-title text-center">Không Tìm Thấy Sản Phẩm</td>
                 </tr>

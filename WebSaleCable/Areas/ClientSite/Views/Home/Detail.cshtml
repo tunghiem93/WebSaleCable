@@ -1,6 +1,8 @@
 ﻿@{
     Layout = "~/Areas/ClientSite/Views/Shared/_Layout.cshtml";
 }
+@model WebSaleCable.Shared.Model.Product.ProductDetailViewModels
+@using WebSaleCable.Shared
 <div class="product-template-default single single-product postid-916 wp-custom-logo woocommerce woocommerce-page right-sidebar woocommerce-active">
     <style type="text/css">
         img.wp-smiley,
@@ -341,55 +343,40 @@
         .lazy {
             opacity: 0;
         }
+        ul.products li.product.first{
+            clear:none !important;
+        }
     </style>
-
-    <link rel="icon" href="https://bagi.com.vn/wp-content/uploads/2018/01/cropped-logo1-4-32x32.png" sizes="32x32" />
-    <link rel="icon" href="https://bagi.com.vn/wp-content/uploads/2018/01/cropped-logo1-4-192x192.png" sizes="192x192" />
-    <link rel="apple-touch-icon-precomposed" href="https://bagi.com.vn/wp-content/uploads/2018/01/cropped-logo1-4-180x180.png" />
-    <meta name="msapplication-TileImage" content="https://bagi.com.vn/wp-content/uploads/2018/01/cropped-logo1-4-270x270.png" />
     <div id="page" class="hfeed site">
         <div id="content" class="site-content" tabindex="-1">
             <div class="col-full">
-                <nav class="woocommerce-breadcrumb"><a href="https://bagi.com.vn">Trang chủ</a><span class="breadcrumb-separator"> / </span><a href="https://bagi.com.vn/cap-sac-bagi-cables">Cáp sạc Bagi</a><span class="breadcrumb-separator"> / </span><a href="https://bagi.com.vn/cap-sac-bagi-cables/cap-sac-usb-c">Cáp Sạc USB C</a><span class="breadcrumb-separator"> / </span>Dây Sạc Nhựa Chống Đứt Bagi Type &#8211; C Dài 1m</nav><div class="woocommerce"></div>
+                <nav class="woocommerce-breadcrumb"><a href="/Home/Index">Trang chủ</a><span class="breadcrumb-separator"> / </span><a href="javascript:void(0)">@Model.Product.Name</a></nav><div class="woocommerce"></div>
                 <div id="primary" class="content-area">
                     <main id="main" class="site-main" role="main">
                         <div id="product-916" class="post-916 product type-product status-publish has-post-thumbnail product_cat-cap-sac-bagi-cables product_cat-cap-sac-usb-c first instock shipping-taxable purchasable product-type-simple">
                             <div class="woocommerce-product-gallery woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-4 images" data-columns="4" style="opacity: 0; transition: opacity .25s ease-in-out;">
-                                <figure class="woocommerce-product-gallery__wrapper">
-                                    <div data-thumb="https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-fe-180x180.jpg" class="woocommerce-product-gallery__image">
-                                        <a href="https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-fe.jpg">
-                                            <img width="600" height="450" src="https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-fe-600x450.jpg" class="attachment-shop_single size-shop_single wp-post-image" alt="Cáp sạc nhựa nhanh chống đứt type c CF10" title="cáp sạc nhựa nhanh chống đứt type c cf10" data-caption="" data-src="https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-fe.jpg" data-large_image="https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-fe.jpg" data-large_image_width="600" data-large_image_height="450" srcset="https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-fe.jpg 600w, https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-fe-300x225.jpg 300w, https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-fe-450x338.jpg 450w" sizes="(max-width: 600px) 100vw, 600px" />
-                                        </a>
-                                    </div>
-                                    <div data-thumb="https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-1-180x180.jpg" class="woocommerce-product-gallery__image">
-                                        <a href="https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-1.jpg">
-                                            <img width="600" height="450" src="https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-1-600x450.jpg" class="attachment-shop_single size-shop_single" alt="cáp bọc lưới type c bagi cf10" title="cáp bọc lưới type c bagi cf10" data-caption="" data-src="https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-1.jpg" data-large_image="https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-1.jpg" data-large_image_width="600" data-large_image_height="450" srcset="https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-1.jpg 600w, https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-1-300x225.jpg 300w, https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-1-450x338.jpg 450w" sizes="(max-width: 600px) 100vw, 600px" />
-                                        </a>
-                                    </div>
-                                    <div data-thumb="https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-3-180x180.jpg" class="woocommerce-product-gallery__image">
-                                        <a href="https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-3.jpg">
-                                            <img width="600" height="450" src="https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-3-600x450.jpg" class="attachment-shop_single size-shop_single" alt="cáp bọc lưới type c bagi cf10" title="cáp bọc lưới type c bagi cf10" data-caption="" data-src="https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-3.jpg" data-large_image="https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-3.jpg" data-large_image_width="600" data-large_image_height="450" srcset="https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-3.jpg 600w, https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-3-300x225.jpg 300w, https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-3-450x338.jpg 450w" sizes="(max-width: 600px) 100vw, 600px" />
-                                        </a>
-                                    </div>
-                                    <div data-thumb="https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-4-180x180.jpg" class="woocommerce-product-gallery__image">
-                                        <a href="https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-4.jpg">
-                                            <img width="600" height="450" src="https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-4-600x450.jpg" class="attachment-shop_single size-shop_single" alt="cáp bọc lưới type c bagi cf10" title="cáp bọc lưới type c bagi cf10" data-caption="" data-src="https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-4.jpg" data-large_image="https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-4.jpg" data-large_image_width="600" data-large_image_height="450" srcset="https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-4.jpg 600w, https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-4-300x225.jpg 300w, https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-4-450x338.jpg 450w" sizes="(max-width: 600px) 100vw, 600px" />
-                                        </a>
-                                    </div>
-                                    <div data-thumb="https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-2-180x180.jpg" class="woocommerce-product-gallery__image">
-                                        <a href="https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-2.jpg">
-                                            <img width="600" height="450" src="https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-2-600x450.jpg" class="attachment-shop_single size-shop_single" alt="cáp bọc lưới type c bagi cf10" title="cap-boc-luoi-cáp bọc lưới type c bagi cf10-c-bagi-cf10-2" data-caption="" data-src="https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-2.jpg" data-large_image="https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-2.jpg" data-large_image_width="600" data-large_image_height="450" srcset="https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-2.jpg 600w, https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-2-300x225.jpg 300w, https://bagi.com.vn/wp-content/uploads/2018/02/cap-boc-luoi-type-c-bagi-cf10-2-450x338.jpg 450w" sizes="(max-width: 600px) 100vw, 600px" />
-                                        </a>
-                                    </div>
-                                </figure>
+                                @if (Model.Product != null && Model.Product.ListImg != null && Model.Product.ListImg.Any())
+                                {
+                                    <figure class="woocommerce-product-gallery__wrapper">
+                                        @foreach (var itemImg in Model.Product.ListImg)
+                                        {
+                                            <div data-thumb="@itemImg.ImageURL" class="woocommerce-product-gallery__image">
+                                                <a href="@itemImg.ImageURL">
+                                                    <img width="600" height="450" style="width:100% !important" src="@itemImg.ImageURL" class="attachment-shop_single size-shop_single wp-post-image" alt="Cáp sạc nhựa nhanh chống đứt type c CF10" title="cáp sạc nhựa nhanh chống đứt type c cf10" data-caption="" data-src="@itemImg.ImageURL" data-large_image="@itemImg.ImageURL" data-large_image_width="600" data-large_image_height="450" srcset="@itemImg.ImageURL 600w, @itemImg.ImageURL 300w, @itemImg.ImageURL 450w" sizes="(max-width: 600px) 100vw, 600px" />
+                                                </a>
+                                            </div>
+                                        }
+                                    </figure>
+                                }
+                                
                             </div>
 
                             <div class="summary entry-summary">
-                                <h1 class="product_title entry-title">Dây Sạc Nhựa Chống Đứt Bagi Type &#8211; C Dài 1m</h1>
+                                <h1 class="product_title entry-title">@Model.Product.Name &#8211;</h1>
                                 <div class='bagi_price_wp'>
                                     <p class='price_custom'>
                                         <span class='bagi_price'>
-                                            <b>Giá cả:</b> 160.000VNĐ
+                                            <b>Giá cả:</b> @Model.Product.Price
                                         </span>
                                         <span class='bagi_price_ bagi_price_in_stock'>Còn Hàng</span>
                                     </p>
@@ -397,21 +384,25 @@
 
                                 <p class="price">
                                     <span class="woocommerce-Price-amount amount">
-                                        160.000&nbsp;
+                                        @string.Format("{0}",string.IsNullOrEmpty(Model.Product.Price) ? "0" : Model.Product.Price)&nbsp;
                                         <span class="woocommerce-Price-currencySymbol">VNĐ</span>
                                     </span>
                                 </p>
 
-                                <span class='sku no-rating-sku'><b>Mã sản phẩm:</b> CB-CF10</span>
+                                @*<span class='sku no-rating-sku'><b>Mã sản phẩm:</b> CB-CF10</span>*@
                                 <div class="woocommerce-product-details__short-description">
-                                    <p>Dây sạc nhựa chống đứt bagi Type C dài 1m tương thích tuyệt đối với các thiết bị sử dụng giao diện kết nối Type C hiện nay, cho tốc độ sạc nhanh, khả năng truyền dữ liệu ổn định.</p>
+                                    <p>@Model.Product.Description</p>
                                     <p>Sản xuất tại Việt Nam</p>
-                                    <p>Bảo hành 12 tháng lỗi 1 đổi 1</p>
+                                    @if (Model.Product.GuaranteePeriod > 0)
+                                    {
+                                        <p>Bảo hành @Model.Product.GuaranteePeriod tháng lỗi 1 đổi 1</p>
+                                    }
+                                    
                                 </div>
                             </div>
 
                             <div class="clear hr"></div>
-                            <div class="woocommerce-tabs wc-tabs-wrapper">
+                            @*<div class="woocommerce-tabs wc-tabs-wrapper">
                                 <ul class="tabs wc-tabs" role="tablist">
                                     <li class="description_tab" id="tab-title-description" role="tab" aria-controls="tab-description">
                                         <a href="#tab-description">Mô tả</a>
@@ -461,15 +452,14 @@
                                         <p>Để đặt mua sản phẩm này, bạn có thể tìm tới các đại lý, nhà phân phối trên toàn quốc hoặc đặt trực tuyến tại website để nhận được hàng trong thời gian sớm nhất.</p>
                                         <p>Sản phẩm được bảo hành 1 ĐỔI 1 TRONG 12 THÁNG.</p>
                                         <p>Liên hệ hotline:<strong><span style="color: #ff0000;"> 1900.63.63.93-0204.6.286.004 </span></strong>để nhận tư vấn sản phẩm 24/7</p>
-                                        <!-- AddThis Advanced Settings above via filter on the_content --><!-- AddThis Advanced Settings below via filter on the_content --><!-- AddThis Advanced Settings generic via filter on the_content --><!-- AddThis Share Buttons above via filter on the_content --><!-- AddThis Share Buttons below via filter on the_content --><div class="at-below-post addthis_tool" data-url="https://bagi.com.vn/day-sac-nhua-chong-dut-bagi-type-c-dai-1m-cb-cf10/"></div><!-- AddThis Share Buttons generic via filter on the_content -->
                                     </div>
-                                    @*<p class="hidden-text"><a class="readmore">Đọc Thêm</a></p>*@ 
+
                                 </div>
                                 <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--tskt_tab panel entry-content wc-tab" id="tab-tskt_tab" role="tabpanel" aria-labelledby="tab-title-tskt_tab">
                                 </div>
-                            </div>
+                            </div>*@
 
-                            <div class="product_infomation_sidebar">
+                            @*<div class="product_infomation_sidebar">
                                 <div class="product_infomation_sidebar-item"><img src="http://bagi.com.vn/wp-content/uploads/2018/01/mua-sam-an-toan.png" /><b>Mua Sắm An Toàn</b></div>
                                 <div class="product_infomation_sidebar-item"><img src="http://bagi.com.vn/wp-content/uploads/2018/01/thanh-toan-khi-nhan-hang.png" /><b>Thanh Toán Khi Nhận Hàng</b></div>
                                 <div class="product_infomation_sidebar-item"><img src="http://bagi.com.vn/wp-content/uploads/2018/01/doi-may-7ngay.png" /><b>Đổi Mới Trong 7 Ngày</b></div>
@@ -507,58 +497,28 @@
                                         </ul>
                                     </div>
                                 </div>
-                            </div>
+                            </div>*@
 
                             <section class="related products">
                                 <b class="header">Sản phẩm tương tự</b>
-                                <ul class="products">
-                                    <li class="post-769 product type-product status-publish has-post-thumbnail product_cat-cap-sac-bagi-cables product_cat-cap-sac-lightning-cables first instock shipping-taxable purchasable product-type-simple">
-                                        <a href="https://bagi.com.vn/cap-hop-lightning-bagi-1m-cbai15/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
-                                            <img width="300" height="300" src="//bagi.com.vn/wp-content/uploads/2018/02/day-cap-hop-lightning-bagi-300x300.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="dây cáp hộp bagi lightning ai15" srcset="//bagi.com.vn/wp-content/uploads/2018/02/day-cap-hop-lightning-bagi-300x300.jpg 300w, //bagi.com.vn/wp-content/uploads/2018/02/day-cap-hop-lightning-bagi-180x180.jpg 180w" sizes="(max-width: 300px) 100vw, 300px" /><h3 class="woocommerce-loop-product__title">Cáp Hộp Lightning Bagi 1m CB-AI15</h3>
-                                            <span class="price"><span class="woocommerce-Price-amount amount">60.000&nbsp;<span class="woocommerce-Price-currencySymbol">VNĐ</span></span></span>
-                                        </a><a rel="nofollow" href="/day-sac-nhua-chong-dut-bagi-type-c-dai-1m-cb-cf10/?add-to-cart=769" data-quantity="1" data-product_id="769" data-product_sku="CB-AI15" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Thêm vào giỏ</a>						<a class='btn-xemchitiet' href='https://bagi.com.vn/cap-hop-lightning-bagi-1m-cbai15/'>Xem Chi Tiết</a>
-                                    </li>
+                                @if (Model.ListProduct != null && Model.ListProduct.Any())
+                                {
+                                    <ul class="products">
+                                        @foreach (var item in Model.ListProduct)
+                                        {
 
+                                        <li class="post-769 product type-product status-publish has-post-thumbnail product_cat-cap-sac-bagi-cables product_cat-cap-sac-lightning-cables first instock shipping-taxable purchasable product-type-simple">
+                                            <a href="/Home/Detail/@item.ID" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                                                <img width="300" height="300" src="@item.ImageURL" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="dây cáp hộp bagi lightning ai15" srcset="@item.ImageURL 300w, @item.ImageURL 180w" sizes="(max-width: 300px) 100vw, 300px" /><h3 class="woocommerce-loop-product__title">@item.Name</h3>
+                                                <span class="price"><span class="woocommerce-Price-amount amount">@string.Format("{0}",string.IsNullOrEmpty(item.Price) ? "0" : item.Price)&nbsp;<span class="woocommerce-Price-currencySymbol">VNĐ</span></span></span>
+                                            </a>						
+                                            <a class='btn-xemchitiet' href='/Home/Detail/@item.ID'>Xem Chi Tiết</a>
+                                        </li>
 
-                                    <li class="post-897 product type-product status-publish has-post-thumbnail product_cat-cap-sac-bagi-cables product_cat-cap-sac-lightning-cables  instock shipping-taxable purchasable product-type-variable has-default-attributes has-children">
-                                        <a href="https://bagi.com.vn/day-du-sac-nhanh-lightning-bagi-1m-cb-is10/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
-                                            <img width="300" height="300" src="//bagi.com.vn/wp-content/uploads/2018/02/day-du-sac-nhanh-chong-dut-lightning-is10-1m-300x300.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="dây sạc dù nhanh chống đứt lightning IS10 1m" srcset="//bagi.com.vn/wp-content/uploads/2018/02/day-du-sac-nhanh-chong-dut-lightning-is10-1m-300x300.jpg 300w, //bagi.com.vn/wp-content/uploads/2018/02/day-du-sac-nhanh-chong-dut-lightning-is10-1m-180x180.jpg 180w" sizes="(max-width: 300px) 100vw, 300px" /><h3 class="woocommerce-loop-product__title">Dây Dù Sạc Nhanh Lightning Bagi 1m CB-IS10</h3>
-                                            <span class="price"><span class="woocommerce-Price-amount amount">120.000&nbsp;<span class="woocommerce-Price-currencySymbol">VNĐ</span></span></span>
-                                        </a><a rel="nofollow" href="https://bagi.com.vn/day-du-sac-nhanh-lightning-bagi-1m-cb-is10/" data-quantity="1" data-product_id="897" data-product_sku="CB-IS10" class="button product_type_variable add_to_cart_button">Lựa chọn các tùy chọn</a>						<a class='btn-xemchitiet' href='https://bagi.com.vn/day-du-sac-nhanh-lightning-bagi-1m-cb-is10/'>Xem Chi Tiết</a>
-                                    </li>
+                                        }
+                                    </ul>
+                                }
 
-
-                                    <li class="post-778 product type-product status-publish has-post-thumbnail product_cat-cap-sac-bagi-cables product_cat-cap-sac-lightning-cables  instock shipping-taxable purchasable product-type-variable has-children">
-                                        <a href="https://bagi.com.vn/day-sac-du-den-led-bagi-dai-10m-cb-il10/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
-                                            <img width="300" height="300" src="//bagi.com.vn/wp-content/uploads/2018/02/cap-sac-du-den-led-bagi-cho-iphone-300x300.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="cáp sạc dù đèn led cho iphone" srcset="//bagi.com.vn/wp-content/uploads/2018/02/cap-sac-du-den-led-bagi-cho-iphone-300x300.jpg 300w, //bagi.com.vn/wp-content/uploads/2018/02/cap-sac-du-den-led-bagi-cho-iphone-180x180.jpg 180w" sizes="(max-width: 300px) 100vw, 300px" /><h3 class="woocommerce-loop-product__title">Dây Sạc Dù Đèn LED Bagi Dài 1,0M CB-IL10</h3>
-                                            <span class="price"><span class="woocommerce-Price-amount amount">170.000&nbsp;<span class="woocommerce-Price-currencySymbol">VNĐ</span></span></span>
-                                        </a><a rel="nofollow" href="https://bagi.com.vn/day-sac-du-den-led-bagi-dai-10m-cb-il10/" data-quantity="1" data-product_id="778" data-product_sku="CB-IL10" class="button product_type_variable add_to_cart_button">Lựa chọn các tùy chọn</a>						<a class='btn-xemchitiet' href='https://bagi.com.vn/day-sac-du-den-led-bagi-dai-10m-cb-il10/'>Xem Chi Tiết</a>
-                                    </li>
-
-
-                                    <li class="post-849 product type-product status-publish has-post-thumbnail product_cat-cap-sac-bagi-cables product_cat-cap-sac-micro-usb-cables  instock shipping-taxable purchasable product-type-variable has-default-attributes has-children">
-                                        <a href="https://bagi.com.vn/day-sac-bagi-micro-hop-gai-cb-ma15/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
-                                            <img width="300" height="300" src="//bagi.com.vn/wp-content/uploads/2018/02/day-cap-sac-micro-bagi-cb-ma15-den-300x300.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="dây cáp sạc micro Bagi CB-MA15 đen" srcset="//bagi.com.vn/wp-content/uploads/2018/02/day-cap-sac-micro-bagi-cb-ma15-den-300x300.jpg 300w, //bagi.com.vn/wp-content/uploads/2018/02/day-cap-sac-micro-bagi-cb-ma15-den-180x180.jpg 180w" sizes="(max-width: 300px) 100vw, 300px" /><div class="product-hot-meta"><span>Hot</span></div><h3 class="woocommerce-loop-product__title">Dây Sạc Bagi Micro Dài 1,5m Hộp Gài CB-MA15</h3>
-                                            <span class="price"><span class="woocommerce-Price-amount amount">90.000&nbsp;<span class="woocommerce-Price-currencySymbol">VNĐ</span></span></span>
-                                        </a><a rel="nofollow" href="https://bagi.com.vn/day-sac-bagi-micro-hop-gai-cb-ma15/" data-quantity="1" data-product_id="849" data-product_sku="CB-MA15" class="button product_type_variable add_to_cart_button">Lựa chọn các tùy chọn</a>						<a class='btn-xemchitiet' href='https://bagi.com.vn/day-sac-bagi-micro-hop-gai-cb-ma15/'>Xem Chi Tiết</a>
-                                    </li>
-
-
-                                    <li class="post-826 product type-product status-publish has-post-thumbnail product_cat-cap-sac-bagi-cables product_cat-cap-sac-micro-usb-cables  instock shipping-taxable purchasable product-type-variable has-default-attributes has-children">
-                                        <a href="https://bagi.com.vn/day-sac-nhua-nhanh-chong-dut-micro-cb-mf10/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
-                                            <img width="300" height="300" src="//bagi.com.vn/wp-content/uploads/2018/02/day-sac-nhua-nhanh-chong-dut-micro-cb-mf10-300x300.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="dây sạc nhựa nhanh chống đứt cb - mf10" srcset="//bagi.com.vn/wp-content/uploads/2018/02/day-sac-nhua-nhanh-chong-dut-micro-cb-mf10-300x300.jpg 300w, //bagi.com.vn/wp-content/uploads/2018/02/day-sac-nhua-nhanh-chong-dut-micro-cb-mf10-180x180.jpg 180w" sizes="(max-width: 300px) 100vw, 300px" /><div class="product-hot-meta"><span>Hot</span></div><h3 class="woocommerce-loop-product__title">Dây Sạc Nhựa Nhanh Chống Đứt Micro CB-MF10</h3>
-                                            <span class="price"><span class="woocommerce-Price-amount amount">140.000&nbsp;<span class="woocommerce-Price-currencySymbol">VNĐ</span></span></span>
-                                        </a><a rel="nofollow" href="https://bagi.com.vn/day-sac-nhua-nhanh-chong-dut-micro-cb-mf10/" data-quantity="1" data-product_id="826" data-product_sku="CB-MF10" class="button product_type_variable add_to_cart_button">Lựa chọn các tùy chọn</a>						<a class='btn-xemchitiet' href='https://bagi.com.vn/day-sac-nhua-nhanh-chong-dut-micro-cb-mf10/'>Xem Chi Tiết</a>
-                                    </li>
-
-
-                                    <li class="post-880 product type-product status-publish has-post-thumbnail product_cat-cap-sac-bagi-cables product_cat-cap-sac-lightning-cables last instock shipping-taxable purchasable product-type-variable has-default-attributes has-children">
-                                        <a href="https://bagi.com.vn/day-sac-bagi-lightning-15m-hop-gai-cb-ia15/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
-                                            <img width="300" height="300" src="//bagi.com.vn/wp-content/uploads/2018/02/day-sac-lightning-ia15-hop-gai-bagi-den-300x300.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="dây sạc lightning hộp gài ia15 dài 1.5m" srcset="//bagi.com.vn/wp-content/uploads/2018/02/day-sac-lightning-ia15-hop-gai-bagi-den-300x300.jpg 300w, //bagi.com.vn/wp-content/uploads/2018/02/day-sac-lightning-ia15-hop-gai-bagi-den-180x180.jpg 180w" sizes="(max-width: 300px) 100vw, 300px" /><div class="product-hot-meta"><span>Hot</span></div><h3 class="woocommerce-loop-product__title">Dây Sạc Bagi Lightning 1,5M Hộp Gài CB-IA15</h3>
-                                            <span class="price"><span class="woocommerce-Price-amount amount">90.000&nbsp;<span class="woocommerce-Price-currencySymbol">VNĐ</span></span></span>
-                                        </a><a rel="nofollow" href="https://bagi.com.vn/day-sac-bagi-lightning-15m-hop-gai-cb-ia15/" data-quantity="1" data-product_id="880" data-product_sku="CB-IA15" class="button product_type_variable add_to_cart_button">Lựa chọn các tùy chọn</a>						<a class='btn-xemchitiet' href='https://bagi.com.vn/day-sac-bagi-lightning-15m-hop-gai-cb-ia15/'>Xem Chi Tiết</a>
-                                    </li>
-                                </ul>
 
                             </section>
                         </div><!-- #product-916 -->
