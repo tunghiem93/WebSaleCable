@@ -9918,3 +9918,8 @@ fieldset[disabled] .btn-primary.focus {
 /*.box-vertical-megamenus{
     position:static;
 }*/
+
+/*Edit by Tu 25/04/2018*/
+.hotline {
+    color: orangered;
+}

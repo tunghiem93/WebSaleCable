@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{
+    string controller = (string)ViewContext.RouteData.Values["controller"];
+}
+
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -128,9 +132,18 @@
 </head>
 <body style="" class="home option2">
     <div class="wrapper page-home">
-        <div id="topNavigation" class="header">
+        <div id="" class="header">
             @Html.Partial("_topNavigation")
-        </div>  
+        </div> 
+        @if (controller == "Home")
+        {
+            <div id="" class="search">
+                @Html.Partial("_search")
+            </div>
+        }        
+        <div id="" class="menu">
+            @Html.Partial("_header")
+        </div>
         <div class="main-body">
             @RenderBody()
         </div>

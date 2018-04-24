@@ -1,37 +1,57 @@
-﻿
-@{
+﻿@{
     Layout = "~/Areas/ClientSite/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Giới thiệu";
 }
 <style>
     .contentabct {
-        background: url(../images/bgaboutcontact.png);
-        min-height: 500px;
-        padding-top: 15px;
-        margin: 15px; 
+        min-height: 300px;
+        padding-top: 30px;
     }
 </style>
 
-<div class="contentabct">
-    <div class="container">
-        <div class="" style="padding: 13px 0px; ">
-            <h2>CÔNG TY CỔ PHẨN SẢN XUẤT VÀ PHÁT TRIỂN CÔNG NGHỆ GB VIỆT NAM</h2><br />
-            <div class="">
-                <strong>Địa chỉ: </strong><span>Phòng 2626, VP6 Linh đàm, Phường Thịnh Liệt, Hoàng Mai, Hà Nội</span>
-            </div><br />
-            
-            <div class="">
-                <strong>Xưởng sản xuất: </strong><span>Xưởng sản xuất: Mão điền, Thuận Thành, Bắc Ninh</span>
-            </div><br />
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="form-group contentabct">
+        <div class="container">
+            <div class="" style="padding: 13px 0px; ">
+                <h2>CÔNG TY CỔ PHẨN SẢN XUẤT VÀ PHÁT TRIỂN CÔNG NGHỆ GB VIỆT NAM</h2><br />
+                <div class="">
+                    <strong>Địa chỉ: </strong><span>Phòng 2626, VP6 Linh đàm, Phường Thịnh Liệt, Hoàng Mai, Hà Nội</span>
+                </div><br />
 
-            <div class="">
-                <strong>Điện thoại: </strong><span>KD1: 0988 701 899 || KD2: 0966 410 789 || KD3: 0988 218 335</span>
-            </div><br />
+                <div class="">
+                    <strong>Xưởng sản xuất: </strong><span>Xưởng sản xuất: Mão điền, Thuận Thành, Bắc Ninh</span>
+                </div><br />
 
-            <div class="">
-                <strong>Email: </strong><span>capsacgb@gmail.com</span>
-            </div><br />
+                <div class="">
+                    <strong>Điện thoại: </strong><span>KD1: 0988 701 899 || KD2: 0966 410 789 || KD3: 0988 218 335</span>
+                </div><br />
+
+                <div class="">
+                    <strong>Email: </strong><span>capsacgb@gmail.com</span>
+                </div><br />
+            </div>
+
         </div>
-
     </div>
-</div>
+</body>
+</html>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.menu-product li.child .open-close').on('click', function () {
+            $(this).removeAttr('href');
+            var element = $(this).parent('li');
+            if (element.hasClass('open')) {
+                element.removeClass('open');
+                element.children('ul').slideUp();
+            }
+            else {
+                element.addClass('open');
+                element.children('ul').slideDown();
+            }
+        });
+        $(".vertical-menu-content").addClass("no-home");
+    })
+</script>

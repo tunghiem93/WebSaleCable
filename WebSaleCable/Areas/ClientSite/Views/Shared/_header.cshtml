@@ -16,7 +16,7 @@
                             {
                                 <ul class='vertical-menu-list'>
                                     <li class="level0">
-                                        <a class='' href='http://phukienquare.com/bang-gia-si-j852/'><span>Bảng báo giá</span></a>
+                                        <a target="_blank" class='' href='http://phukienquare.com/bang-gia-si-j852/'><span>Bảng báo giá</span></a>
                                     </li>                                    
                                     @foreach (var item in ListCate)
                                     {
@@ -46,9 +46,8 @@
                                 <ul class='menu t-menu nav'>
                                     <li class="level0"><a class='' href="@Url.Action("Index","Home")"><span>Trang chủ</span></a></li>
                                     <li class="level0"><a class='' href="@Url.Action("Index","About")"><span>Giới thiệu</span></a></li>
-                                    <li class="level0"><a class='' href="#"><span>Sản phẩm</span></a></li>
                                     <li class="level0"><a class='' href="#"><span>Tuyển dụng</span></a></li>
-                                    <li class="level0"><a class='' href="#"><span>Chính sách</span></a></li>
+                                    <li class="level0"><a class='' href="@Url.Action("Index","Policy")"><span>Chính sách</span></a></li>
                                     <li class="level0"><a class='' href="#"><span>Tin tức</span></a></li>
                                     <li class="level0"><a class='' href="@Url.Action("Index","Contact")"><span>Liên hệ</span></a></li>
                                 </ul>
