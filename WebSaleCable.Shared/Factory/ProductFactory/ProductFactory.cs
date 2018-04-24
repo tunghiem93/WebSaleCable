@@ -105,7 +105,7 @@ namespace WebSaleCable.Shared.Factory.ProductFactory
                     var result = (from pro in cxt.dbProduct
                                   from cat in cxt.dbCategory
                                   from loc in cxt.dbLocation
-                                  where (pro.CategoryID == cat.ID && pro.LocationID == loc.ID)
+                                  where (pro.ID == id && pro.CategoryID == cat.ID && pro.LocationID == loc.ID)
                                   orderby pro.CreatedDate descending
                                   select new ProductModels()
                                   {
