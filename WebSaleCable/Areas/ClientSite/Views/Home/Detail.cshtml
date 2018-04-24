@@ -4,7 +4,7 @@
 @model WebSaleCable.Shared.Model.Product.ProductDetailViewModels
 @using WebSaleCable.Shared
 <div class="product-template-default single single-product postid-916 wp-custom-logo woocommerce woocommerce-page right-sidebar woocommerce-active">
-    <style type="text/css">
+    @*<style type="text/css">
         img.wp-smiley,
         img.emoji {
             display: inline !important;
@@ -17,279 +17,12 @@
             background: none !important;
             padding: 0 !important;
         }
-    </style>
+    </style>*@
     <link href="@Url.Content("~/Content/photoswipe.css")" rel="stylesheet" />
     <link href="@Url.Content("~/Content/default-skin.css")" rel="stylesheet" />
 
     <link href="@Url.Content("~/Content/styledetail_child.css")" rel="stylesheet" />
-
-    <style id='storefront-style-inline-css' type='text/css'>
-        .main-navigation ul li a,
-        .site-title a,
-        ul.menu li a,
-        .site-branding h1 a,
-        .site-footer .storefront-handheld-footer-bar a:not(.button),
-        button.menu-toggle,
-        button.menu-toggle:hover {
-            color: #333333;
-        }
-
-            button.menu-toggle,
-            button.menu-toggle:hover {
-                border-color: #333333;
-            }
-
-            .main-navigation ul li a:hover,
-            .main-navigation ul li:hover > a,
-            .site-title a:hover,
-            a.cart-contents:hover,
-            .site-header-cart .widget_shopping_cart a:hover,
-            .site-header-cart:hover > li > a,
-            .site-header ul.menu li.current-menu-item > a {
-                color: #838383;
-            }
-
-        table th {
-            background-color: #f8f8f8;
-        }
-
-        table tbody td {
-            background-color: #fdfdfd;
-        }
-
-        table tbody tr:nth-child(2n) td,
-        fieldset,
-        fieldset legend {
-            background-color: #fbfbfb;
-        }
-
-        .site-header,
-        .secondary-navigation ul ul,
-        .main-navigation ul.menu > li.menu-item-has-children:after,
-        .secondary-navigation ul.menu ul,
-        .storefront-handheld-footer-bar,
-        .storefront-handheld-footer-bar ul li > a,
-        .storefront-handheld-footer-bar ul li.search .site-search,
-        button.menu-toggle,
-        button.menu-toggle:hover {
-            background-color: #ffffff;
-        }
-
-        p.site-description,
-        .site-header,
-        .storefront-handheld-footer-bar {
-            color: #6d6d6d;
-        }
-
-            .storefront-handheld-footer-bar ul li.cart .count,
-            button.menu-toggle:after,
-            button.menu-toggle:before,
-            button.menu-toggle span:before {
-                background-color: #333333;
-            }
-
-            .storefront-handheld-footer-bar ul li.cart .count {
-                color: #ffffff;
-            }
-
-            .storefront-handheld-footer-bar ul li.cart .count {
-                border-color: #ffffff;
-            }
-
-        h1, h2, h3, h4, h5, h6 {
-            color: #333333;
-        }
-
-        .widget h1 {
-            border-bottom-color: #333333;
-        }
-
-        body,
-        .secondary-navigation a,
-        .onsale,
-        .pagination .page-numbers li .page-numbers:not(.current), .woocommerce-pagination .page-numbers li .page-numbers:not(.current) {
-            color: #6d6d6d;
-        }
-
-        .widget-area .widget a,
-        .hentry .entry-header .posted-on a,
-        .hentry .entry-header .byline a {
-            color: #9f9f9f;
-        }
-
-        a {
-            color: #96588a;
-        }
-
-            a:focus,
-            .button:focus,
-            .button.alt:focus,
-            .button.added_to_cart:focus,
-            .button.wc-forward:focus,
-            button:focus,
-            input[type="button"]:focus,
-            input[type="reset"]:focus,
-            input[type="submit"]:focus {
-                outline-color: #96588a;
-            }
-
-        button, input[type="button"], input[type="reset"], input[type="submit"], .button, .added_to_cart, .widget a.button, .site-header-cart .widget_shopping_cart a.button {
-            background-color: #eeeeee;
-            border-color: #eeeeee;
-            color: #333333;
-        }
-
-            button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, .button:hover, .added_to_cart:hover, .widget a.button:hover, .site-header-cart .widget_shopping_cart a.button:hover {
-                background-color: #d5d5d5;
-                border-color: #d5d5d5;
-                color: #333333;
-            }
-
-            button.alt, input[type="button"].alt, input[type="reset"].alt, input[type="submit"].alt, .button.alt, .added_to_cart.alt, .widget-area .widget a.button.alt, .added_to_cart, .widget a.button.checkout {
-                background-color: #333333;
-                border-color: #333333;
-                color: #ffffff;
-            }
-
-                button.alt:hover, input[type="button"].alt:hover, input[type="reset"].alt:hover, input[type="submit"].alt:hover, .button.alt:hover, .added_to_cart.alt:hover, .widget-area .widget a.button.alt:hover, .added_to_cart:hover, .widget a.button.checkout:hover {
-                    background-color: #1a1a1a;
-                    border-color: #1a1a1a;
-                    color: #ffffff;
-                }
-
-        .pagination .page-numbers li .page-numbers.current, .woocommerce-pagination .page-numbers li .page-numbers.current {
-            background-color: #e6e6e6;
-            color: #6d6d6d;
-        }
-
-        #comments .comment-list .comment-content .comment-text {
-            background-color: #f8f8f8;
-        }
-
-        .site-footer {
-            background-color: #f0f0f0;
-            color: #6d6d6d;
-        }
-
-            .site-footer a:not(.button) {
-                color: #333333;
-            }
-
-            .site-footer h1, .site-footer h2, .site-footer h3, .site-footer h4, .site-footer h5, .site-footer h6 {
-                color: #333333;
-            }
-
-        #order_review {
-            background-color: #ffffff;
-        }
-
-        #payment .payment_methods > li .payment_box,
-        #payment .place-order {
-            background-color: #fafafa;
-        }
-
-        #payment .payment_methods > li:not(.woocommerce-notice) {
-            background-color: #f5f5f5;
-        }
-
-            #payment .payment_methods > li:not(.woocommerce-notice):hover {
-                background-color: #f0f0f0;
-            }
-    </style>
-
     <link href="@Url.Content("~/Content/woocommerce.css")" rel="stylesheet" />
-    <style id='storefront-woocommerce-style-inline-css' type='text/css'>
-        a.cart-contents,
-        .site-header-cart .widget_shopping_cart a {
-            color: #333333;
-        }
-
-        table.cart td.product-remove,
-        table.cart td.actions {
-            border-top-color: #ffffff;
-        }
-
-        .woocommerce-tabs ul.tabs li.active a,
-        ul.products li.product .price,
-        .onsale,
-        .widget_search form:before,
-        .widget_product_search form:before {
-            color: #6d6d6d;
-        }
-
-        .woocommerce-breadcrumb a,
-        a.woocommerce-review-link,
-        .product_meta a {
-            color: #9f9f9f;
-        }
-
-        .onsale {
-            border-color: #6d6d6d;
-        }
-
-        .star-rating span:before,
-        .quantity .plus, .quantity .minus,
-        p.stars a:hover:after,
-        p.stars a:after,
-        .star-rating span:before,
-        #payment .payment_methods li input[type=radio]:first-child:checked + label:before {
-            color: #96588a;
-        }
-
-        .widget_price_filter .ui-slider .ui-slider-range,
-        .widget_price_filter .ui-slider .ui-slider-handle {
-            background-color: #96588a;
-        }
-
-        .order_details {
-            background-color: #f8f8f8;
-        }
-
-            .order_details > li {
-                border-bottom: 1px dotted #e3e3e3;
-            }
-
-            .order_details:before,
-            .order_details:after {
-                background: -webkit-linear-gradient(transparent 0,transparent 0),-webkit-linear-gradient(135deg,#f8f8f8 33.33%,transparent 33.33%),-webkit-linear-gradient(45deg,#f8f8f8 33.33%,transparent 33.33%)
-            }
-
-        p.stars a:before,
-        p.stars a:hover ~ a:before,
-        p.stars.selected a.active ~ a:before {
-            color: #6d6d6d;
-        }
-
-        p.stars.selected a.active:before,
-        p.stars:hover a:before,
-        p.stars.selected a:not(.active):before,
-        p.stars.selected a.active:before {
-            color: #96588a;
-        }
-
-        .single-product div.product .woocommerce-product-gallery .woocommerce-product-gallery__trigger {
-            background-color: #eeeeee;
-            color: #333333;
-        }
-
-            .single-product div.product .woocommerce-product-gallery .woocommerce-product-gallery__trigger:hover {
-                background-color: #d5d5d5;
-                border-color: #d5d5d5;
-                color: #333333;
-            }
-
-        .button.loading {
-            color: #eeeeee;
-        }
-
-            .button.loading:hover {
-                background-color: #eeeeee;
-            }
-
-            .button.loading:after {
-                color: #333333;
-            }
-    </style>
     <link href="@Url.Content("~/Content/styledetail.css")" rel="stylesheet" />
     @*<script type='text/javascript' src='https://bagi.com.vn/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>*@
     <script src="@Url.Content("~/Scripts/jquery-migrate-1.2.0.min.js")"></script>
@@ -299,9 +32,6 @@
 /* ]]> */
     </script>
     <script src="@Url.Content("~/Scripts/load_products.js")"></script>
-
-    @*<script src="@Url.Content("~/Scripts/js.min.js")"></script>*@
-
     <script src="@Url.Content("~/Scripts/customer_frontend.js")"></script>
 
     <script type='text/javascript'>
@@ -309,44 +39,6 @@
         var aamLocal = { "nonce": "79e51e855c", "ajaxurl": "https:\/\/bagi.com.vn\/wp-admin\/admin-ajax.php" };
 /* ]]> */
     </script>
-    <style>
-        .kk-star-ratings {
-            width: 120px;
-        }
-
-            .kk-star-ratings .kksr-stars a {
-                width: 24px;
-            }
-
-            .kk-star-ratings .kksr-stars, .kk-star-ratings .kksr-stars .kksr-fuel, .kk-star-ratings .kksr-stars a {
-                height: 24px;
-            }
-
-            .kk-star-ratings .kksr-star.gray {
-                background-image: url(https://bagi.com.vn/wp-content/plugins/kk-star-ratings/gray.png);
-            }
-
-            .kk-star-ratings .kksr-star.yellow {
-                background-image: url(https://bagi.com.vn/wp-content/plugins/kk-star-ratings/yellow.png);
-            }
-
-            .kk-star-ratings .kksr-star.orange {
-                background-image: url(https://bagi.com.vn/wp-content/plugins/kk-star-ratings/orange.png);
-            }
-    </style>
-    <style>
-        .lmp_load_more_button .lmp_button:hover {
-            background-color: !important;
-            color: !important;
-        }
-
-        .lazy {
-            opacity: 0;
-        }
-        ul.products li.product.first{
-            clear:none !important;
-        }
-    </style>
     <div id="page" class="hfeed site">
         <div id="content" class="site-content" tabindex="-1">
             <div class="col-full">
@@ -564,6 +256,7 @@
             </div>
         </div>
     </div>
+    <link href="@Url.Content("~/Content/productdetail.css")" rel="stylesheet" />
     <script src="@Url.Content("~/Scripts/scripts.js")"></script>
 
     <script src="@Url.Content("~/Scripts/jquery.zoom.min.js")"></script>
