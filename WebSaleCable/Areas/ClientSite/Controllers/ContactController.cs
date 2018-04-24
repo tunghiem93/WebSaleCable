@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace ProjectWebSaleLand.Areas.ClientSite.Controllers
+namespace WebSaleCable.Areas.ClientSite.Controllers
 {
     public class ContactController : Controller
     {
