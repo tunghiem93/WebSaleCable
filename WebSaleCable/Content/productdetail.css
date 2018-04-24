@@ -251,6 +251,7 @@ p.stars.selected a.active:before {
 .single-product div.product .woocommerce-product-gallery .woocommerce-product-gallery__trigger {
     background-color: #eeeeee;
     color: #333333;
+    padding-top:7px;
 }
 
     .single-product div.product .woocommerce-product-gallery .woocommerce-product-gallery__trigger:hover {
