@@ -86,11 +86,11 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,900italic,900,700italic,700,500italic,500,400italic,300italic,300,100italic,100&subset=latin,vietnamese);
 @import url(https://fonts.googleapis.com/css?family=Tinos:400,400italic,700,700italic&subset=latin,vietnamese);
 
-body{
-	background: #ffffff;
-	color: black;
-	font-family:Open Sans, sans-serif;
-	font-size: 13px;
+body {
+    background: #ffffff;
+    color: #6d6d6d;
+    font-family: Open Sans, sans-serif;
+    font-size: 13px;
 }
 .page-home .main{
     background:#eaeaea;

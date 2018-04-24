@@ -171,6 +171,26 @@
         .tabs wc-tabs {
             position: absolute !important;
         }
+
+        .option2 .box-vertical-megamenus .vertical-menu-list > li > a {
+            color: #666666
+        }
     </style>
 </div>
-
+<script type="text/javascript">
+        $(document).ready(function () {
+            $('.menu-product li.child .open-close').on('click', function () {
+                $(this).removeAttr('href');
+                var element = $(this).parent('li');
+                if (element.hasClass('open')) {
+                    element.removeClass('open');
+                    element.children('ul').slideUp();
+                }
+                else {
+                    element.addClass('open');
+                    element.children('ul').slideDown();
+                }
+            });
+            $(".vertical-menu-content").addClass("no-home");
+        })
+</script>
