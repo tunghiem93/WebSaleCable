@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using WebSaleCable.Shared;
 using WebSaleCable.Shared.Factory.ProductFactory;
 using WebSaleCable.Shared.Model.Product;
+using WebSaleCable.Shared.Utilities;
 
 namespace WebSaleCable.Areas.ClientSite.Controllers
 {
@@ -41,6 +42,24 @@ namespace WebSaleCable.Areas.ClientSite.Controllers
                 NSLog.Logger.Error("Index: ", ex);
                 return new HttpStatusCodeResult(400, ex.Message);
             }            
+        }
+
+        [HttpPost]
+        public ActionResult SearchKey(string Key = "")
+        {
+            var modelView = new ProductViewModels();
+
+            var data = _fac.GetListProduct()
+                                    .Where(x => CommonHelper.RemoveUnicode(x.Name.ToLower()).Contains(CommonHelper.RemoveUnicode(Key.ToLower())))
+                                    .OrderByDescending(x => x.CreatedDate)
+                                                   .ToList();
+            data.ForEach(x =>
+            {
+                if (!string.IsNullOrEmpty(x.ImageURL))
+                    x.ImageURL = Commons.HostImage + x.ImageURL;
+            });
+            modelView.ListProduct = data;
+            return PartialView("_ListItem", modelView);
         }
 
         public ActionResult Detail(string id)

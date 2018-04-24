@@ -150,8 +150,8 @@
 <!-- timepicker -->
 
 <script src="@Url.Content("~/Libaraies/vendors/timepicker/bootstrap-timepicker.min.js")"></script>
-@*<script type="text/javascript">
-    $(document).ready(function () {
+<script type="text/javascript">
+    @*$(document).ready(function () {
         var _sourcdata = '@Html.Raw(Json.Encode(Session["Location"]))';
         if (_sourcdata.length > 0)
         {
@@ -169,5 +169,25 @@
                 autoSelect: true
             });
         }
-    })
-</script>*@
+    })*@
+
+    function SearchKeyWord() {
+        var _key = $("#txtsearch").val();
+        if (_key.length > 0)
+        {
+            $.ajax({
+                url: "/Home/SearchKey",
+                type: "post",
+                data: { Key: _key },
+                //processData: false,
+                //contentType: false,
+                success: function (content) {
+                    $(".list-group").html(content);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    //$(".detail-view").html(jqXHR.responseText);
+                }
+            });
+        }
+    }
+</script>

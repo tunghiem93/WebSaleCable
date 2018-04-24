@@ -67,10 +67,9 @@
             <div class="search-box">
                 <form class="search form-inline">
                     <div class="input-serach">
-                        <input type="text" name="search" data-provide="typeahead" class="search_box typeahead" id="txtsearch" onblur="if(this.value=='')this.value='Nhập từ khóa tìm kiếm...'"
-                               onfocus="if(this.value=='Nhập từ khóa tìm kiếm...')this.value=''" value="Nhập từ khóa tìm kiếm..." />
+                        <input type="text" name="search" data-provide="typeahead" class="search_box" id="txtsearch" placeholder="Nhập từ khóa tìm kiếm..." />
                     </div>
-                    <button id="btnsearch" class="pull-right btn-search">
+                    <button id="btnsearch" class="pull-right btn-search" onclick="SearchKeyWord(); return false;">
                         <span class="hidden-400">Tìm kiếm</span>
                         <span class="show-400"><i class="fa fa-search" aria-hidden="true"></i></span>
                     </button>
