@@ -9,7 +9,14 @@
 {
     @Html.Hidden("ImageURL", Model.ImageURL)
 }
-
+<style>
+    .descriptioninfo{
+        min-height: 100px;
+    }
+    .descriptionMoreinfo {
+        min-height: 200px;
+    }
+</style>
 <div class="row form-horizontal form-label-left" style="margin-bottom:15px;">
     <!--Image Placeholder-->
     <div class="form-group">
@@ -184,7 +191,7 @@
         <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12">Mô tả</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-                @Html.TextAreaFor(model => model.Description, new { @class = "form-control", placeholder = "Mô tả" })
+                @Html.TextAreaFor(model => model.Description, new { @class = "form-control descriptioninfo", placeholder = "Mô tả" })
             </div>
         </div>
 
@@ -192,7 +199,7 @@
         <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12">Chi tiết sản phẩm</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-                @Html.TextAreaFor(model => model.MoreInformation, new { @class = "form-control", placeholder = "Thông tin chi tiết" })
+                @Html.TextAreaFor(model => model.MoreInformation, new { @class = "form-control descriptionMoreinfo", placeholder = "Thông tin chi tiết" })
             </div>
         </div>
 
