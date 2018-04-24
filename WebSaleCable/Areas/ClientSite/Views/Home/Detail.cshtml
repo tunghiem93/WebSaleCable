@@ -51,7 +51,7 @@
                             </div>
 
                             <div class="summary entry-summary">
-                                <h1 class="product_title entry-title">@Model.Product.Name &#8211;</h1>
+                                <h1 class="product_title entry-title">@Model.Product.Name</h1>
                                 <div class='bagi_price_wp'>
                                     <p class='price_custom'>
                                         <span class='bagi_price'>
@@ -64,17 +64,16 @@
                                 <p class="price">
                                     <span class="woocommerce-Price-amount amount">
                                         @string.Format("{0}",string.IsNullOrEmpty(Model.Product.Price) ? "0" : Model.Product.Price)&nbsp;
-                                        <span class="woocommerce-Price-currencySymbol">VNĐ</span>
                                     </span>
                                 </p>
 
                                 @*<span class='sku no-rating-sku'><b>Mã sản phẩm:</b> CB-CF10</span>*@
                                 <div class="woocommerce-product-details__short-description">
                                     <p>@Model.Product.Description</p>
-                                    <p>Sản xuất tại Việt Nam</p>
+                                    <p>Sản xuất tại @Model.Product.Production</p>
                                     @if (!string.IsNullOrEmpty(Model.Product.GuaranteePeriod))
                                     {
-                                        <p>Bảo hành @Model.Product.GuaranteePeriod tháng lỗi 1 đổi 1</p>
+                                        <p>Bảo hành @Model.Product.GuaranteePeriod</p>
                                     }
                                     
                                 </div>
