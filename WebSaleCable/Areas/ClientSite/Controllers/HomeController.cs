@@ -33,7 +33,8 @@ namespace WebSaleCable.Areas.ClientSite.Controllers
                 if (model.ListProduct != null && model.ListProduct.Any())
                 {
                     model.TotalProduct = model.ListProduct.Count;
-                    model.ListProduct = model.ListProduct.OrderByDescending(x => x.CreatedDate).Skip(0).Take(6).ToList();
+                    model.ListProduct = model.ListProduct.OrderByDescending(x => x.CreatedDate).ToList();
+                   // model.ListProduct = model.ListProduct.OrderByDescending(x => x.CreatedDate).Skip(0).Take(6).ToList();
                 }
                 return View(model);
             }
@@ -132,7 +133,7 @@ namespace WebSaleCable.Areas.ClientSite.Controllers
         }
 
         [HttpGet]
-        public new PartialViewResult LoadItem(string id)
+        public PartialViewResult LoadItem(string id)
         {
             ProductViewModels model = new ProductViewModels();
             if (!string.IsNullOrEmpty(id) && id.Equals("1"))
@@ -161,10 +162,34 @@ namespace WebSaleCable.Areas.ClientSite.Controllers
                 if(model.ListProduct != null && model.ListProduct.Any())
                 {
                     model.TotalProduct = model.ListProduct.Count;
-                    model.ListProduct = model.ListProduct.OrderByDescending(x => x.CreatedDate).Skip(0).Take(6).ToList();
+                    model.ListProduct = model.ListProduct.OrderByDescending(x => x.CreatedDate).ToList();
+                  ///  model.ListProduct = model.ListProduct.OrderByDescending(x => x.CreatedDate).Skip(0).Take(6).ToList();
                 }
             }
             return PartialView("_ListItem", model);
         }        
+
+        public PartialViewResult LoadProductOther()
+        {
+            var model = new ProductViewModels();
+            try
+            {
+                var ListCate = Session["Catelogies"] as List<CateSession>;
+                if(ListCate != null && ListCate.Count < 9)
+                {
+                    model.ListProduct = _fac.GetListProduct().OrderBy(x => x.Name).ToList();
+                }
+                else
+                {
+                    var ListProduct = _fac.GetListProduct().Where(x => ListCate.Select(z => z.Id).Contains(x.CategoryID)).OrderBy(x => x.Name).ToList();
+                    model.ListProduct = ListProduct;
+                }
+                
+            }catch(Exception ex)
+            {
+                NSLog.Logger.Error("LoadProductOther :", ex);
+            }
+            return PartialView("_ListItem", model);
+        }
     }
 }

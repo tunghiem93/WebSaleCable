@@ -103,6 +103,90 @@
     }
 
     function ShowDetail(content) {
+        _tableReceiptHistory.destroy();
         $(".list-group").html(content);
+        _tableReceiptHistory = $('#datatable-responsive').DataTable($.extend(true, {}, _settingsOptionTableReceiptHistory));
     }
+
+    var _tableReceiptHistory = null;
+    var _settingsOptionTableReceiptHistory = {
+        "columnDefs": [
+            { "orderable": false, "targets": [0] },
+            { "width": "15%", "targets": [0] },
+            { "width": "35%", "targets": [1] },
+            { "width": "10%", "targets": [2, 4] },
+            { "width": "15%", "targets": [3] },
+        ],
+        "order": [[1, 'asc']],
+        "displayLength": 6,
+        "bInfo": false,
+        "lengthChange": false,
+        "oLanguage": {
+
+            "sSearch": "Tìm Kiếm:",
+            "sLengthMenu": "Xem _MENU_",
+            "sProcessing": "Đang xử lý...",
+            "sZeroRecords": "Không tìm thấy dòng nào phù hợp",
+            "sInfo": "Đang xem _START_ đến _END_ trong tổng số _TOTAL_ mục",
+            "sInfoEmpty": "Đang xem 0 đến 0 trong tổng số 0 mục",
+            "sInfoFiltered": "(được lọc từ _MAX_ mục)",
+            "sInfoPostFix": "",
+        },
+    };
+
+    $(document).ready(function () {
+        var handleDataTableButtons = function () {
+            if ($("#datatable-buttons").length) {
+                $("#datatable-buttons").DataTable({
+                    dom: "Bfrtip",
+                    responsive: true
+                });
+            }
+        };
+
+        TableManageButtons = function () {
+            "use strict";
+            return {
+                init: function () {
+                    handleDataTableButtons();
+                }
+            };
+        }();
+
+        $('#datatable').dataTable();
+        $('#datatable-keytable').DataTable({
+            keys: true
+        });
+        _tableReceiptHistory = $('#datatable-responsive').DataTable($.extend(true, {}, _settingsOptionTableReceiptHistory));
+        //var table = $('#datatable-responsive').DataTable({
+        //    "columnDefs": [
+        //        { "orderable": false, "targets": [0] },
+        //        { "width": "15%", "targets": [0] },
+        //        { "width": "35%", "targets": [1] },
+        //        { "width": "10%", "targets": [2, 4] },
+        //        { "width": "15%", "targets": [3] },
+        //    ],
+        //    "order": [[1, 'asc']],
+        //    "displayLength": 6,
+        //    "bInfo": false,
+        //    "lengthChange": false,
+        //    "oLanguage": {
+
+        //        "sSearch": "Tìm Kiếm:",
+        //        "sLengthMenu": "Xem _MENU_",
+        //        "sProcessing": "Đang xử lý...",
+        //        "sZeroRecords": "Không tìm thấy dòng nào phù hợp",
+        //        "sInfo": "Đang xem _START_ đến _END_ trong tổng số _TOTAL_ mục",
+        //        "sInfoEmpty": "Đang xem 0 đến 0 trong tổng số 0 mục",
+        //        "sInfoFiltered": "(được lọc từ _MAX_ mục)",
+        //        "sInfoPostFix": "",
+        //    },
+        //});
+
+        var table = $('#datatable-fixed-header').DataTable({
+            fixedHeader: true
+        });
+
+        TableManageButtons.init();
+    })
 </script>
