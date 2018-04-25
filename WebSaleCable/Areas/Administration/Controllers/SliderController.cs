@@ -70,9 +70,9 @@ namespace WebSaleCable.Areas.Administration.Controllers
                         if (item.PictureUpload != null && item.PictureUpload.ContentLength > 0)
                         {
                             //Delete image 
-                            if(System.IO.File.Exists(item.ImageURL))
+                            if(System.IO.File.Exists(Server.MapPath(item.ImageURL)))
                             {
-                                ImageHelper.Me.TryDeleteImageUpdated(item.ImageURL);
+                                ImageHelper.Me.TryDeleteImageUpdated(Server.MapPath(item.ImageURL));
                             }
                             Byte[] imgByte = new Byte[item.PictureUpload.ContentLength];
                             item.PictureUpload.InputStream.Read(imgByte, 0, item.PictureUpload.ContentLength);

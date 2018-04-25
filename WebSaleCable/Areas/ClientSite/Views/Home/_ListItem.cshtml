@@ -1,6 +1,50 @@
 ﻿@model WebSaleCable.Shared.Model.Product.ProductViewModels
     @using WebSaleCable.Shared
-<div class="table-responsive">
+<link href="~/Content/styledetail.css" rel="stylesheet" />
+<style>
+    ul li {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display:inline-block;
+    }
+    ul.products li.product .woocommerce-loop-product__title, ul.products li.product h3{
+        margin-bottom:10px;
+    }
+    .btn-xemchitiet{
+        margin-top:10px;
+    }
+
+     /*ul.products li.product:hover .btn-xemchitiet {
+        background: #c4161c;
+        color: #fff;
+    }*/
+</style>
+<section class="related products site-main">
+    @if (Model.ListProduct != null && Model.ListProduct.Any())
+    {
+        <ul class="products">
+            @foreach (var item in Model.ListProduct)
+            {
+
+                <li class="post-769 product type-product status-publish has-post-thumbnail product_cat-cap-sac-bagi-cables product_cat-cap-sac-lightning-cables first instock shipping-taxable purchasable product-type-simple">
+                    <a href="/Home/Detail/@item.ID" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                        <img width="300" height="300" src="@item.ImageURL" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="dây cáp hộp bagi lightning ai15" srcset="@item.ImageURL 300w, @item.ImageURL 180w" sizes="(max-width: 300px) 100vw, 300px" /><h3 class="woocommerce-loop-product__title">@item.Name</h3>
+                        <span class="price"><span class="woocommerce-Price-amount amount">@string.Format("{0}", string.IsNullOrEmpty(item.Price) ? "0" : item.Price)&nbsp;<span class="woocommerce-Price-currencySymbol">VNĐ</span></span></span>
+                    </a>
+                    <a class='btn-xemchitiet' href='/Home/Detail/@item.ID'>Xem Chi Tiết</a>
+                </li>
+
+            }
+        </ul>
+    }
+
+
+</section>
+
+
+
+@*<div class="table-responsive">
     <table class="table table-striped table-bordered dt-responsive nowrap table table-striped jambo_table bulk_action" id="datatable-responsive" cellspacing="0" style="width:100%;">
         <thead>
             <tr class="headings">
@@ -27,15 +71,9 @@
                     </tr>
                 }
             }
-            else
-            {
-                <tr>
-                    <td colspan="5" class="column-title text-center">Không Tìm Thấy Sản Phẩm</td>
-                </tr>
-            }
         </tbody>
     </table>
-</div>
+</div>*@
 @*@if (Model.TotalProduct > 6 && !Model.IsAddMore)
 {
     <div class="addmore" style="text-align:center">

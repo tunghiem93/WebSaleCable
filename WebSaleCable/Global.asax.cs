@@ -39,7 +39,7 @@ namespace WebSaleCable
             if (_LocationCookie != null)
             {
                 var input = Server.UrlDecode(_LocationCookie.Value);
-                if(input != null && input.Length > 0)
+                if (input != null && input.Length > 0)
                 {
                     List<LocationSession> locSession = JsonConvert.DeserializeObject<List<LocationSession>>(input); //new JavaScriptSerializer().Deserialize<UserSession>(input);
                     if (locSession != null && HttpContext.Current.Session != null)
@@ -52,11 +52,12 @@ namespace WebSaleCable
             else
             {
                 LocationFactory _facLoc = new LocationFactory();
-                var _loc = _facLoc.GetListLocation().Select(x=> new LocationSession {
-                        Id = x.ID,
-                        Name = x.Name
+                var _loc = _facLoc.GetListLocation().Select(x => new LocationSession
+                {
+                    Id = x.ID,
+                    Name = x.Name
                 }).ToList();
-                if(_loc != null && _loc.Any())
+                if (_loc != null && _loc.Any())
                 {
                     string myObjectJson = JsonConvert.SerializeObject(_loc);  //new JavaScriptSerializer().Serialize(userSession);
                     HttpCookie cookie = new HttpCookie("LocCookie");
@@ -64,7 +65,7 @@ namespace WebSaleCable
                     cookie.Value = Server.UrlEncode(myObjectJson);
                     Response.Cookies.Add(cookie);
                     Session.Add("Location", _loc);
-                } 
+                }
             }
 
 
@@ -77,7 +78,7 @@ namespace WebSaleCable
                     List<CateSession> cateSession = JsonConvert.DeserializeObject<List<CateSession>>(input); //new JavaScriptSerializer().Deserialize<UserSession>(input);
                     if (cateSession != null && HttpContext.Current.Session != null)
                     {
-                        cateSession = cateSession.OrderBy(x=>x.Name).Skip(0).Take(8).ToList();
+                        cateSession = cateSession.OrderBy(x => x.Name).Skip(0).Take(8).ToList();
                         Session.Add("Catelogies", cateSession);
                     }
                 }
@@ -90,7 +91,7 @@ namespace WebSaleCable
                 {
                     Id = x.ID,
                     Name = x.Name
-                }).OrderBy(x=>x.Name).Skip(0).Take(8).ToList();
+                }).OrderBy(x => x.Name).Skip(0).Take(8).ToList();
                 if (_cate != null && _cate.Any())
                 {
                     string myObjectJson = JsonConvert.SerializeObject(_cate);  //new JavaScriptSerializer().Serialize(userSession);
