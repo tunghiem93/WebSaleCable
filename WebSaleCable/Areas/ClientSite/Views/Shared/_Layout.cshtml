@@ -218,4 +218,17 @@
             });
         }
     }
+
+    function LoadPagging(index,id,_key) {
+        $.ajax({
+            url: "/Home/LoadPagging",
+            type: "post",
+            data: { pageIndex: index, Key: _key, Id: id },
+            success: function (content) {
+                $(".list-group").html(content);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+            }
+        });
+    }
 </script>

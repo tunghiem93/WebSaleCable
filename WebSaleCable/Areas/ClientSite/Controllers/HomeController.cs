@@ -24,17 +24,26 @@ namespace WebSaleCable.Areas.ClientSite.Controllers
             try
             {
                 ProductViewModels model = new ProductViewModels();
-                model.ListProduct = _fac.GetListProduct();
-                model.ListProduct.ForEach(x =>
+                var data = _fac.GetListProduct();
+                data.ForEach(x =>
                 {
                     if (!string.IsNullOrEmpty(x.ImageURL))
                         x.ImageURL = Commons.HostImage + x.ImageURL;
                 });
-                if (model.ListProduct != null && model.ListProduct.Any())
+                if (data != null && data.Any())
                 {
-                    model.TotalProduct = model.ListProduct.Count;
-                    model.ListProduct = model.ListProduct.OrderByDescending(x => x.CreatedDate).ToList();
-                   // model.ListProduct = model.ListProduct.OrderByDescending(x => x.CreatedDate).Skip(0).Take(6).ToList();
+                   model.ListProduct = data.OrderByDescending(x => x.CreatedDate).Skip(0).Take(4).ToList();
+                   model.TotalProduct = data.Count;
+                    var pageIndex = 0;
+                    if (data.Count % 4 == 0)
+                        pageIndex = data.Count / 4;
+                    else
+                        pageIndex = Convert.ToInt16(data.Count / 4) + 1;
+
+                    if (pageIndex > 1)
+                        model.TotalPage = pageIndex - 1;
+                    else
+                        model.IsAddMore = true;
                 }
                 return View(model);
             }
@@ -48,19 +57,35 @@ namespace WebSaleCable.Areas.ClientSite.Controllers
         [HttpPost]
         public ActionResult SearchKey(string Key = "")
         {
-            var modelView = new ProductViewModels();
+            var model = new ProductViewModels();
 
             var data = _fac.GetListProduct()
                                     .Where(x => CommonHelper.RemoveUnicode(x.Name.ToLower()).Contains(CommonHelper.RemoveUnicode(Key.ToLower())))
                                     .OrderByDescending(x => x.CreatedDate)
                                                    .ToList();
-            data.ForEach(x =>
+            
+            if (data != null && data.Any())
             {
-                if (!string.IsNullOrEmpty(x.ImageURL))
-                    x.ImageURL = Commons.HostImage + x.ImageURL;
-            });
-            modelView.ListProduct = data;
-            return PartialView("_ListItem", modelView);
+                data.ForEach(x =>
+                {
+                    if (!string.IsNullOrEmpty(x.ImageURL))
+                        x.ImageURL = Commons.HostImage + x.ImageURL;
+                });
+                model.Key = Key;
+                model.ListProduct = data.OrderByDescending(x => x.CreatedDate).Skip(0).Take(4).ToList();
+                model.TotalProduct = data.Count;
+                var pageIndex = 0;
+                if (data.Count % 4 == 0)
+                    pageIndex = data.Count / 4;
+                else
+                    pageIndex = Convert.ToInt16(data.Count / 4) + 1;
+
+                if (pageIndex > 1)
+                    model.TotalPage = pageIndex - 1;
+                else
+                    model.IsAddMore = true;
+            }
+            return PartialView("_ListItem", model);
         }
 
         public ActionResult Detail(string id)
@@ -136,34 +161,29 @@ namespace WebSaleCable.Areas.ClientSite.Controllers
         public PartialViewResult LoadItem(string id)
         {
             ProductViewModels model = new ProductViewModels();
-            if (!string.IsNullOrEmpty(id) && id.Equals("1"))
+            if (!string.IsNullOrEmpty(id))
             {
-                model.ListProduct = _fac.GetListProduct().ToList();
-                model.ListProduct.ForEach(x =>
-                {
-                    if (!string.IsNullOrEmpty(x.ImageURL))
-                        x.ImageURL = Commons.HostImage + x.ImageURL;
-                });
-                if (model.ListProduct != null && model.ListProduct.Any())
-                {
-                    model.TotalProduct = model.ListProduct.Count;
-                }
-                model.IsAddMore = true;
-            }
-            else
-            {
+                model.CateID = id;
+                var data = _fac.GetListProduct().Where(x => x.CategoryID.Equals(id)).ToList();
                 
-                model.ListProduct = _fac.GetListProduct().Where(x => x.CategoryID.Equals(id)).ToList();
-                model.ListProduct.ForEach(x =>
+                if (data != null && data.Any())
                 {
-                    if (!string.IsNullOrEmpty(x.ImageURL))
-                        x.ImageURL = Commons.HostImage + x.ImageURL;
-                });
-                if(model.ListProduct != null && model.ListProduct.Any())
-                {
-                    model.TotalProduct = model.ListProduct.Count;
-                    model.ListProduct = model.ListProduct.OrderByDescending(x => x.CreatedDate).ToList();
-                  ///  model.ListProduct = model.ListProduct.OrderByDescending(x => x.CreatedDate).Skip(0).Take(6).ToList();
+                    data.ForEach(x =>
+                    {
+                        if (!string.IsNullOrEmpty(x.ImageURL))
+                            x.ImageURL = Commons.HostImage + x.ImageURL;
+                    });
+
+                    model.ListProduct = data.OrderByDescending(x => x.CreatedDate).Skip(0).Take(4).ToList();
+                    model.TotalProduct = data.Count;
+                    var pageIndex = 0;
+                    if (data.Count % 4 == 0)
+                        pageIndex = data.Count / 4;
+                    else
+                        pageIndex = Convert.ToInt16(data.Count / 4) + 1;
+
+                    if (pageIndex > 1)
+                        model.TotalPage = pageIndex - 1;
                 }
             }
             return PartialView("_ListItem", model);
@@ -177,17 +197,110 @@ namespace WebSaleCable.Areas.ClientSite.Controllers
                 var ListCate = Session["Catelogies"] as List<CateSession>;
                 if(ListCate != null && ListCate.Count < 9)
                 {
-                    model.ListProduct = _fac.GetListProduct().OrderBy(x => x.Name).ToList();
+                    var data = _fac.GetListProduct().OrderBy(x => x.Name).ToList();
+                    
+                    if (data != null && data.Any())
+                    {
+                        data.ForEach(x =>
+                        {
+                            if (!string.IsNullOrEmpty(x.ImageURL))
+                                x.ImageURL = Commons.HostImage + x.ImageURL;
+                        });
+
+                        model.ListProduct = data.OrderByDescending(x => x.CreatedDate).Skip(0).Take(4).ToList();
+                        model.TotalProduct = data.Count;
+                        var pageIndex = 0;
+                        if (data.Count % 4 == 0)
+                            pageIndex = data.Count / 4;
+                        else
+                            pageIndex = Convert.ToInt16(data.Count / 4) + 1;
+
+                        if (pageIndex > 1)
+                            model.TotalPage = pageIndex - 1;
+                        else
+                            model.IsAddMore = true;
+                    }
                 }
                 else
                 {
-                    var ListProduct = _fac.GetListProduct().Where(x => ListCate.Select(z => z.Id).Contains(x.CategoryID)).OrderBy(x => x.Name).ToList();
-                    model.ListProduct = ListProduct;
+                    var data = _fac.GetListProduct().Where(x => ListCate.Select(z => z.Id).Contains(x.CategoryID)).OrderBy(x => x.Name).ToList();
+                    
+                    if (data != null && data.Any())
+                    {
+                        model.IsOrther = true;
+                        data.ForEach(x =>
+                        {
+                            if (!string.IsNullOrEmpty(x.ImageURL))
+                                x.ImageURL = Commons.HostImage + x.ImageURL;
+                        });
+
+                        model.ListProduct = data.OrderByDescending(x => x.CreatedDate).Skip(0).Take(4).ToList();
+                        model.TotalProduct = data.Count;
+                        var pageIndex = 0;
+                        if (data.Count % 4 == 0)
+                            pageIndex = data.Count / 4;
+                        else
+                            pageIndex = Convert.ToInt16(data.Count / 4) + 1;
+
+                        if (pageIndex > 1)
+                            model.TotalPage = pageIndex - 1;
+                        else
+                            model.IsAddMore = true;
+                    }
                 }
                 
             }catch(Exception ex)
             {
                 NSLog.Logger.Error("LoadProductOther :", ex);
+            }
+            return PartialView("_ListItem", model);
+        }
+
+        public PartialViewResult LoadPagging(int pageIndex, string Id = "", string Key = "",bool isOrther = false)
+        {
+            ProductViewModels model = new ProductViewModels();
+            var data = new List<ProductModels>();
+            if(!isOrther)
+            {
+                data = _fac.GetListProduct().Where(z => (string.IsNullOrEmpty(Id) ? 1 == 1 : z.CategoryID.Equals(Id)) && (string.IsNullOrEmpty(Key) ? 1 == 1 : CommonHelper.RemoveUnicode(z.Name.ToLower()).Contains(CommonHelper.RemoveUnicode(Key.ToLower())))).ToList();
+            }
+            else
+            {
+                var ListCate = Session["Catelogies"] as List<CateSession>;
+                if (ListCate != null && ListCate.Count < 9)
+                {
+                    data = _fac.GetListProduct().OrderBy(x => x.Name).ToList();
+                }
+                else
+                {
+                    data = _fac.GetListProduct().Where(x => ListCate.Select(z => z.Id).Contains(x.CategoryID)).OrderBy(x => x.Name).ToList();
+                }
+            }
+
+            if (data != null && data.Any())
+            {
+                data.ForEach(x =>
+                {
+                    if (!string.IsNullOrEmpty(x.ImageURL))
+                        x.ImageURL = Commons.HostImage + x.ImageURL;
+                });
+                // model.ListProduct = model.ListProduct.OrderByDescending(x => x.CreatedDate).ToList();
+
+                model.TotalProduct = data.Count;
+                model.ListProduct = data.OrderByDescending(x => x.CreatedDate).Skip(0).Take(4 * pageIndex).ToList();
+                var page = 0;
+                if (data.Count % 4 == 0)
+                    page = data.Count / 4;
+                else
+                    page = Convert.ToInt16(data.Count / 4) + 1;
+
+                if (page > pageIndex)
+                    model.TotalPage = pageIndex + 1;
+                else
+                {
+                    model.IsAddMore = true;
+                }
+                    
             }
             return PartialView("_ListItem", model);
         }
