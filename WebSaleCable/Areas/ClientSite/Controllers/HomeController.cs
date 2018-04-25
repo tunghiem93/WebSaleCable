@@ -41,7 +41,7 @@ namespace WebSaleCable.Areas.ClientSite.Controllers
                         pageIndex = Convert.ToInt16(data.Count / 4) + 1;
 
                     if (pageIndex > 1)
-                        model.TotalPage = pageIndex - 1;
+                        model.TotalPage = 2;
                     else
                         model.IsAddMore = true;
                 }
@@ -81,7 +81,7 @@ namespace WebSaleCable.Areas.ClientSite.Controllers
                     pageIndex = Convert.ToInt16(data.Count / 4) + 1;
 
                 if (pageIndex > 1)
-                    model.TotalPage = pageIndex - 1;
+                    model.TotalPage = 2;
                 else
                     model.IsAddMore = true;
             }
@@ -183,7 +183,9 @@ namespace WebSaleCable.Areas.ClientSite.Controllers
                         pageIndex = Convert.ToInt16(data.Count / 4) + 1;
 
                     if (pageIndex > 1)
-                        model.TotalPage = pageIndex - 1;
+                        model.TotalPage = 2;
+                    else
+                        model.IsAddMore = true;
                 }
             }
             return PartialView("_ListItem", model);
@@ -216,7 +218,7 @@ namespace WebSaleCable.Areas.ClientSite.Controllers
                             pageIndex = Convert.ToInt16(data.Count / 4) + 1;
 
                         if (pageIndex > 1)
-                            model.TotalPage = pageIndex - 1;
+                            model.TotalPage = 2;
                         else
                             model.IsAddMore = true;
                     }
@@ -243,7 +245,7 @@ namespace WebSaleCable.Areas.ClientSite.Controllers
                             pageIndex = Convert.ToInt16(data.Count / 4) + 1;
 
                         if (pageIndex > 1)
-                            model.TotalPage = pageIndex - 1;
+                            model.TotalPage = 2;
                         else
                             model.IsAddMore = true;
                     }
@@ -279,6 +281,9 @@ namespace WebSaleCable.Areas.ClientSite.Controllers
 
             if (data != null && data.Any())
             {
+                model.CateID = Id;
+                model.Key = Key;
+                model.IsOrther = isOrther;
                 data.ForEach(x =>
                 {
                     if (!string.IsNullOrEmpty(x.ImageURL))
