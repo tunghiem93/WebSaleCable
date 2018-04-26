@@ -6203,6 +6203,7 @@ span.notify-left{
 	border-top: 1px solid #eaeaea;
 	padding-bottom: 3px;
 	min-height: 286px;
+    border-left: 1px solid #eaeaea;
 }
 
 .option2 .product-featured .owl-prev, 
