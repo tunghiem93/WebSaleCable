@@ -1,0 +1,144 @@
+﻿@{
+    Layout = "~/Areas/ClientSite/Views/Shared/_Layout.cshtml";
+}
+@model WebSaleCable.Shared.Model.Product.ProductDetailViewModels
+@using WebSaleCable.Shared
+<style type="text/css">
+    ul.products li.product.first {
+        clear: none !important;
+    }
+
+    .at-property-features ul li {
+        border-bottom: 1px solid #E6E6E6;
+        background: #F2F2F2;
+        font-size: 16px;
+        font-weight: 400;
+        text-transform: capitalize;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 15px;
+        padding-right: 20px;
+    }
+
+        .at-property-features ul li:before {
+            content: "\f101";
+            font-family: FontAwesome;
+            margin: 10px;
+        }
+
+        .at-property-features ul li span {
+            color: #CC935C;
+        }
+
+    ul li {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+</style>
+<div id="product">
+    <div class="main">
+        <div class="container">
+            <div class="product-detail clearfix relative">
+                <span us-spinner="{radius:5, width:3, length: 3}"></span>
+                <!--Begin-->
+                <div class="product-block clearfix">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-12 product-image clearfix">
+                            @*<div class="sp-loading"><img src="/Images/sp-loading.gif" alt=""><br>LOADING IMAGES</div>*@
+                            <div class="sp-wrap">
+                                <a href="@Model.Product.ImageURL" @*ng-repeat="item in ProductImages"*@><img src="@Model.Product.ImageURL"></a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 clearfix">
+                            <h2>@Model.Product.Name</h2>
+                            <div class="price">
+                                <div>
+                                    <span class="price-new">@Model.Product.Price</span>
+                                </div>
+                                @if (!string.IsNullOrEmpty(Model.Product.Code))
+                                {
+                                    <span class="product-code">Mã SP: @Model.Product.Code</span>
+                                }
+                                
+                            </div>
+                            @if (!string.IsNullOrEmpty(Model.Product.Description))
+                            {
+                                <div class="des">
+                                    @Model.Product.Description
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+                <div class="product-tabs">
+                    <ul class="nav nav-tabs">
+                        <li role="presentation" style="background-color:#958457">
+                            <a data-toggle="tab" href="#tab" class="active" style="background-color:#958457;color:#FFF">Chi tiết sản phẩm</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active " id="tab">
+                            <div class="row at-property-features">
+                                <div class="col-md-6 clearfix">
+                                    <ul>
+                                        <li>
+                                            Tên : <em class="">@Model.Product.Name</em>
+                                        </li>
+                                        <li>
+                                            Thể loại: <em class="">@Model.Product.CategoryName</em>
+                                        </li>
+                                        <li>
+                                            Chiều dài (đơn vị: mét) : @Model.Product.Length  @*<em class="">@String.Format("{0:0,0 vnđ}", string.IsNullOrEmpty(Model.Product.Price) ? 0 : Convert.ToDecimal(Model.Product.Price))</em>*@
+                                        </li>
+                                        <li>
+                                            Chiều rộng (đơn vị: mét) : <em class=""> @Model.Product.Width</em>
+                                        </li>
+                                        <li>
+                                            Xuất xứ : <em class=""> @Model.Product.LocationName</em>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul>
+                                        <li>
+                                            Sản xuất : <em class="">@Model.Product.Production</em>
+                                        </li>
+                                        <li>
+                                            Màu sắc : <em class="">@Model.Product.Color</em>
+                                        </li>
+                                        <li>
+                                            Trọng lượng : <em class="">@Model.Product.Weight</em>
+                                        </li>
+                                        <li>
+                                            Bảo hành : <em class="">@Model.Product.GuaranteePeriod</em>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End-->
+            </div>
+        </div>
+    </div>
+</div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.menu-product li.child .open-close').on('click', function () {
+                $(this).removeAttr('href');
+                var element = $(this).parent('li');
+                if (element.hasClass('open')) {
+                    element.removeClass('open');
+                    element.children('ul').slideUp();
+                }
+                else {
+                    element.addClass('open');
+                    element.children('ul').slideDown();
+                }
+            });
+            $(".vertical-menu-content").addClass("no-home");
+        })
+</script>

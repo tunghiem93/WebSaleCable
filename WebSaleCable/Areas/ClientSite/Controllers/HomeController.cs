@@ -157,6 +157,75 @@ namespace WebSaleCable.Areas.ClientSite.Controllers
             }            
         }
 
+        public ActionResult ProductDetail(string id)
+        {
+            try
+            {
+                ProductDetailViewModels model = new ProductDetailViewModels();
+                if (!string.IsNullOrEmpty(id))
+                {
+
+                    var data = _fac.GetListProduct();
+
+                    var dataDetail = data.Where(x => x.ID.Equals(id)).FirstOrDefault();
+                    if (dataDetail != null)
+                    {
+                        if (!string.IsNullOrEmpty(dataDetail.ImageURL))
+                            dataDetail.ImageURL = Commons.HostImage + dataDetail.ImageURL;
+                        else
+                            dataDetail.ImageURL = Commons.Image400_250;
+                        if (dataDetail.ListImg != null)
+                        {
+                            dataDetail.ListImg.ForEach(x =>
+                            {
+                                x.ImageURL = Commons.HostImage + x.ImageURL;
+                            });
+                            dataDetail.ListImg.Add(new ImageProduct
+                            {
+                                ImageURL = dataDetail.ImageURL
+                            });
+                        }
+                        else
+                        {
+                            dataDetail.ListImg = new List<ImageProduct>()
+                        {
+                            new ImageProduct
+                            {
+                                ImageURL = dataDetail.ImageURL
+                            }
+                        };
+                        }
+                        dataDetail.ListImg = dataDetail.ListImg.OrderBy(x => x.ImageURL).Skip(0).Take(4).ToList();
+
+                        var oldData = data.Where(x => !x.ID.Equals(id) && x.CategoryID.Equals(dataDetail.CategoryID)).OrderBy(x => x.CreatedDate).Skip(0).Take(5).ToList();
+                        oldData.ForEach(x =>
+                        {
+                            if (!string.IsNullOrEmpty(x.ImageURL))
+                                x.ImageURL = Commons.HostImage + x.ImageURL;
+                            else
+                                x.ImageURL = Commons.Image400_250;
+                        });
+                        model.ListProduct = oldData;
+                        model.Product = dataDetail;
+                        return View(model);
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+                }
+                else
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception ex)
+            {
+                NSLog.Logger.Error("GetDetail: ", ex);
+                return new HttpStatusCodeResult(400, ex.Message);
+            }
+        }
+
         [HttpGet]
         public PartialViewResult LoadItem(string id)
         {
