@@ -2546,7 +2546,7 @@ span.notify-left{
 	background-color: rgba(255,51,102,0.5);
 }
 .product-list li .add-to-cart a{
-	background: url("images/add-cart.png?v=37") no-repeat left center;
+	/*background: url("images/add-cart.png?v=37") no-repeat left center;*/
 	height: 32px;
 	line-height: 32px;
 	color: #fff;
@@ -6378,7 +6378,7 @@ span.notify-left{
 	opacity: 1;
 }
 .option2 .product-list li .add-to-cart a {
-	background: url("images/icon-cart-option2.png?v=37") no-repeat left center;
+	/*background: url("images/icon-cart-option2.png?v=37") no-repeat left center;*/
 }
 .option2 .product-list li .quick-view a.compare:before{
 	content: "\f066";
@@ -7030,7 +7030,7 @@ input#quantity {
 	margin: 20px 0px;
 }
 a.btn-cart {
-	background-image: url('images/add-cart.png?v=37') !important;
+	/*background-image: url('images/add-cart.png?v=37') !important;*/
 	background-repeat: no-repeat !important;
 	background-position: 5px !important;
 	padding: 10px 30px 10px 50px;
