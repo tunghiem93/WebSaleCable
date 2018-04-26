@@ -50,6 +50,13 @@
                                     <li class="level0"><a class='' href="@Url.Action("Index","Policy")"><span>Chính sách</span></a></li>
                                     <li class="level0"><a class='' href="#"><span>Tin tức</span></a></li>
                                     <li class="level0"><a class='' href="@Url.Action("Index","Contact")"><span>Liên hệ</span></a></li>
+                                    @{
+                                        var user = Session["UserClient"] as WebSaleCable.Shared.Models.UserSession;
+                                        if (user != null && user.IsAdminClient == true)
+                                        {
+                                            <li class="level0"><a class='' href="@Url.Action("Index","Login", new { area = "Administration"})"><span>Quản lý</span></a></li>
+                                        }
+                                    }
                                 </ul>
                             </div><!--/.nav-collapse -->
                         </div>
