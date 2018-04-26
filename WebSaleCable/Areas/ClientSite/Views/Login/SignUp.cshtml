@@ -76,12 +76,13 @@
                                             <div class="col-sm-9">
                                                 <div class="col-sm-2">
                                                     <label class="radio-inline">
-                                                        @Html.RadioButtonFor(model => model.Gender, "false", new { @checked = "checked", @class = "flat", @name = "gender" }) Nữ
+                                                        @Html.RadioButtonFor(model => model.Gender, "false", new { @checked = "checked", @class = "flat", @name = "gender", @id = "idfemale" }) Nữ
                                                     </label>
                                                 </div>
                                                 <div class="col-sm-2">
                                                     <label class="radio-inline">
-                                                        @Html.RadioButtonFor(model => model.Gender, "true", new { @class = "flat", @name = "gender" }) Nam
+                                                        @Html.RadioButtonFor(model => model.Gender, "true", new { @class = "flat", @name = "gender",
+                                                       @id = "idmale" }) Nam
                                                     </label>
                                                 </div>
                                             </div>
@@ -135,6 +136,11 @@
                 </div>
             </div>
         </div>
+        <script type="text/javascript">
+            $(".vertical-menu-content").addClass("no-home");
+            $(document).ready(function () {
+            });
+        </script>
     </div>
     <a href="#" class="scroll_top" title="Scroll to Top" style="display: none;">Scroll</a>
 </body>
@@ -160,4 +166,5 @@
      $('.txtConfirmPassword').val('@Model.ConfirmPassword')
     $(".header-content").css({ "background": '' });
     $("html").addClass('');
+
 </script>
