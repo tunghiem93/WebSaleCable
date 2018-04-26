@@ -5849,8 +5849,8 @@ span.notify-left{
 	background: #958457;
 }
 .option2 .product-list li .product-price {
-	//color: #f96d10;
-	color: #ff3366;
+    /*//color: #f96d10;*/
+    color: orangered;
 }
 
 
@@ -6420,7 +6420,7 @@ color: rgba(255, 51, 102, 0.7);
 }
 */
 .option2 .category-featured.featured1 .product-list li .add-to-cart:hover {
-	background: #ff3366;
+    background: orangered;
 }
 
 .option2 .category-featured.featured1 .product-list li .quick-view a.search:hover,

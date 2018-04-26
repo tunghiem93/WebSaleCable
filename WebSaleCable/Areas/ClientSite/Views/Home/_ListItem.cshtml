@@ -11,16 +11,17 @@
                             @foreach (var item in Model.ListProduct)
                             {
                                 <li class="col-sm-3">
-                                    <div class="right-block">
-                                        <h5 class="product-name"><a href="/Home/ProductDetail/@item.ID">@item.Name</a></h5>
-                                        <div class="content_price">
-                                            <span class="price product-price">@item.Price</span>
-                                        </div>
-                                    </div>
+                     
                                     <div class="left-block">
                                         <a href="/Home/ProductDetail/@item.ID"><img class="img-responsive" alt="product" src="@item.ImageURL" /></a>
                                         <div class="add-to-cart">
-                                            <a class="add-to-car" href="/Home/ProductDetail/@item.ID">Chi tiết</a>
+                                            <a class="" href="/Home/Detail/@item.ID">Chi tiết</a>
+                                        </div>
+                                    </div>
+                                    <div class="right-block" style="padding-top:10px">
+                                        <h5 class="product-name"><a href="/Home/Detail/@item.ID">@item.Name</a></h5>
+                                        <div class="content_price">
+                                            <span class="price product-price">@item.Price</span>
                                         </div>
                                     </div>
                                 </li>
