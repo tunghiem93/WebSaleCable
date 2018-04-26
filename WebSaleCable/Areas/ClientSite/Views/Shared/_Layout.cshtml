@@ -1,5 +1,6 @@
 ﻿@{
     string controller = (string)ViewContext.RouteData.Values["controller"];
+    string action = (string)ViewContext.RouteData.Values["action"];
 }
 
 <!DOCTYPE html>
@@ -143,7 +144,7 @@
         <div id="" class="header">
             @Html.Partial("_topNavigation")
         </div> 
-        @if (controller == "Home")
+        @if (controller == "Home" && action == "Index")
         {
             <div id="" class="search">
                 @Html.Partial("_search")
