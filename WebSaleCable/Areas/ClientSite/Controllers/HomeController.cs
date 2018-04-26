@@ -32,13 +32,13 @@ namespace WebSaleCable.Areas.ClientSite.Controllers
                 });
                 if (data != null && data.Any())
                 {
-                   model.ListProduct = data.OrderByDescending(x => x.CreatedDate).Skip(0).Take(4).ToList();
+                   model.ListProduct = data.OrderByDescending(x => x.CreatedDate).Skip(0).Take(12).ToList();
                    model.TotalProduct = data.Count;
                     var pageIndex = 0;
-                    if (data.Count % 4 == 0)
-                        pageIndex = data.Count / 4;
+                    if (data.Count % 12 == 0)
+                        pageIndex = data.Count / 12;
                     else
-                        pageIndex = Convert.ToInt16(data.Count / 4) + 1;
+                        pageIndex = Convert.ToInt16(data.Count / 12) + 1;
 
                     if (pageIndex > 1)
                         model.TotalPage = 2;
@@ -72,13 +72,13 @@ namespace WebSaleCable.Areas.ClientSite.Controllers
                         x.ImageURL = Commons.HostImage + x.ImageURL;
                 });
                 model.Key = Key;
-                model.ListProduct = data.OrderByDescending(x => x.CreatedDate).Skip(0).Take(4).ToList();
+                model.ListProduct = data.OrderByDescending(x => x.CreatedDate).Skip(0).Take(12).ToList();
                 model.TotalProduct = data.Count;
                 var pageIndex = 0;
-                if (data.Count % 4 == 0)
-                    pageIndex = data.Count / 4;
+                if (data.Count % 12 == 0)
+                    pageIndex = data.Count / 12;
                 else
-                    pageIndex = Convert.ToInt16(data.Count / 4) + 1;
+                    pageIndex = Convert.ToInt16(data.Count / 12) + 1;
 
                 if (pageIndex > 1)
                     model.TotalPage = 2;
@@ -243,13 +243,13 @@ namespace WebSaleCable.Areas.ClientSite.Controllers
                             x.ImageURL = Commons.HostImage + x.ImageURL;
                     });
 
-                    model.ListProduct = data.OrderByDescending(x => x.CreatedDate).Skip(0).Take(4).ToList();
+                    model.ListProduct = data.OrderByDescending(x => x.CreatedDate).Skip(0).Take(12).ToList();
                     model.TotalProduct = data.Count;
                     var pageIndex = 0;
-                    if (data.Count % 4 == 0)
-                        pageIndex = data.Count / 4;
+                    if (data.Count % 12 == 0)
+                        pageIndex = data.Count / 12;
                     else
-                        pageIndex = Convert.ToInt16(data.Count / 4) + 1;
+                        pageIndex = Convert.ToInt16(data.Count / 12) + 1;
 
                     if (pageIndex > 1)
                         model.TotalPage = 2;
@@ -278,13 +278,13 @@ namespace WebSaleCable.Areas.ClientSite.Controllers
                                 x.ImageURL = Commons.HostImage + x.ImageURL;
                         });
 
-                        model.ListProduct = data.OrderByDescending(x => x.CreatedDate).Skip(0).Take(4).ToList();
+                        model.ListProduct = data.OrderByDescending(x => x.CreatedDate).Skip(0).Take(12).ToList();
                         model.TotalProduct = data.Count;
                         var pageIndex = 0;
-                        if (data.Count % 4 == 0)
-                            pageIndex = data.Count / 4;
+                        if (data.Count % 12 == 0)
+                            pageIndex = data.Count / 12;
                         else
-                            pageIndex = Convert.ToInt16(data.Count / 4) + 1;
+                            pageIndex = Convert.ToInt16(data.Count / 12) + 1;
 
                         if (pageIndex > 1)
                             model.TotalPage = 2;
@@ -305,13 +305,13 @@ namespace WebSaleCable.Areas.ClientSite.Controllers
                                 x.ImageURL = Commons.HostImage + x.ImageURL;
                         });
 
-                        model.ListProduct = data.OrderByDescending(x => x.CreatedDate).Skip(0).Take(4).ToList();
+                        model.ListProduct = data.OrderByDescending(x => x.CreatedDate).Skip(0).Take(12).ToList();
                         model.TotalProduct = data.Count;
                         var pageIndex = 0;
-                        if (data.Count % 4 == 0)
-                            pageIndex = data.Count / 4;
+                        if (data.Count % 12 == 0)
+                            pageIndex = data.Count / 12;
                         else
-                            pageIndex = Convert.ToInt16(data.Count / 4) + 1;
+                            pageIndex = Convert.ToInt16(data.Count / 12) + 1;
 
                         if (pageIndex > 1)
                             model.TotalPage = 2;
@@ -361,12 +361,12 @@ namespace WebSaleCable.Areas.ClientSite.Controllers
                 // model.ListProduct = model.ListProduct.OrderByDescending(x => x.CreatedDate).ToList();
 
                 model.TotalProduct = data.Count;
-                model.ListProduct = data.OrderByDescending(x => x.CreatedDate).Skip(0).Take(4 * pageIndex).ToList();
+                model.ListProduct = data.OrderByDescending(x => x.CreatedDate).Skip(0).Take(12 * pageIndex).ToList();
                 var page = 0;
-                if (data.Count % 4 == 0)
-                    page = data.Count / 4;
+                if (data.Count % 12 == 0)
+                    page = data.Count / 12;
                 else
-                    page = Convert.ToInt16(data.Count / 4) + 1;
+                    page = Convert.ToInt16(data.Count / 12) + 1;
 
                 if (page > pageIndex)
                     model.TotalPage = pageIndex + 1;
