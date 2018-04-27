@@ -54,6 +54,41 @@ namespace WebSaleCable.Areas.ClientSite.Controllers
             }            
         }
 
+        public ActionResult Quotation()
+        {
+            try
+            {
+                ProductViewModels model = new ProductViewModels();
+                var data = _fac.GetListProduct();
+                data.ForEach(x =>
+                {
+                    if (!string.IsNullOrEmpty(x.ImageURL))
+                        x.ImageURL = Commons.HostImage + x.ImageURL;
+                });
+                if (data != null && data.Any())
+                {
+                    model.ListProduct = data.OrderByDescending(x => x.CreatedDate).ToList();
+                    //model.TotalProduct = data.Count;
+                    //var pageIndex = 0;
+                    //if (data.Count % 12 == 0)
+                    //    pageIndex = data.Count / 12;
+                    //else
+                    //    pageIndex = Convert.ToInt16(data.Count / 12) + 1;
+
+                    //if (pageIndex > 1)
+                    //    model.TotalPage = 2;
+                    //else
+                    //    model.IsAddMore = true;
+                }
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                NSLog.Logger.Error("Quotation: ", ex);
+                return new HttpStatusCodeResult(400, ex.Message);
+            }
+        }
+
         [HttpPost]
         public ActionResult SearchKey(string Key = "")
         {
