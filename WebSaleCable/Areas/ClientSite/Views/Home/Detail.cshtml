@@ -3,7 +3,12 @@
 @{
     Layout = "~/Areas/ClientSite/Views/Shared/_Layout.cshtml";
 }
-
+<style>
+    .paracontent {
+        font-weight: 200;
+        color: #131315;
+    }
+</style>
 
 <div class="product-template-default single single-product postid-916 wp-custom-logo woocommerce woocommerce-page right-sidebar woocommerce-active">
     <link href="@Url.Content("~/Content/photoswipe.css")" rel="stylesheet" />
@@ -68,14 +73,13 @@
                                 </p>
 
                                 <span class='sku no-rating-sku'><b>Mã sản phẩm:</b> @Model.Product.Code</span>
-                                <div class="woocommerce-product-details__short-description">
-                                    <p>@Model.Product.Description</p>
+                                <div class="woocommerce-product-details__short-description paracontent"> 
                                     <p>Sản xuất tại @Model.Product.Production</p>
                                     @if (!string.IsNullOrEmpty(Model.Product.GuaranteePeriod))
                                     {
                                         <p>Bảo hành @Model.Product.GuaranteePeriod</p>
                                     }
-                                    
+                                    <p style="line-height: 1.5">@Model.Product.Description</p>
                                 </div>
                             </div>
 
@@ -90,12 +94,12 @@
                                      </li>
                                  </ul>
                                  <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab" id="tab-description" role="tabpanel" aria-labelledby="tab-title-description">
-                                     <div class="content-product">
+                                     <div class="content-product" style="line-height: 1.8">
                                         @Model.Product.MoreInformation
                                      </div>
      
                                  </div>
-                                 <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--tskt_tab panel entry-content wc-tab" id="tab-tskt_tab" role="tabpanel" aria-labelledby="tab-title-tskt_tab">
+                                 <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--tskt_tab panel entry-content wc-tab paracontent" id="tab-tskt_tab" role="tabpanel" aria-labelledby="tab-title-tskt_tab">
                                      <div class="row at-property-features">
                                          <div class="col-md-6 clearfix">
                                              <ul>
