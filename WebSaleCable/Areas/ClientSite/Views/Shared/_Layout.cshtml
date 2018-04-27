@@ -144,12 +144,9 @@
         <div id="" class="header">
             @Html.Partial("_topNavigation")
         </div> 
-        @if (controller == "Home" && action == "Index")
-        {
-            <div id="" class="search">
-                @Html.Partial("_search")
-            </div>
-        }        
+        <div id="" class="search">
+            @Html.Partial("_search")
+        </div>
         <div id="" class="menu">
             @Html.Partial("_header")
         </div>
