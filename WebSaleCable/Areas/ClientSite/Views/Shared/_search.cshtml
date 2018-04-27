@@ -29,11 +29,11 @@
                         <strong>Hotline:</strong><a title="hot-line" href="#"><span class="hotline"> 0971.603.603</span></a> || <strong>Email:</strong><a title="hot-line" href="#"><span class="hotline"> capsacgb@gmail.com</span></a>
                     </div>
                 </div>
-                <form class="search form-inline">                    
+                <form class="search form-inline" action="/Home/Search" method="get">                    
                     <div class="input-serach">
                         <input type="text" name="search" data-provide="typeahead" class="search_box" id="txtsearch" placeholder="Nhập từ khóa tìm kiếm..." />
                     </div>
-                    <button id="btnsearch" class="pull-right btn-search" onclick="SearchKeyWord(); return false;">
+                    <button id="btnsearch" class="pull-right btn-search" type="submit" @*onclick="SearchKeyWord(); return false;"*@>
                         <span class="hidden-400">Tìm kiếm</span>
                         <span class="show-400"><i class="fa fa-search" aria-hidden="true"></i></span>
                     </button>

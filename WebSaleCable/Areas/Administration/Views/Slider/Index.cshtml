@@ -35,7 +35,7 @@
                                     <tr>
                                         <th>Hình ảnh</th>
                                         <th></th>
-                                        <th>Tùy chỉnh</th>
+                                        @*<th>Tùy chỉnh</th>*@
                                     </tr>
                                 </thead>
                                 <tbody id="list-image-item-product">
@@ -55,11 +55,6 @@
                                                        @onchange = "PreviewImage(this,\"upload-preview-" + item.OffSet + "\")",
                                                        @accept = "*.jpg"
                                                    })
-                                                </td>
-                                                <td style="line-height:95px;" class="text-center">
-                                                    <a href="javascript:void(0)" class="" style="font-size:28px;" onclick="DeleteImage(this); return false;" title="Xóa hình ảnh">
-                                                        <i class="fa fa-trash text-red"></i>
-                                                    </a>
                                                     @Html.Hidden(string.Format("ListImg[{0}].OffSet", item.OffSet), item.OffSet, new { @id = "hidOffSet" })
                                                     @Html.Hidden(string.Format("ListImg[{0}].ImageURL", item.OffSet), item.ImageURL, new { @id = "hidImageURL" })
                                                     @Html.Hidden(string.Format("ListImg[{0}].IsDelete", item.OffSet), item.IsDelete, new { @class = "ImgProStatus" })

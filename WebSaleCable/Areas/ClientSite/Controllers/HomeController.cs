@@ -88,6 +88,42 @@ namespace WebSaleCable.Areas.ClientSite.Controllers
             return PartialView("_ListItem", model);
         }
 
+        public ActionResult Search()
+        {
+            var Key = Request.QueryString["search"];
+            if (string.IsNullOrEmpty(Key))
+                Key = "";
+            var model = new ProductViewModels();
+
+            var data = _fac.GetListProduct()
+                                    .Where(x => CommonHelper.RemoveUnicode(x.Name.ToLower()).Contains(CommonHelper.RemoveUnicode(Key.ToLower())))
+                                    .OrderByDescending(x => x.CreatedDate)
+                                                   .ToList();
+
+            if (data != null && data.Any())
+            {
+                data.ForEach(x =>
+                {
+                    if (!string.IsNullOrEmpty(x.ImageURL))
+                        x.ImageURL = Commons.HostImage + x.ImageURL;
+                });
+                model.Key = Key;
+                model.ListProduct = data.OrderByDescending(x => x.CreatedDate).Skip(0).Take(12).ToList();
+                model.TotalProduct = data.Count;
+                var pageIndex = 0;
+                if (data.Count % 12 == 0)
+                    pageIndex = data.Count / 12;
+                else
+                    pageIndex = Convert.ToInt16(data.Count / 12) + 1;
+
+                if (pageIndex > 1)
+                    model.TotalPage = 2;
+                else
+                    model.IsAddMore = true;
+            }
+            return View(model);
+        }
+
         public ActionResult Detail(string id)
         {
             try
