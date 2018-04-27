@@ -76,13 +76,14 @@
                                             <div class="col-sm-9">
                                                 <div class="col-sm-2">
                                                     <label class="radio-inline">
-                                                        @Html.RadioButtonFor(model => model.Gender, "false", new { @checked = "checked", @class = "flat", @name = "gender", @id = "idfemale" }) Nữ
+                                                        @Html.RadioButtonFor(model => model.Gender, "false", new { @checked = "checked", @class = "flat", @name = "gender", @id = "idmale" }) Nam
                                                     </label>
                                                 </div>
                                                 <div class="col-sm-2">
                                                     <label class="radio-inline">
                                                         @Html.RadioButtonFor(model => model.Gender, "true", new { @class = "flat", @name = "gender",
-                                                       @id = "idmale" }) Nam
+                                                       @id = "idfemale"
+                                                   }) Nữ
                                                     </label>
                                                 </div>
                                             </div>
