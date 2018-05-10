@@ -150,8 +150,8 @@ namespace NuWebForSaler.Shared.Utilities
                 int originalH = image.Height;
                 //int resizedW = maxWidth;
                 //int resizedH = (originalH * resizedW) / originalW;
-                int resizedW = 300;
-                int resizedH = 225;
+                int resizedW = 600;
+                int resizedH = 450;
                 bitmap = new System.Drawing.Bitmap(resizedW, resizedH);
 
                 using (Graphics g = Graphics.FromImage(bitmap))
