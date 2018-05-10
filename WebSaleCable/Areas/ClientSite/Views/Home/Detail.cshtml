@@ -79,7 +79,11 @@
                                     {
                                         <p>Bảo hành @Model.Product.GuaranteePeriod</p>
                                     }
-                                    <p style="line-height: 1.5">@Model.Product.Description</p>
+                                    @if (!string.IsNullOrEmpty(Model.Product.Description))
+                                    {
+                                        <p style="line-height: 1.5">@Model.Product.Description</p>
+                                    }
+                                    
                                 </div>
                             </div>
 

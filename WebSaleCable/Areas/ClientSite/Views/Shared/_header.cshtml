@@ -21,7 +21,8 @@
                                     @foreach (var item in ListCate)
                                     {
                                         <li class="level0">
-                                            <a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = item.Id })')"><span>@item.Name</span></a>
+                                            @*<a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = item.Id })')"><span>@item.Name</span></a>*@
+                                            <a class='' href='@Url.Action("Index","Home",new { id=item.Id})' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = item.Id })')"><span>@item.Name</span></a>
                                         </li>
                                     }
                                     <li class="level0">
@@ -44,7 +45,7 @@
                             </div>
                             <div id="new-menu" class="navbar-collapse collapse">
                                 <ul class='menu t-menu nav'>
-                                    <li class="level0"><a class='' href="@Url.Action("Index","Home")"><span>Trang chủ</span></a></li>
+                                    <li class="level0"><a class='' href="@Url.Action("Index","Home",new { id=""})"><span>Trang chủ</span></a></li>
                                     <li class="level0"><a class='' href="@Url.Action("Index","About")"><span>Giới thiệu</span></a></li>
                                     <li class="level0"><a class='' href="#"><span>Tuyển dụng</span></a></li>
                                     <li class="level0"><a class='' href="@Url.Action("Index","Policy")"><span>Chính sách</span></a></li>
