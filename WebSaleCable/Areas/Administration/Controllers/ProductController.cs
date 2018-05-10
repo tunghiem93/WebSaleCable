@@ -116,7 +116,7 @@ namespace WebSaleCable.Areas.Administration.Controllers
                         ms.Write(photoByte, 0, photoByte.Length);
                         System.Drawing.Image imageTmp = System.Drawing.Image.FromStream(ms, true);
 
-                        ImageHelper.Me.SaveCroppedImage(imageTmp, path, model.RawImageUrl, ref photoByte);
+                        ImageHelper.Me.SaveCroppedImageProduct(imageTmp, path, model.RawImageUrl, ref photoByte);
                     }
 
                     foreach (var item in ListImage)
@@ -128,7 +128,7 @@ namespace WebSaleCable.Areas.Administration.Controllers
                             ms.Write(lstImgByte[item.OffSet], 0, lstImgByte[item.OffSet].Length);
                             System.Drawing.Image imageTmp = System.Drawing.Image.FromStream(ms, true);
 
-                            ImageHelper.Me.SaveCroppedImage(imageTmp, path, item.ImageURL, ref photoByte);
+                            ImageHelper.Me.SaveCroppedImageProduct(imageTmp, path, item.ImageURL, ref photoByte);
                         }
                     }
                     return RedirectToAction("Index");
@@ -283,7 +283,7 @@ namespace WebSaleCable.Areas.Administration.Controllers
                         ms.Write(photoByte, 0, photoByte.Length);
                         System.Drawing.Image imageTmp = System.Drawing.Image.FromStream(ms, true);
 
-                        ImageHelper.Me.SaveCroppedImage(imageTmp, path, model.RawImageUrl, ref photoByte);
+                        ImageHelper.Me.SaveCroppedImageProduct(imageTmp, path, model.RawImageUrl, ref photoByte);
                     }
 
                     foreach (var item in ListImage)
@@ -295,7 +295,7 @@ namespace WebSaleCable.Areas.Administration.Controllers
                             ms.Write(lstImgByte[item.OffSet], 0, lstImgByte[item.OffSet].Length);
                             System.Drawing.Image imageTmp = System.Drawing.Image.FromStream(ms, true);
 
-                            ImageHelper.Me.SaveCroppedImage(imageTmp, path, item.ImageURL, ref photoByte);
+                            ImageHelper.Me.SaveCroppedImageProduct(imageTmp, path, item.ImageURL, ref photoByte);
                         }
                     }
                     return RedirectToAction("Index");

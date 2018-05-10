@@ -6201,7 +6201,7 @@ span.notify-left{
 	min-height: inherit;
 	border-right: 1px solid #eaeaea;
 	border-top: 1px solid #eaeaea;
-	padding-bottom: 3px;
+	padding-bottom: 20px;
 	min-height: 286px;
     border-left: 1px solid #eaeaea;
 }

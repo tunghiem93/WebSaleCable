@@ -16,7 +16,7 @@ Text Domain:   bagitech
 	padding: 0 !important;
 }
 .container{
-	width: 1200px !important;
+	/*width: 1200px !important;*/
 }
 .clear{
 	clear: both;

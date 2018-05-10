@@ -19,32 +19,63 @@ namespace WebSaleCable.Areas.ClientSite.Controllers
             _fac = new ProductFactory();
         }
         // GET: ClientSite/Home
-        public ActionResult Index()
+        public ActionResult Index(string id="")
         {
             try
             {
                 ProductViewModels model = new ProductViewModels();
-                var data = _fac.GetListProduct();
-                data.ForEach(x =>
+                if(string.IsNullOrEmpty(id))
                 {
-                    if (!string.IsNullOrEmpty(x.ImageURL))
-                        x.ImageURL = Commons.HostImage + x.ImageURL;
-                });
-                if (data != null && data.Any())
-                {
-                   model.ListProduct = data.OrderByDescending(x => x.CreatedDate).Skip(0).Take(12).ToList();
-                   model.TotalProduct = data.Count;
-                    var pageIndex = 0;
-                    if (data.Count % 12 == 0)
-                        pageIndex = data.Count / 12;
-                    else
-                        pageIndex = Convert.ToInt16(data.Count / 12) + 1;
+                    var data = _fac.GetListProduct();
+                    data.ForEach(x =>
+                    {
+                        if (!string.IsNullOrEmpty(x.ImageURL))
+                            x.ImageURL = Commons.HostImage + x.ImageURL;
+                    });
+                    if (data != null && data.Any())
+                    {
+                        model.ListProduct = data.OrderByDescending(x => x.CreatedDate).Skip(0).Take(12).ToList();
+                        model.TotalProduct = data.Count;
+                        var pageIndex = 0;
+                        if (data.Count % 12 == 0)
+                            pageIndex = data.Count / 12;
+                        else
+                            pageIndex = Convert.ToInt16(data.Count / 12) + 1;
 
-                    if (pageIndex > 1)
-                        model.TotalPage = 2;
-                    else
-                        model.IsAddMore = true;
+                        if (pageIndex > 1)
+                            model.TotalPage = 2;
+                        else
+                            model.IsAddMore = true;
+                    }
                 }
+                else
+                {
+                    model.CateID = id;
+                    var data = _fac.GetListProduct().Where(x => x.CategoryID.Equals(id)).ToList();
+
+                    if (data != null && data.Any())
+                    {
+                        data.ForEach(x =>
+                        {
+                            if (!string.IsNullOrEmpty(x.ImageURL))
+                                x.ImageURL = Commons.HostImage + x.ImageURL;
+                        });
+
+                        model.ListProduct = data.OrderByDescending(x => x.CreatedDate).Skip(0).Take(12).ToList();
+                        model.TotalProduct = data.Count;
+                        var pageIndex = 0;
+                        if (data.Count % 12 == 0)
+                            pageIndex = data.Count / 12;
+                        else
+                            pageIndex = Convert.ToInt16(data.Count / 12) + 1;
+
+                        if (pageIndex > 1)
+                            model.TotalPage = 2;
+                        else
+                            model.IsAddMore = true;
+                    }
+                }
+                
                 return View(model);
             }
             catch (Exception ex)
@@ -174,8 +205,8 @@ namespace WebSaleCable.Areas.ClientSite.Controllers
                     {
                         if (!string.IsNullOrEmpty(dataDetail.ImageURL))
                             dataDetail.ImageURL = Commons.HostImage + dataDetail.ImageURL;
-                        else
-                            dataDetail.ImageURL = Commons.Image400_250;
+                        //else
+                        //    dataDetail.ImageURL = Commons.Image400_250;
                         if (dataDetail.ListImg != null)
                         {
                             dataDetail.ListImg.ForEach(x =>
@@ -204,8 +235,8 @@ namespace WebSaleCable.Areas.ClientSite.Controllers
                         {
                             if (!string.IsNullOrEmpty(x.ImageURL))
                                 x.ImageURL = Commons.HostImage + x.ImageURL;
-                            else
-                                x.ImageURL = Commons.Image400_250;
+                            //else
+                            //    x.ImageURL = Commons.Image400_250;
                         });
                         model.ListProduct = oldData;
                         model.Product = dataDetail;
@@ -243,8 +274,8 @@ namespace WebSaleCable.Areas.ClientSite.Controllers
                     {
                         if (!string.IsNullOrEmpty(dataDetail.ImageURL))
                             dataDetail.ImageURL = Commons.HostImage + dataDetail.ImageURL;
-                        else
-                            dataDetail.ImageURL = Commons.Image400_250;
+                        //else
+                        //    dataDetail.ImageURL = Commons.Image400_250;
                         if (dataDetail.ListImg != null)
                         {
                             dataDetail.ListImg.ForEach(x =>
@@ -273,8 +304,8 @@ namespace WebSaleCable.Areas.ClientSite.Controllers
                         {
                             if (!string.IsNullOrEmpty(x.ImageURL))
                                 x.ImageURL = Commons.HostImage + x.ImageURL;
-                            else
-                                x.ImageURL = Commons.Image400_250;
+                            //else
+                            //    x.ImageURL = Commons.Image400_250;
                         });
                         model.ListProduct = oldData;
                         model.Product = dataDetail;

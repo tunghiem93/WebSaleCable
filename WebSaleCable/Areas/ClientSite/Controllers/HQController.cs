@@ -17,23 +17,20 @@ namespace WebSaleCable.Areas.ClientSite.Controllers
     {
        public HQController()
        {
-            if (System.Web.HttpContext.Current.Session["SliderSession"] == null)
+            var _Path = HostingEnvironment.MapPath("~/Images/silder/");
+            var list = Directory.GetFiles(_Path).Select(x => Path.GetFileName(x)).ToList();
+            var ListSlider = new List<SliderSession>();
+            if (list != null && list.Count > 0)
             {
-                var _Path = HostingEnvironment.MapPath("~/Images/silder/");
-                var list = Directory.GetFiles(_Path).Select(x => Path.GetFileName(x)).ToList();
-                var ListSlider = new List<SliderSession>();
-                if (list != null && list.Count > 0)
+                for (var i = 0; i < list.Count; i++)
                 {
-                    for (var i = 0; i < list.Count; i++)
+                    ListSlider.Add(new SliderSession
                     {
-                        ListSlider.Add(new SliderSession
-                        {
-                            ImageUrl = list[i]
-                        });
-                    }
+                        ImageUrl = list[i]
+                    });
                 }
-                System.Web.HttpContext.Current.Session["SliderSession"] = ListSlider;
             }
-       }
+            System.Web.HttpContext.Current.Session["SliderSession"] = ListSlider;
+        }
     }
 }
