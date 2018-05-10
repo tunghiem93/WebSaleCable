@@ -87,7 +87,7 @@ namespace WebSaleCable.Areas.Administration.Controllers
                                 ms.Write(imgByte, 0, imgByte.Length);
                                 System.Drawing.Image imageTmp = System.Drawing.Image.FromStream(ms, true);
                                 byte[] photoByte = null;
-                                ImageHelper.Me.SaveCroppedImage(imageTmp, path, item.ImageURL, ref photoByte);
+                                ImageHelper.Me.SaveCroppedImageSilder(imageTmp, path, item.ImageURL, ref photoByte);
                             }
                         }
                     }
