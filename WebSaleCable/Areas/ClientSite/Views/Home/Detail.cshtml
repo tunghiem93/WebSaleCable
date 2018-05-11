@@ -46,7 +46,7 @@
                                         {
                                             <div data-thumb="@itemImg.ImageURL" class="woocommerce-product-gallery__image">
                                                 <a href="@itemImg.ImageURL">
-                                                    <img width="600" height="450" style="width:100% !important" src="@itemImg.ImageURL" class="attachment-shop_single size-shop_single wp-post-image" alt="Cáp sạc nhựa nhanh chống đứt type c CF10" title="cáp sạc nhựa nhanh chống đứt type c cf10" data-caption="" data-src="@itemImg.ImageURL" data-large_image="@itemImg.ImageURL" data-large_image_width="600" data-large_image_height="450" srcset="@itemImg.ImageURL 600w, @itemImg.ImageURL 300w, @itemImg.ImageURL 450w" sizes="(max-width: 600px) 100vw, 600px" />
+                                                    <img width="600" height="450" style="width:100% !important" src="@itemImg.ImageURL" class="attachment-shop_single size-shop_single wp-post-image" alt="@Model.Product.Name" title="@Model.Product.Name" data-caption="" data-src="@itemImg.ImageURL" data-large_image="@itemImg.ImageURL" data-large_image_width="600" data-large_image_height="450" srcset="@itemImg.ImageURL 600w, @itemImg.ImageURL 300w, @itemImg.ImageURL 450w" sizes="(max-width: 600px) 100vw, 600px" />
                                                 </a>
                                             </div>
                                         }
@@ -148,7 +148,7 @@
 
                                         <li class="post-769 product type-product status-publish has-post-thumbnail product_cat-cap-sac-bagi-cables product_cat-cap-sac-lightning-cables first instock shipping-taxable purchasable product-type-simple">
                                             <a href="/Home/Detail/@item.ID" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
-                                                <img width="300" height="300" src="@item.ImageURL" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="dây cáp hộp bagi lightning ai15" srcset="@item.ImageURL 300w, @item.ImageURL 180w" sizes="(max-width: 300px) 100vw, 300px" /><h3 class="woocommerce-loop-product__title">@item.Name</h3>
+                                                <img width="300" height="300" src="@item.ImageURL" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="@item.Name" srcset="@item.ImageURL 300w, @item.ImageURL 180w" sizes="(max-width: 300px) 100vw, 300px" /><h3 class="woocommerce-loop-product__title">@item.Name</h3>
                                                 <span class="price"><span class="woocommerce-Price-amount amount">@string.Format("{0}",string.IsNullOrEmpty(item.Price) ? "0" : item.Price)&nbsp;<span class="woocommerce-Price-currencySymbol">VNĐ</span></span></span>
                                             </a>						
                                             <a class='btn-xemchitiet' href='/Home/Detail/@item.ID'>Xem Chi Tiết</a>
