@@ -1,6 +1,5 @@
 ﻿@model WebSaleCable.Shared.Model.Product.ProductViewModels
     @using WebSaleCable.Shared
-
 <div class="category-featured featured1">
     <div class="product-featured clearfix">
         <div class="row">
@@ -8,23 +7,7 @@
                 <div class="product-featured-tab-content">
                     @if (Model.ListProduct != null && Model.ListProduct.Any())
                     {
-
-                        <ul class="products">
-                            @foreach (var item in Model.ListProduct)
-                            {
-
-                                <li class="post-769 product type-product status-publish has-post-thumbnail product_cat-cap-sac-bagi-cables product_cat-cap-sac-lightning-cables first instock shipping-taxable purchasable product-type-simple">
-                                    <a href="/Home/Detail/@item.ID" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
-                                        <img width="300" height="300" src="@item.ImageURL" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="dây cáp hộp bagi lightning ai15" srcset="@item.ImageURL 300w, @item.ImageURL 180w" sizes="(max-width: 300px) 100vw, 300px" /><h3 class="woocommerce-loop-product__title">@item.Name</h3>
-                                        <span class="price"><span class="woocommerce-Price-amount amount">@string.Format("{0}", string.IsNullOrEmpty(item.Price) ? "0" : item.Price)&nbsp;<span class="woocommerce-Price-currencySymbol">VNĐ</span></span></span>
-                                    </a>
-                                    <a class='btn-xemchitiet' href='/Home/Detail/@item.ID'>Xem Chi Tiết</a>
-                                </li>
-
-                            }
-                        </ul>
-
-                        @*<ul class="product-list row">
+                        <ul class="product-list row">
                             @foreach (var item in Model.ListProduct)
                             {
                                 <li class="col-sm-3">
@@ -43,7 +26,7 @@
                                     </div>
                                 </li>
                             }
-                        </ul>*@
+                        </ul>
                     }
                     else {
                         <p>Không có sản phẩm nào</p>

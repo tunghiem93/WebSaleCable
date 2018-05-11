@@ -17,13 +17,6 @@
     }
 
 </style>
-@*<link href="@Url.Content("~/Content/photoswipe.css")" rel="stylesheet" />
-<link href="@Url.Content("~/Content/default-skin.css")" rel="stylesheet" />*@
-
-<link href="@Url.Content("~/Content/styledetail_child.css")" rel="stylesheet" />
-<link href="@Url.Content("~/Content/woocommerce.css")" rel="stylesheet" />
-<link href="@Url.Content("~/Content/styledetail.css")" rel="stylesheet" />
-<link href="@Url.Content("~/Content/productdetail.css")" rel="stylesheet" />
 <div class="slideshow">
     <div class="container">
         <div class="row">
@@ -77,7 +70,7 @@
                             Danh sách sản phẩm
                         </span>
                     </h2>
-                    <div id="products" class="list-group related products">
+                    <div id="products" class="list-group">
                         @Html.Partial("_ListItem",Model)
                     </div>
                 </div>
