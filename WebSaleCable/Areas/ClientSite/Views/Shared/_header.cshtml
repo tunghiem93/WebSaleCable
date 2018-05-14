@@ -14,21 +14,30 @@
                         <div class="vertical-menu-content is-home">
                             @if (ListCate != null && ListCate.Any())
                             {
-                                <ul class='vertical-menu-list'>
+                            <ul class='vertical-menu-list'>
+                                <li class="level0">
+                                    <a class='' href='@Url.Action("Quotation","Home")'><span>Bảng báo giá</span></a>
+                                </li>
+                                @foreach (var item in ListCate)
+                                {
                                     <li class="level0">
-                                        <a class='' href='@Url.Action("Quotation","Home")'><span>Bảng báo giá</span></a>
-                                    </li>                                    
-                                    @foreach (var item in ListCate)
-                                    {
-                                        <li class="level0">
-                                            @*<a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = item.Id })')"><span>@item.Name</span></a>*@
-                                            <a class='' href='@Url.Action("Index","Home",new { id=item.Id})' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = item.Id })')"><span>@item.Name</span></a>
-                                        </li>
-                                    }
-                                    <li class="level0">
-                                        <a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadProductOther", "Home", new { id = 1 })')"> <span>Sản phẩm khác...</span></a>
+                                        @*<a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = item.Id })')"><span>@item.Name</span></a>*@
+                                        <a class='' href='@Url.Action("Index","Home",new { id=item.Id})' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = item.Id })')"><span>@item.Name</span></a>
                                     </li>
-                                </ul>
+                                }
+                                @*<li class="level0">
+                                    <a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadProductOther", "Home", new { id = 1 })')"> <span>Sản phẩm khác...</span></a>
+                                </li>*@                                
+                                <li class="has-child level0">
+                                    <a class='dropdown-toggle has-category parent' href='#'><span>Sản phẩm khác...</span></a><ul class='level1 drop-menu'>
+                                        <li class="level1"><a class='' href='/san-pham/trang-suc-cuoi-40485'><span>Trang sức cưới</span></a></li>
+                                        <li class="level1"><a class='' href='/san-pham/trang-suc-vang-40486'><span>Trang sức vàng</span></a></li>
+                                        <li class="level1"><a class='' href='/san-pham/trang-suc-kim-cuong-40487'><span>Trang sức kim cương</span></a></li>
+                                        <li class="level1"><a class='' href='/san-pham/nhan-dinh-hon-40488'><span>Nhẫn đính hôn</span></a></li> 
+                                    </ul>
+                                </li>
+
+                            </ul>
                             }
                             
                         </div>
