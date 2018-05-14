@@ -1,7 +1,14 @@
 ﻿@*@model WebSaleCable.Shared.Model.Product.ProductViewModels*@
 @{ 
-    var ListCate = Session["Catelogies"] as List<WebSaleCable.Shared.CateSession>;
+    //var ListCate = Session["Catelogies"] as List<WebSaleCable.Shared.CateSession>;
+    var Cate = Session["Catelogies"] as WebSaleCable.Shared.CateSession;
 }
+
+<style type="text/css">
+    .drop-menu{
+        min-width:250px !important;
+    }
+</style>
  <div id="nav-top-menu" class="nav-top-menu">
         <div class="container">
             <div class="row">
@@ -12,21 +19,40 @@
                             <span class="btn-open-mobile pull-right home-page"><i class="fa fa-bars"></i></span>
                         </h4>
                         <div class="vertical-menu-content is-home">
-                            @if (ListCate != null && ListCate.Any())
+                            @if (Cate.MainCate != null && Cate.MainCate.Any())
                             {
                                 <ul class='vertical-menu-list'>
                                     <li class="level0">
                                         <a class='' href='@Url.Action("Quotation","Home")'><span>Bảng báo giá</span></a>
                                     </li>                                    
-                                    @foreach (var item in ListCate)
+                                    @foreach (var item in Cate.MainCate)
                                     {
                                         <li class="level0">
                                             @*<a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = item.Id })')"><span>@item.Name</span></a>*@
-                                            <a class='' href='@Url.Action("Index","Home",new { id=item.Id})' onclick="ShowView('@Url.Action("LoadItem", "Home", new { id = item.Id })')"><span>@item.Name</span></a>
+                                            <a class='' href='@Url.Action("Index","Home",new { id=item.Id})'><span>@item.Name</span></a>
                                         </li>
                                     }
-                                    <li class="level0">
-                                        <a class='' href='javascript:void(0)' onclick="ShowView('@Url.Action("LoadProductOther", "Home", new { id = 1 })')"> <span>Sản phẩm khác...</span></a>
+                                    <li class="has-child level0">
+                                        <a class='dropdown-toggle has-category parent' href='javascript:void(0)'> <span>Sản phẩm khác</span></a>
+                                        @if(Cate.OrtherCate != null && Cate.OrtherCate.Any())
+                                        {
+                                            <ul class='level1 drop-menu'>
+                                                @foreach (var item in Cate.OrtherCate)
+                                                {
+                                                    <li class="level1">
+                                                        <a class='' href='@Url.Action("Index","Home",new { id=item.Id})'><span>@string.Format("{0}", !string.IsNullOrEmpty(item.Name) && item.Name.Length > 20 ? (item.Name.Substring(0,20)+ "..." ): item.Name)</span></a>
+                                                    </li>
+                                                }
+                                            </ul>
+                                        }
+                                        @*<ul class='level1 drop-menu'>
+                                            <li class="level1">
+                                                <a class='' href='/san-pham/bong-da-40438'><span>Bóng đá</span></a>  
+                                            </li>
+                                            <li class="level1">
+                                                <a class='' href='/san-pham/bong-da-40438'><span>Bóng đá</span></a>
+                                            </li>
+                                        </ul>*@
                                     </li>
                                 </ul>
                             }

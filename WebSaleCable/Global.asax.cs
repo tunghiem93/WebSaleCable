@@ -76,10 +76,13 @@ namespace WebSaleCable
                 if (input != null && input.Length > 0)
                 {
                     List<CateSession> cateSession = JsonConvert.DeserializeObject<List<CateSession>>(input); //new JavaScriptSerializer().Deserialize<UserSession>(input);
+                    var ObjSession = new CateSession();
                     if (cateSession != null && HttpContext.Current.Session != null)
                     {
-                        cateSession = cateSession.OrderBy(x => x.Name).Skip(0).Take(8).ToList();
-                        Session.Add("Catelogies", cateSession);
+                        ObjSession.MainCate = cateSession.OrderBy(x => x.Name).Skip(0).Take(7).ToList();
+                        ObjSession.OrtherCate = cateSession.OrderBy(x => x.Name).Skip(7).Take(cateSession.Count).ToList();
+                        // Session.Add("Catelogies", cateSession);
+                        Session.Add("Catelogies", ObjSession);
                     }
                 }
 
@@ -91,15 +94,20 @@ namespace WebSaleCable
                 {
                     Id = x.ID,
                     Name = x.Name
-                }).OrderBy(x => x.Name).Skip(0).Take(8).ToList();
+                }).ToList();//.OrderBy(x => x.Name).Skip(0).Take(7).ToList();
                 if (_cate != null && _cate.Any())
                 {
+                    var ObjSession = new CateSession();
+                    ObjSession.MainCate = _cate.OrderBy(x => x.Name).Skip(0).Take(7).ToList();
+                    ObjSession.OrtherCate = _cate.OrderBy(x => x.Name).Skip(7).Take(_cate.Count).ToList();
+
                     string myObjectJson = JsonConvert.SerializeObject(_cate);  //new JavaScriptSerializer().Serialize(userSession);
                     HttpCookie cookie = new HttpCookie("CateCookie");
                     cookie.Expires = DateTime.Now.AddYears(10);
                     cookie.Value = Server.UrlEncode(myObjectJson);
                     Response.Cookies.Add(cookie);
-                    Session.Add("Catelogies", _cate);
+                    //  Session.Add("Catelogies", _cate);
+                    Session.Add("Catelogies", ObjSession);
                 }
             }
 
